@@ -1,6 +1,6 @@
 ### C2
 
-C2 will try to explain C to 🤖
+[C2](https://iwanttoclearmyhead.github.io/C2/) will try to explain C to 🤖
 
 ### Menu
 
@@ -21,3 +21,5 @@ The contents are shown as below, select whichever might interest you
 ### Feedback
 
 Any question or comment is welcomed 👊
+
+<a href="#top">Back to top</a>

@@ -1439,3 +1439,75 @@ int main() {
 €
 ```
 
+### Print Styles
+
+Here we want to show different ways of print out latin word `ý`, which is *Latin small letter y with acute*.
+
+1. ASCII Extend
+```
+$ cat a.c
+#include <stdio.h>
+
+int main()
+{
+        printf("%d => %c\n", 253, 253);
+        return 0;
+}
+
+$ gcc a.c
+$ ./a.out
+253 => �
+```
+2. UTF-16 (hex)
+```
+#include <stdio.h>
+#include <wchar.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_CTYPE, "");
+    wchar_t star = 0x00FD;;
+    wprintf(L"%lc\n", star);
+}
+```
+3. UTF-8 (hex)
+```
+#include <stdio.h>
+
+int main() {
+        printf("%c%c\n", '\xC3', '\xBD');
+
+}
+```
+4. UTF-16 (unicode)
+```
+#include <stdio.h>
+
+int main() {
+        printf("%s\n", "\u00FD");
+
+}
+```
+
+### Bagua
+```
+#include <stdio.h>
+#include <locale.h>
+
+#ifndef __STDC_ISO_10646__
+#error "Oops, our wide chars are not Unicode codepoints, sorry!"
+#endif
+int main()
+{
+        int i;
+        setlocale(LC_ALL, "");
+        printf("__________________\n");
+        for (i = 0x4DC0; i < 0x4DC0 + 64; i++) {
+                printf("| %2d | %lc | %04x |\n", i - 0x4DC0 + 1, i, i - 0x4DC0);
+        }
+        printf("------------------\n");
+        return 0;
+}
+```
+
+<a href="#top">Back to top</a>

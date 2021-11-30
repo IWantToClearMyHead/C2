@@ -1,22 +1,22 @@
 ### Stack
 
-     ┌───────────────────────────┐
-     │                           │
-     │     Application           │
-     │                           │
-     └───────────────────────────┘
+     ┌──────────────────────┐
+     │                      │
+     │     Application      │
+     │                      │
+     └──────────────────────┘
 
-     ┌───────────────────────────┐
-     │                           │
-     │     Algorithm             │
-     │                           │
-     └───────────────────────────┘
+     ┌──────────────────────┐
+     │                      │
+     │     Algorithm        │
+     │                      │
+     └──────────────────────┘
 
-     ┌───────────────────────────┐
-     │                           │
-     │     C language            │
-     │                           │
-     └───────────────────────────┘
+     ┌──────────────────────┐
+     │                      │
+     │     C language       │
+     │                      │
+     └──────────────────────┘
      ┌───────────────────────────┐
      │                           │
      │     Operating System      │
@@ -62,7 +62,7 @@ The creator of Linux is Linus Torvalds, who mimiced Unix in 1991, thus name comb
 
 As of 25 Nov 2021, he is 52 years old, since he was born at 28 December 1969. Yet Linux has a very vast history in terms of its version.
 
-<img src="./asset/linux_distro.png" alt="linux version" width=400 height=400>
+<img src="./asset/linux_distro.png" alt="linux version" width="600" height="600">
 
 Less equal than 2.6, the version goes major.minor.modification-release cycle. Current version is 5.16-rc2, so there is no modification time, nor even represent stable.
 

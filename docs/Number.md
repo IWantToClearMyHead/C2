@@ -3,9 +3,8 @@
 C language is based on binary, or digital electrical component, that is to say, everything is a number. 
 We classify the number in different size as data type, just like street block number. The minum size is one *byte*, or eight bits, or harf word.
 
-
 | Data Type | Memory (bytes) | Range | Format Specifier |
-| ------ | ------ | ------ | ------ |
+|---|---|---|---|
 | short int | 2   | -32,768 to 32,767 | %hd |
 | unsigned short int | 2   | 0 to 65,535 | %hu |
 | unsigned int | 4   | 0 to 4,294,967,295 | %u  |

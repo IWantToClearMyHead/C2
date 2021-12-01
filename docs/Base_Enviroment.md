@@ -1,16 +1,16 @@
 ### Stack
                             
-     ┌──────────────────────┐
+     ┌────────────────┐
      │                                │
      │     Application                │
      │                                │
-     └──────────────────────┘
+     └────────────────┘
 
-     ┌──────────────────────┐
+     ┌────────────────┐
      │                                │
      │     Algorithm                  │
      │                                │
-     └──────────────────────┘
+     └────────────────┘
 
      ┌──────────────────────┐
      │                                │
@@ -60,9 +60,7 @@ We are going to use Linux since it's [open](https://github.com/torvalds/linux) s
 
 The creator of Linux is Linus Torvalds, who mimiced Unix in 1991, thus name combined. 
 
-As of 25 Nov 2021, he is 52 years old, since he was born at 28 December 1969. Yet Linux has a very vast history in terms of its version.
-
-<img src="./asset/linux_distro.png" alt="linux version"/> <!--width="600" height="600"/>
+As of 25 Nov 2021, he is 52 years old, since he was born at 28 December 1969. Yet Linux has a very <a href="./asset/linux_distro.png"" target="_blank">vast</a> history in terms of its version.
 
 Less equal than 2.6, the version goes major.minor.modification-release cycle. Current version is 5.16-rc2, so there is no modification time, nor even represent stable.
 
@@ -107,109 +105,3 @@ The first official Ubuntu release — Version 4.10, codenamed the 'Warty Warthog
 We are going to start our journey now!
 
 <a href="#top">Back to top</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

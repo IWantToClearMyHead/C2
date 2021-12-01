@@ -308,7 +308,7 @@ int main( void )
 |-------------------------------------------------------------------------------------------------------|
 ```
 
-Why is extended not shown? It's because the current locale not supported.
+Why is extended not shown? It's because the current locale(`locale -c charmap`) not supported. 
 ```
 # cat a.c
 #include <stdio.h>
@@ -452,7 +452,7 @@ locale changed from 'C', to: 'C.UTF-8'
 | 7e | 126 | ~ |
 ```
 
-From the above, we can not print `128`, and below is a LOCALE table,
+From the above, we can not print `128`, and below is a LOCALE(`locale -m charmaps`) table,
 
 ||||||
 |--- |--- |--- |--- |--- |
@@ -567,7 +567,7 @@ int main() {
 #include <stdio.h>
 
 int main() {
-        printf("%c%c\n", '\xC3', '\xBD');
+        printf("%c%c\n", '\x00', '\xFD');
 
 }
 ```
@@ -581,7 +581,32 @@ int main() {
 }
 ```
 
-### Bagua
+### Format
+
+We need neat print out, so let's learn `%[-][0][width]C`, as below
+
+|     |     |
+| --- | --- |  
+| %   | marks the beginning of a format code. |
+| –   | optional, specifies left justification of the output argument. |
+| 0   | optional, adds zero-padding on the left to match the width. |
+| _width_ | an optional width specification. Width specifications and default values are format-code specific, and are described with the format codes below. |
+| _C_ | is the format code. See below. |
+| %%  | Insert a single % character. |
+| %b, %B<br><br>%_w_b, %_w_B<br><br>%_w.m_b, %_w.m_B | Transfer data in binary notation, _w_ is the total width, _m_ is the minimum number of non-blank digits. There is no difference between the lowercase and uppercase forms. |
+| %d, %D<br><br>%_w_d, %_w_D<br><br>%_w.m_d, %_w.m_D<br><br>%i, %I<br><br>%_w_i, %_w_I<br><br>%_w.m_i, %_w.m_I | Transfer integer data, _w_ is the total width, _m_ is the minimum number of non-blank digits. There is no difference between the lowercase and uppercase forms. The %d forms are identical to the %i forms and are provided for programmers familiar with C's printf. |
+| %e, %E<br><br>%_w_e, %_w_E<br><br>%_w.d_e, %_w.d_E | Transfer data in exponential notation, _w_ is the total width, _d_ is the number of digits after the decimal. Either a lowercase "e" or uppercase "E" will be used depending upon the code. |
+| %f, %F<br><br>%_w_f, %_w_F<br><br>%_w.d_f, %_w.d_F | Transfer data in floating-point notation, _w_ is the total width, _d_ is the number of digits after the decimal. There is no difference between the lowercase and uppercase forms. |
+| %g, %G<br><br>%_w_g, %_w_G<br><br>%_w.d_g, %_w.d_G | Transfer data in either floating-point or exponential notation, _w_ is the total width, _d_ is the total number of significant digits. Use %e or %E if exponent is less than –4 or greater than or equal to the precision, otherwise use %f. |
+| %o, %O<br><br>%_w_o, %_w_O<br><br>%_w.m_o, %_w.m_O | Transfer data in octal notation, _w_ is the total width, _m_ is the minimum number of non-blank digits. There is no difference between the lowercase and uppercase forms. |
+| %s, %S<br><br>%_w_s, %_w_S | Transfer character data until either a null byte (\\0) or the total width _w_ is reached. |
+| %x, %X<br><br>%_w_x, %_w_X<br><br>%_w.m_x, %_w.m_X<br><br>%z, %Z<br><br>%_w_z, %_w_Z<br><br>%_w.m_z, %_w.m_Z | Transfer data in hexadecimal notation, _w_ is the total width, _m_ is the minimum number of non-blank digits. The lowercase %x or %z will give lowercase hexadecimal digits, while the uppercase %X or %Z will give uppercase. |
+| \n |  prints a newline |
+| \b |	prints a backspace (backs up one character) |
+| \t |	prints a tab character |
+| \\ |	prints a backslash |
+| \" |	prints a double quote |
+
 ```
 #include <stdio.h>
 #include <locale.h>

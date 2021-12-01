@@ -12,45 +12,45 @@
      │                                │
      └────────────────┘
 
-     ┌──────────────────────┐
+     ┌────────────────┐
      │                                │
      │     C language                 │
      │                                │
-     └──────────────────────┘
-     ┌──────────────────────┐
+     └────────────────┘
+     ┌────────────────┐
      │                                │
      │     Operating System           │
      │                                │
-     └──────────────────────┘
+     └────────────────┘
 
-     ┌──────────────────────┐
+     ┌────────────────┐
      │                                │
      │     ISA                        │
      │                                │
-     └──────────────────────┘
+     └────────────────┘
 
-     ┌──────────────────────┐
+     ┌────────────────┐
      │                                │
      │     RTL                        │
      │                                │
-     └──────────────────────┘
-     ┌──────────────────────┐
+     └────────────────┘
+     ┌────────────────┐
      │                                │
      │     Circuit                    │
      │                                │
-     └──────────────────────┘
+     └────────────────┘
 
-     ┌──────────────────────┐
+     ┌────────────────┐
      │                                │
      │     Component                  │
      │                                │
-     └──────────────────────┘
+     └────────────────┘
 
-     ┌──────────────────────┐
+     ┌────────────────┐
      │                                │
      │     Physical                   │
      │                                │
-     └──────────────────────┘
+     └────────────────┘
 
 ### Linux
 
@@ -60,7 +60,7 @@ We are going to use Linux since it's [open](https://github.com/torvalds/linux) s
 
 The creator of Linux is Linus Torvalds, who mimiced Unix in 1991, thus name combined. 
 
-As of 25 Nov 2021, he is 52 years old, since he was born at 28 December 1969. Yet Linux has a very <a href="./asset/linux_distro.png"" target="_blank">vast</a> history in terms of its version.
+As of 25 Nov 2021, he is 52 years old, since he was born at 28 December 1969. Yet Linux has a very [vast](./asset/linux_distro.png){:target="\_blank"} history in terms of its version.
 
 Less equal than 2.6, the version goes major.minor.modification-release cycle. Current version is 5.16-rc2, so there is no modification time, nor even represent stable.
 

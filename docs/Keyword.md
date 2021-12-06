@@ -23,6 +23,7 @@ The basic data type used up 8 keywords, thus left 24. See previous [Number](Numb
 | register |  cpu  |  garbage  | within block  | end of block  |
 
 The storage type used up 4 keywords, thus left 20.
+
 *auto* is a kind of long long ago story, now we hardly ever use it, since all variables in functions are local by default now.
 
 | type | default value |
@@ -237,8 +238,8 @@ int main()
 }
 ```
 
-### enum
-An easier way to number sequnce in a group.
+### 1 enum
+An easier way to number sequnce in a group(😶at this point, left 16).
 
 
 

@@ -375,6 +375,7 @@ addr: result d1db529c, a d1db527c, b d1db528c,
 We know `float` is *4 bytes*, and hex 0, 4, 8, c, 0 as a circle, so array `a, b, result` follows one by one, and meaningingly 1D, not 2D.
 
 Besides, there are three ways of creating 2D array,
+
 ```
 int c[2][3] = {{1, 3, 0}, {-1, 5, 9}};
          

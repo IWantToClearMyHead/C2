@@ -391,8 +391,13 @@ int c[2][3] = {1, 3, 0, -1, 5, 9};
 Furthermore, to create 3D array,
 ```
 int test[2][3][4] = {
-    {{3, 4, 2, 3}, {0, -3, 9, 11}, {23, 12, 23, 2}},
-    {{13, 4, 56, 3}, {5, 9, 3, 5}, {3, 1, 4, 9}}};
+    {
+    {3, 4, 2, 3}, {0, -3, 9, 11}, {23, 12, 23, 2}
+    },
+    {
+    {13, 4, 56, 3}, {5, 9, 3, 5}, {3, 1, 4, 9}
+    }
+    };
 ```
 and we should know its memory also in 1D.
 In fact, 1D is reasonable, since C is not good to print such high dimesion, within text mode, e.g,

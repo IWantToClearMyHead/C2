@@ -6,17 +6,25 @@
 
 The contents are shown as below, select whichever might interest you
 
-- [Base Enviroment](Base_Enviroment.md)
-- [Hello World](Hello_World.md)
-- [String](String.md)
-- [Number](Number.md)
-- [👨‍🎓story](History.md)
+1. [Base Enviroment](Base_Enviroment.md)
+2. [Hello World](Hello_World.md)
+3. [String](String.md)
+4. [Number](Number.md)
+5. [👨‍🎓story](History.md)
+6. [Keywrod](Keyword.md)
+7. [⚛️licon](Silicon.md)
+8. [Fancy](Fancy.md)
+9. [Kernel](Kernel.md)
+10. [Embed](Embed.md)
 
 ### Reference
 
-1. [C Programming Language](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628)
-2. Second item
-3. Third item
+| Idx  | Own | Ref  |
+|---|---|---|
+| 1  |  Dennis Ritchie | [C Programming Language](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628) |
+|    |   |   |
+|    |   |   |
+
 
 ### Feedback
 

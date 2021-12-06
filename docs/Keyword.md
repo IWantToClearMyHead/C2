@@ -24,6 +24,7 @@ The basic data type used up 8 keywords, thus left 24. See previous [Number](Numb
 
 The storage type used up 4 keywords, thus left 20.
 *auto* is a kind of long long ago story, now we hardly ever use it, since all variables in functions are local by default now.
+
 | type | default value |
 |  ----  | ----  |
 | int |	0 |
@@ -31,6 +32,7 @@ The storage type used up 4 keywords, thus left 20.
 | float	| 0 |
 | double	| 0 |
 | pointer	|NULL|
+
 *extern* variables can be declared number of times but defined only once. 
 Definition of a variable is when the variable is created and the memory for it is allocated.
 Declaration of a variable just tells the compiler that this variable exists. It does not allocate any memory.

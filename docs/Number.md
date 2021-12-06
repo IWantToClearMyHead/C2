@@ -377,9 +377,13 @@ We know `float` is *4 bytes*, and hex 0, 4, 8, c, 0 as a circle, so array `a, b,
 Besides, there are three ways of creating 2D array,
 
 ```
-int c[2][3] = {{1, 3, 0}, {-1, 5, 9}};
+int c[2][3] = {
+{1, 3, 0}, {-1, 5, 9}
+};
          
-int c[][3] = {{1, 3, 0}, {-1, 5, 9}};
+int c[][3] = {
+{1, 3, 0}, {-1, 5, 9}
+};
                 
 int c[2][3] = {1, 3, 0, -1, 5, 9};
 ```

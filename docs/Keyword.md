@@ -1,26 +1,9 @@
 
-### 32
-
-<style>
-.heatMap {
-    width: 100%;
-    text-align: center;
-}
-.heatMap th {
-background: grey;
-word-wrap: break-word;
-text-align: center;
-}
-.heatMap tr:nth-child(1) { background: red; }
-.heatMap tr:nth-child(2) { background: orange; }
-.heatMap tr:nth-child(3) { background: green; }
-</style>
-
-<div class="heatMap">
+### Data Type
 
 |  1   | 2  |  3   | 4  |
 |  ----  | ----  |  ----  | ----  |
-| auto  | double | long   | switch |
+| auto  | <span style="color:green">double</span> | <span style="color:green">long</span> | switch |
 | break  | else | register | typedef |
 | case  | enum | return  | unsigned |
 | char  | extern | short  | union |
@@ -29,7 +12,7 @@ text-align: center;
 | default  | goto | while | static | 
 | do  | if | int  | struct |
 
-</div>
+### auto
 
 
 <a href="#top">Back to top</a>

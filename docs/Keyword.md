@@ -394,7 +394,7 @@ Force variable to be unchangeable.
 | **3) Constant Pointer to Variable** | **int * const ptr** | ** yes** | ** no** |
 | **4) Constant Pointer to Constant ** | **const int * const ptr** | **no** | ** no** |
 
-### void
+### 1 void
 A type, not a value(😶at this point, left 12).
 ```
 void printCompanyInfo()
@@ -411,10 +411,10 @@ void printCompanyInfo()
 }
 ```
 
-### flow
+### 11 flow
 Data, address and control are the basic logic of a CPU. 11 keywords(switch break else case continue default goto while for do if) are use to describe the *control* part.
 
-### return
+### 1 return
 [Function](Function.md) needs this to notify program result(more non-keywords coming below).
 
 ### null

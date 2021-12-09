@@ -241,6 +241,186 @@ int main()
 ### 1 enum
 An easier way to number sequnce in a group(😶at this point, left 16).
 
+### 1 typedef
+An alias for an existing type
+```
+### single type
+typedef signed char           S8;
+typedef char                  U8;
+typedef short                 S16;
+typedef unsigned short        U16;
+typedef int                   S32;
+typedef unsigned int          U32;
+typedef long long             S64;
+typedef unsigned long long    U64;
+### compound type
+int main(int argc, char* argv[])
+{
 
+typedef struct Student{
+int age;
+
+char s;
+
+}Stum1;
+
+typedef struct{
+int age;
+
+char s;
+
+}Stum2;
+
+struct Studentm3{
+int age;
+
+char s;
+};
+
+typedef struct Studentm3 Stum3;
+
+typedef struct Student4{
+int age;
+
+char s;
+};
+//struct Student4 alice;
+
+typedef struct Student5{
+int age;
+
+char s;
+
+}*Stum5;
+//Stum5 bob;
+//bob->age;
+### pointer type
+typedef int *p1;//p1 myp1
+typedef int* p2;//p2 myp2
+typedef int (*p3)[3];//p3 myp3
+typedef int p4[4][4];//p4 myp4
+### function type
+typedef int f1(void);//f1 myf1(void) => return int
+typedef int (*f2)(void);//f2 myf2(void) => return int*
+### function hook
+typedef struct Student
+{
+	char *name;
+　　　　int id;
+　　　　void (*fun)(int a);
+}Stu;
+
+void showid(int i){
+	return &i;
+}
+
+void main(){
+	int a = 1;
+	Stu alice;
+	alice.fun = &showid;
+	alice.fun(a);
+}
+```
+
+### 1 define
+this is another way for alias, but it is pre-processed in terms of compilation.
+
+```
+### show in color
+#define SHOW(debug, var, val) \
+   if (debug == "d") \
+        { printf("SHOW: \033[1;32m%s = %d\033[0m;\n", var, val); } \
+   if (debug == "s") \
+        { printf("SHOW: \033[1;34m%s = %s\033[0m;\n", var, val); } \
+   if (debug == "p") \
+        { printf("SHOW: \033[1;36m%s = %p\033[0m;\n", var, val); }
+	
+SHOW ("d", "a", 32);
+SHOW ("s", "b", "cc");
+### show in level
+#include <stdio.h>
+#define filename(x) strrchr(x,'/')?strrchr(x,'/')+1:x
+
+int log_lvl;//maybe extern so all files can use
+
+#define LOG(lvl, ...) \
+        if(lvl <= log_lvl) { \
+            switch(lvl) { \
+                case 0: \
+                              fprintf(stderr, "[%s:%s:%d][err]: ", filename(__FILE__), __FUNCTION__, __LINE__); \
+                break; \
+                case 1: \
+                              fprintf(stderr, "[%s:%s:%d][ntc]: ", filename(__FILE__), __FUNCTION__, __LINE__); \
+                break; \
+                case 2: \
+                              fprintf(stderr, "[%s:%s:%d][inf]: ", filename(__FILE__), __FUNCTION__, __LINE__); \
+                break; \
+                case 3: \
+                              fprintf(stderr, "[%s:%s:%d][dbg]: ", filename(__FILE__), __FUNCTION__, __LINE__); \
+                break; \
+                default: \
+                         fprintf(stderr, "[%s:%s:%d][def]: ", filename(__FILE__), __FUNCTION__, __LINE__); \
+                break; \
+            } \
+            fprintf(stderr, __VA_ARGS__); \
+            fprintf(stderr, "\n"); \
+        } \
+
+int
+main (int argc, const char *argv[])
+{
+        log_lvl = 1;
+        //info and debug will not print
+
+        LOG(0, "this is error");
+        LOG(1, "this is notice");
+        LOG(2, "this is info");
+        LOG(3, "this is debug");
+
+  return 0;
+}
+```
+
+### 1 volatile
+Read variable value from address every time. GCC optimization can not skip.
+
+### 1 const
+Force variable to be unchangeable.
+|     |     |     |     |
+| --- | --- | --- | --- |
+| **Type** | **Declaration** | **pointer value change **<br><br>**(  *ptr = 100 ) ** | **pointing value change **<br><br>**(  ptr  = &a)** |
+| **1) Pointer to Variable** | **int * ptr** | **     yes** | **   yes** |
+| **2) Pointer to Constant ** | * **const int * ptr**<br>* **int const * ptr** | **  no** | **   yes** |
+| **3) Constant Pointer to Variable** | **int * const ptr** | ** yes** | ** no** |
+| **4) Constant Pointer to Constant ** | **const int * const ptr** | **no** | ** no** |
+
+### void
+A type, not a value(😶at this point, left 12).
+```
+void printCompanyInfo()
+{
+    printf("====================\n");
+    printf("Company **************\n");
+    printf("Company Id ******************\n");
+    printf("Contact information: \n");
+    printf("address *********************\n");
+    printf("Phone ****************** \n");
+    printf("Fax ****************** \n");
+    printf("Email ****************** \n");
+    printf("====================\n");
+}
+```
+
+### flow
+Data, address and control are the basic logic of a CPU. 11 keywords(switch break else case continue default goto while for do if) are use to describe the *control* part.
+
+### return
+[Function](Function.md) needs this to notify program result(more non-keywords coming below).
+
+### null
+0x0, usually for [pointer](Pointer.md).
+
+### label:
+Notify a step point, usually with `goto`.
 
 <a href="#top">Back to top</a>

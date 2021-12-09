@@ -12,10 +12,12 @@ The contents are shown as below, select whichever might interest you
 4. [Number](Number.md)
 5. [👨‍🎓story](History.md)
 6. [Keywrod](Keyword.md)
-7. [⚛️licon](Silicon.md)
-8. [Fancy](Fancy.md)
-9. [Kernel](Kernel.md)
-10. [Embed](Embed.md)
+7. [Function](Function.md)
+8. [Pointer](Pointer.md)
+9. [Fancy](Fancy.md)
+10. [⚛️licon](Silicon.md)
+11. [Kernel](Kernel.md)
+12. [Embed](Embed.md)
 
 ### Reference
 

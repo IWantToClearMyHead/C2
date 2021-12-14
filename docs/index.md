@@ -18,6 +18,8 @@ The contents are shown as below, select whichever might interest you
 10. [⚛️licon](Silicon.md)
 11. [Kernel](Kernel.md)
 12. [Embed](Embed.md)
+13. [Build](Build.md)
+14. [System](System.md)
 
 ### Reference
 

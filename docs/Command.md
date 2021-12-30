@@ -11,6 +11,10 @@
 
 | type | command | note |
 | -----| ---- | ---- |
-| hard disk | diskpart |  
+| hard disk | diskpart | |
+| comp xz | tar -cvf xxx.tar xxx<br>xz -z xxx.tar | |
+|decomp xz | tar -Jvf xxx.tar.xz | |
+|decomp bz2 | tar -jvf xxx.tar.xz | |
+
 
 <a href="#top">Back to top</a>

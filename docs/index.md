@@ -21,6 +21,7 @@ The contents are shown as below, select whichever might interest you
 13. [Build](Build.md)
 14. [System](System.md)
 15. [Command](Command.md)
+16. [Server](Server.md)
 
 ### Reference
 

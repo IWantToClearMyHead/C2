@@ -20,6 +20,7 @@ The contents are shown as below, select whichever might interest you
 12. [Embed](Embed.md)
 13. [Build](Build.md)
 14. [System](System.md)
+15. [Command](Command.md)
 
 ### Reference
 

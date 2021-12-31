@@ -1,6 +1,28 @@
 ### C2
 
-[C2](https://iwanttoclearmyhead.github.io/C2/) will try to explain C to 🤖
+[C2](https://iwanttoclearmyhead.github.io/C2/) will try to explain C 2 🤖
+
+### 🤖
+
+As the world is more developed, the technology changes faster and faster. Information floods to people's brain regardless of acceptance or not. There is no useless information, but unorgnized information. Life is a matter of order, due to age, a very sad story for all human beings. In the short time, who does not want to keep smile? Nowadays, we can even really print a smile, like 😃.
+
+Back to reality, we are more like normals, even suffering, from giving up and keeping moving. Are things hard or are ways wrong? When one sees someone succeeds, why not me? Is it a coincidence or is it a fate? We then read classics, and we miss.
+
+On behalf of the hi-tech, C, the very base of software, driver of the hardware, foundation of library functions, art of programming, becomes opponent to its supporters and users. Many books are written, yet few for beginners. We all have the experience to learn and we know what a misway can do. To those who finally grasp the languege, they would 🤣.
+
+Here I write this book, **not** of change, in English, to share my learning path, for C engagers, and experts are **not** welcomed.
+
+First thing first, terminology is to be diluted. Although job markets favor fancy words nowdays, I respect *Jobs Steven*.
+
+Second, problems are solved in a range.
+
+Third, discussion are welcomed 😃.
+
+### Rules
+
+1. Explaination while need
+2. Problem borders clarified
+3. Topics rather than metaphysics
 
 ### Menu
 
@@ -30,10 +52,5 @@ The contents are shown as below, select whichever might interest you
 | 1  |  Dennis Ritchie | [C Programming Language](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628) |
 |    |   |   |
 |    |   |   |
-
-
-### Feedback
-
-Any question or comment is welcomed 👊
 
 <a href="#top">Back to top</a>

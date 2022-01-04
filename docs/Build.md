@@ -1,6 +1,15 @@
-### Meson
-There are many build system, i.e. make, cmake, ant, maven, gradle, and etc, here we are going to learn meson, due to the trend.
+### Build
 
+There are many build system, i.e. make, cmake, ant, maven, gradle, and etc.
+
+### Meson
+- install 
+```
+apt-get install python3 python3-pip python3-setuptools \
+                       python3-wheel ninja-build
+```
+
+- example
 ```
 # ls
 a.c  builddir  meson.build
@@ -46,5 +55,10 @@ executable('a', 'a.c', dependencies : gtkdep)
 # /usr/local/bin/meson compile (or) cd builddir; ninja
 ```
 
-### Build
+### CMake
+- install
+```
+export fn=/tmp/cmake.sh && ls $fn && (echo "use previous $fn? Enter for yes, ctrl+d for no." && read) || (wget -O $fn http://www.cmake.org/files/v3.0/cmake-3.0.2-Linux-i386.sh 1>&2) && (cd /opt && sudo bash ${fn} && echo sudo ln -f -s /opt/cmake*/bin/cmake /usr/local/bin/cmake && cd -)
+```
+
 <a href="#top">Back to top</a>

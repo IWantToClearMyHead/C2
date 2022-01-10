@@ -85,4 +85,52 @@
     
 * `FVP_TC1`
 
+### Alpine
+
+- host
+```
+./build-scripts/build-test-uefi.sh -p rdn2cfg1 all
+export MODEL=/home/alpine/models/Linux64_GCC-6.4/FVP_RD_N2_Cfg1
+
+ip tuntap add dev tap0 mode tap user root
+ifconfig tap0 0.0.0.0 promisc up
+brctl addif virbr0 tap0
+
+./distro.sh -p rdn2cfg1 -i /home/alpine/alpine-standard-3.15.0-aarch64.iso -s 16 -n true
+ps aux grep FVP
+screen //telnet 127.0.0.1 5018
+```
+- guest
+```
+ip addr add 192.168.122.22/24 dev eth0
+ip link show eth0
+ip link set eth0 up
+ 
+echo "nameserver 192.168.122.1" >  /etc/resolv.conf 
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+cat /etc/resolv.conf
+route add default gw 192.168.122.1 eth0
+
+cat /etc/issue
+
+echo "http://dl-cdn.alpinelinux.org/alpine/v3.15/main" > /etc/apk/repositories
+echo "http://dl-cdn.alpinelinux.org/alpine/v3.15/community" >> /etc/apk/repositories
+sleep 1
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+cat /etc/apk/repositories
+
+sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
+cat > a.c << EOF; $(echo)
+#include <stdio.h>
+int main()
+{
+  printf("Hello world\n");
+}
+EOF
+
+gcc a.c
+
+```
+
 <a href="#top">Back to top</a>

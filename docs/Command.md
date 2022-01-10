@@ -41,7 +41,8 @@
 | type | command | note |
 | -----| ---- | ---- |
 |detach |  Ctrl + A, d | |
-|retach |  screen -r pid | |
+|rettach |  screen -r pid | for dettached |
+| |  screen -rd pid | for attached |
 |list |  screen -ls | |
 
 <a href="#top">Back to top</a>

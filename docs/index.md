@@ -50,7 +50,7 @@ The contents are shown as below, select whichever might interest you
 | Idx  | Own | Ref  |
 |---|---|---|
 | 1  |  Dennis Ritchie | [C Programming Language](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628) |
-|    |   |   |
+| 2  |  Emoji          | [webfx](webfx.com/tools/emoji-cheat-sheet/)  |
 |    |   |   |
 
 <a href="#top">Back to top</a>

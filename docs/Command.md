@@ -23,12 +23,13 @@
 |decomp xz | tar -Jvf xxx.tar.xz | |
 | comp bz2 | tar -cjf xxx.tar.bz2 xxx | |
 |decomp bz2 | tar -jvf xxx.tar.xz | |
-| |||
+| kill all commands |ps aux | grep runcpu |  awk {'print $2}' | sudo xargs kill -9| root no need sudo|
 | ls in one line | ls \| xargs| |
 | ls in one column | ls -1 | |
 | nc passfile | | |
 | receiver | nc -l -p #port > passfile | |
 | sender | nc -w 3 [receiver #ip] #port < passfile | |
+||||
 
 
 ### Git
@@ -52,19 +53,6 @@
 | make log | make 2>&1 | tee log | |
 | gcc log | gcc a.c > log 2>&1 | |
 
-### runcpu
-```
-apt-get install gcc g++ gfortran –y
-cp cpu2017.iso benchmark
-cd benchmark
-mount -t iso9660 -o ro,exec,loop cpu2017.iso /mnt
-cd /mnt
-source shrc
-go config
-cp theprevious.cfg yi.cfg
-runcpu --config=yi --action=build 508.namd_r
-runcpu -c yi.cfg -l 508 -i ref –a run --nobuild -C 128 –n 3 -o html
 
-```
 
 <a href="#top">Back to top</a>

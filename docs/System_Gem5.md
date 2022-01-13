@@ -104,4 +104,29 @@ OPTIMIZE = -O2 -fno-strict-aliasing -static
 ./build/ARM/gem5.opt ./configs/example/se.py --cmd=/home/zzx/cpu2017/benchspec/CPU/508.namd_r/build/build_base_ysemi-ref-64.0000/namd_r --options="--input /home/zzx/cpu2017/benchspec/CPU/508.namd_r/run/run_base_refrate_ysemi-ref-64.0000/apoa1.input --output /home/zzx/cpu2017/benchspec/CPU/508.namd_r/run/run_base_refrate_ysemi-ref-64.0000/apoa1.ref.output --iterations 1" --mem-size=8GB --cpu-type=NonCachingSimpleCPU -I 900000000000 --simpoint-profile --simpoint-interval=10000
 ```
 
+### bbv
+
+ one must type the full command to get the bb file
+```
+# cat a.c
+#include <stdio.h> 
+int main()         
+{                  
+  printf("a\n");   
+}                  
+
+#
+sudo valgrind --tool=exp-bbv --bb-out-file=a.bb --pc-out-file=a.pc --interval-size=100 --instr-count-only=no ./a
+# Thread 1
+#   Total intervals: 146 (Interval Size 100)
+#   Total instructions: 14607
+#   Total reps: 0
+#   Unique reps: 0
+#   Total fldcw instructions: 0
+
+ perf stat ./a
+
+```
+
+
 <a href="#top">Back to top</a>

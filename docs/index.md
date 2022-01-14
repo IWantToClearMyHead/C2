@@ -45,12 +45,16 @@ The contents are shown as below, select whichever might interest you
 15. [Command](Command.md)
 16. [Server](Server.md)
 
+The appendix,
+1. [short name](EF.md)
+2. [equation](EQ.md)
+
 ### Reference
 
 | Idx  | Own | Ref  |
 |---|---|---|
 | 1  |  Dennis Ritchie | [C Programming Language](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628) |
 | 2  |  Emoji          | [webfx](webfx.com/tools/emoji-cheat-sheet/)  |
-|    |   |   |
+| 3  |  Arch           | [dive](https://diveintosystems.org/book/C5-Arch/hist.html)  |
 
 <a href="#top">Back to top</a>

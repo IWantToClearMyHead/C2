@@ -50,9 +50,10 @@
 |PLL|PHASE LOCKED LOOP||
 |BSP|Board Support Package||
 |CPI|Cycles per instruction||
-||||
-||||
-||||
+|IPC|instructions executed per cycle||
+|SPEC|Standard Performance Evaluation Corporation||
+|MIPS|Millions of instructions per second ||
+|ISA|instruction set architecture||
 ||||
 
 <a href="#top">Back to top</a>

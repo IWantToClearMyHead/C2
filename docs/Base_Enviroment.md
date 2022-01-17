@@ -1,4 +1,8 @@
 ### Stack
+
+We should first locate where C stands on, mostly it locates up from OS to APP.
+C is known for FW, which links HW and SW, and many other langueges have embedding interface to C, so they can modify the lower level of the system easily.
+Maybe the only drawback is C's UI not fashionable, after all it is 2021 now :flushed:.
                             
      ┌────────────────┐
      │                                │

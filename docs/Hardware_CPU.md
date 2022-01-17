@@ -99,6 +99,16 @@ $ gcc -o e3 e3.o
 
 :question: is one line one instruction?
 
+In C, there are three kinds of instruction: declare, arithmetic and contorl.
+For control, there are four kinds:
+|||
+|----|----|
+|Sequentail|Order|
+|Decision|If..Else statement or If..Else If..Else statement|
+|Loop|While loop or Do/While loop or For loop statement|
+|Case|Switch Case statements|
+
+
 
 
 

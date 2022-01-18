@@ -105,7 +105,26 @@ http.createServer(function(req, res) {
 
 ### Apache
 
-### CGI
+### Python3 CGI
+
+```
+# cat /tmp/py/cgi-bin/hello.py
+#!/usr/bin/python
+
+print("Content-type: text/html\n")
+print("<html>")
+print("<body>")
+print("<h1>Hello %s</h1>" % "World")
+print("</body>")
+print("</html>")
+
+# cd /tmp/py
+# chmod -R 755 cgi-bin
+# python3 -m http.server --cgi 8000
+
+# then goto http://104.168.132.229:8000/cgi-bin/hello.py
+
+```
 
 ### SweetHttp
 

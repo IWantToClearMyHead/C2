@@ -24,6 +24,17 @@ cat m5out/config.ini
 
 ```
 
+- Clean
+```
+python3 `which scons` --clean --no-cache        # cleaning the build folder
+python3 `which scons` build/X86/gem5.opt -j 9   # re-compiling gem5
+
+# even stronger
+rm -rf build/                                   # completely removing the gem5 build folder
+python3 `which scons` build/X86/gem5.opt -j 9   # re-compiling gem5
+
+```
+
 ### Runcpu 
 
 ```
@@ -78,7 +89,7 @@ gcc -static a.c -o a # this should be on arm64
 
 ```
 
-- cpu2017
+- self use cpu2017 508
 ```
 # change config to adapt gem5
 OPTIMIZE = -O2 -fno-strict-aliasing -static
@@ -87,21 +98,18 @@ OPTIMIZE = -O2 -fno-strict-aliasing -static
 
 # just 508
 ./build/ARM/gem5.opt configs/example/se.py --cmd=/home/zzx/cpu2017/benchspec/CPU/508.namd_r/build/build_base_ysemi-ref-64.0000/namd_r --options="--input /home/zzx/cpu2017/benchspec/CPU/508.namd_r/run/run_base_refrate_ysemi-ref-64.0000/apoa1.input --output /home/zzx/cpu2017/benchspec/CPU/508.namd_r/run/run_base_refrate_ysemi-ref-64.0000/apoa1.ref.output --iterations 1" --mem-size=8GB --cpu-type=AtomicSimpleCPU
-
-# No bench and no arg?
-
-./build/ARM/gem5.opt ./configs/example/se.py --bench=namd_r -I 900000000000 --simpoint-profile --simpoint-interval=10000
-
->>> dir(OptionParser)
-['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_add_help_option', '_add_version_option', '_check_conflict', '_create_option_list', '_create_option_mappings', '_get_all_options', '_get_args', '_init_parsing_state', '_match_long_opt', '_populate_option_list', '_process_args', '_process_long_opt', '_process_short_opts', '_share_option_mappings', 'add_option', 'add_option_group', 'add_options', 'check_values', 'destroy', 'disable_interspersed_args', 'enable_interspersed_args', 'error', 'exit', 'expand_prog_name', 'format_description', 'format_epilog', 'format_help', 'format_option_help', 'get_default_values', 'get_description', 'get_option', 'get_option_group', 'get_prog_name', 'get_usage', 'get_version', 'has_option', 'parse_args', 'print_help', 'print_usage', 'print_version', 'remove_option', 'set_conflict_handler', 'set_default', 'set_defaults', 'set_description', 'set_process_default_values', 'set_usage', 'standard_option_list']
-```
-
-- redo in cmd
-
-```
 ../bin/runcpu --config try1.cfg --rebuild --iterations 1 --noreportable --output_format=html --size=test --copies=1 508
 
 ./build/ARM/gem5.opt ./configs/example/se.py --cmd=/home/zzx/cpu2017/benchspec/CPU/508.namd_r/build/build_base_ysemi-ref-64.0000/namd_r --options="--input /home/zzx/cpu2017/benchspec/CPU/508.namd_r/run/run_base_refrate_ysemi-ref-64.0000/apoa1.input --output /home/zzx/cpu2017/benchspec/CPU/508.namd_r/run/run_base_refrate_ysemi-ref-64.0000/apoa1.ref.output --iterations 1" --mem-size=8GB --cpu-type=NonCachingSimpleCPU -I 900000000000 --simpoint-profile --simpoint-interval=10000
+```
+
+- resouce use cpu2017 from google
+```
+git clone https://gem5.googlesource.com/public/gem5-resources
+
+# make sure gem5 and gem5-resources are in same level
+# cd src/simpole # try simple
+# make -j60
 ```
 
 ### bbv

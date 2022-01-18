@@ -13,6 +13,8 @@
 | -----| ---- | ---- |
 | hard disk | diskpart | |
 | folder sort |  du -s * \| sort -rn | |
+| current path folder size|du -h --max-depth=1 .||
+| total folder size |du -h --max-depth=1 folder||
 | mount | mount -o loop src.iso /dst | |
 | umount | umount /dst | |
 | comp tar | tar -cvf xxx.tar xxx | |
@@ -37,6 +39,8 @@
 | -----| ---- | ---- |
 | show |  git config --list --show-origin | |
 | delete after commit | git restore --source=HEAD^ --staged  -- path/*.* | |
+| check tag |git clone -b vx.x.x.x https://gem5.googlesource.com/public/gem5||
+||||
 
 ### Screen
 | type | command | note |
@@ -53,6 +57,10 @@
 | make log | make 2>&1 | tee log | |
 | gcc log | gcc a.c > log 2>&1 | |
 
+### Python
+| type | command | note |
+| -----| ---- | ---- |
+|calculation in one line|||
 
 
 <a href="#top">Back to top</a>

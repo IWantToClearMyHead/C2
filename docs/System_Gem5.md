@@ -37,6 +37,7 @@ python3 `which scons` build/X86/gem5.opt -j 9   # re-compiling gem5
 
 ### Runcpu 
 
+- Run
 ```
 ../bin/runcpu --config try1.cfg --rebuild --iterations 1 --noreportable --output_format=html --size=test --copies=1 508
 # ls result/ -lrt | tail -4
@@ -50,6 +51,19 @@ build  data  Docs  exe  run  Spec  src  version.txt
 
 # ls benchspec/CPU/508.namd_r/run/run_base_test_ysemi-ref-64.0000/apoa1.input
 # ls benchspec/CPU/508.namd_r/run/run_base_test_ysemi-ref-64.0000/apoa1.test.output
+
+```
+
+- Clean
+```
+../bin/runcpu --config try1.cfg --action realclean
+
+rm -rf benchspec/CPU/508.namd_r/build;
+rm -rf benchspec/CPU/508.namd_r/run;
+rm -rf benchspec/CPU/508.namd_r/exe;
+rm -rf benchspec/CPU/519.lbm_r/build;
+rm -rf benchspec/CPU/519.lbm_r/run;
+rm -rf benchspec/CPU/519.lbm_r/exe;
 
 ```
 
@@ -112,7 +126,7 @@ git clone https://gem5.googlesource.com/public/gem5-resources
 # make -j60
 ```
 
-### bbv
+### bbv in valgrind
 
  one must type the full command to get the bb file
 ```
@@ -144,8 +158,28 @@ T:52:8   :53:1   :56:4   :57:12   :58:3   :59:2   :60:1   :15:5   :8:4   :9:1   
 # total 146 T
 # each T measn size instructions(maxium 100)
 # 
+```
+### 519
+- cpu2017
+```
+../bin/runcpu --config try1.cfg --rebuild --iterations 1 --noreportable --output_format=html --size=test --copies=1 519
 
 ```
+- use valgrind(simpoint.bb)
+```
+valgrind --tool=exp-bbv --bb-out-file=simpoint.bb --pc-out-file=simpoint.bb.pc --interval-size=100 --instr-count-only=no benchspec/CPU/519.lbm_r/run /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r 1000 /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_mytest-m64.0000/100_100_130_ldc.of 0 0
+```
+- compare with bbv in gem5(simpoint.bb.gz)
+```
+./build/X86/gem5.opt --debug-file=my_trace.out ./configs/example/se.py --cmd=/home/zzx/cpu2017/benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r '--options=1000 /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_mytest-m64.0000/100_100_130_ldc.of 0 0' --simpoint-profile --simpoint-interval=10000000 --cpu-type=NonCachingSimpleCPU
+
+./simpoint -loadFVFile simpoint.bb.gz -maxK 30 -saveSimpoints simpoint.bb.p -saveSimpointWeights simpoint.bb.w -inputVectorsGzipped
+
+cat simpoint.bb.p
+
+```
+
+
 
 ### perf
 

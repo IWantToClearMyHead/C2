@@ -167,7 +167,7 @@ T:52:8   :53:1   :56:4   :57:12   :58:3   :59:2   :60:1   :15:5   :8:4   :9:1   
 ```
 - use valgrind(simpoint.bb)
 ```
-valgrind --tool=exp-bbv --bb-out-file=simpoint.bb --pc-out-file=simpoint.bb.pc --interval-size=100 --instr-count-only=no benchspec/CPU/519.lbm_r/run /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r 1000 /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_mytest-m64.0000/100_100_130_ldc.of 0 0
+sudo valgrind --tool=exp-bbv --bb-out-file=simpoint.bb --pc-out-file=simpoint.bb.pc --interval-size=10000000 --instr-count-only=no  /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r 1000 /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_mytest-m64.0000/100_100_130_ldc.of 0 0
 ```
 - compare with bbv in gem5(simpoint.bb.gz)
 ```
@@ -183,7 +183,7 @@ cat simpoint.bb.p
 
 ### perf
 
-For a better perf analysis, goto [:boom:](Perf.md)
+For a better perf analysis, goto perf [:boom:](Perf.md)
 ```
 perf stat ./a
  Performance counter stats for './a':

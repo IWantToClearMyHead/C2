@@ -104,9 +104,35 @@ http.createServer(function(req, res) {
 - download
 
 ### Apache
+```
+apt-get install apache2
+
+# ls /etc/apache2/sites-available
+
+/etc/init.d/apache2 start
+# /etc/init.d/apache2 stop
+
+# at this point we should see def page
+# :)
+# now enable cgi
+chmod +x /usr/lib/cgi-bin/eg.sh
+
+#!/bin/bash
+echo "Content-type: text/html"
+echo ''
+echo 'CGI Bash Example'
+
+cd /etc/apache2/mods-enabled
+ln -s ../mods-available/cgi.load
+
+/etc/init.d/apache2 restart
+
+# at this point you should be able to see cgi
+```
 
 ### Python3 CGI
 
+this is only good for temp use or local network
 ```
 # cat /tmp/py/cgi-bin/hello.py
 #!/usr/bin/python

@@ -21,3 +21,5 @@
 
 ✅ &#9745;
 ❌ &#9746;
+
+<a href="index.md">Back to home</a>

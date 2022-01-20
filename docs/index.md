@@ -42,8 +42,8 @@ The contents are shown as below, select whichever might interest you
 12. [Embed](Embed.md)
 13. [Build](Build.md)
 14. [System](System.md)
-    - [CPU](Hardware_CPU.md)
-    - [QEMU](KVM_QEMU.md)
+  - [CPU](Hardware_CPU.md)
+  - [QEMU](KVM_QEMU.md)
 16. [Command](Command.md)
 17. [Server](Server.md)
 18. [Performace](Perf.md)
@@ -51,8 +51,8 @@ The contents are shown as below, select whichever might interest you
 The appendix,
 1. [short name](EF.md)
 2. [equation](EQ.md)
-3. [markdown](Markdown.md)
-4. [script](Script.md)
+3. [markdown](EM.md)
+4. [script](ES.md)
 
 ### Reference
 

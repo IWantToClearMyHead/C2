@@ -31,14 +31,14 @@
 | nc passfile | | |
 | receiver | nc -l -p #port > passfile | |
 | sender | nc -w 3 [receiver #ip] #port < passfile | |
-||||
+|download a file|curl -O http://192.168.10.164:8000/uploads/a.bb||
 
 
 ### Git
 | type | command | note |
 | -----| ---- | ---- |
 | show |  git config --list --show-origin | |
-| delete after commit | git restore --source=HEAD^ --staged  -- path/*.* | |
+| delete after commit | git restore --source=HEAD^ --staged  -- path/*.* | :heavy_multiplication_x: |
 | check tag |git clone -b vx.x.x.x https://gem5.googlesource.com/public/gem5||
 ||||
 
@@ -49,6 +49,7 @@
 |rettach |  screen -r pid | for dettached |
 | |  screen -rd pid | for attached |
 |list |  screen -ls | |
+|kill a detached|screen -S 1186535 -X quit||
 
 ### Misc
 | type | command | note |
@@ -56,11 +57,6 @@
 | make to show variable |  $(warning  $(XXX)) | |
 | make log | make 2>&1 | tee log | |
 | gcc log | gcc a.c > log 2>&1 | |
-
-### Python
-| type | command | note |
-| -----| ---- | ---- |
-|calculation in one line|||
 
 
 <a href="#top">Back to top</a>

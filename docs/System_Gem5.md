@@ -179,11 +179,24 @@ cat simpoint.bb.p
 
 ```
 
+- use bbv in cpu2017 to save time
+```
+# the bb file is from spec
+./simpoint -loadFVFile simpoint.bb -maxK 30 -saveSimpoints simpoint.bb.p -saveSimpointWeights simpoint.bb.w
+
+# interval = 10M and warmup = 5M instrs
+./build/X86/gem5.opt configs/example/se.py --cmd=/home/zzx/cpu2017/benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r '--options=1000  /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_mytest-m64.0000/100_100_130_ldc.of 0 0' --take-simpoint-checkpoint=m5out/simpoint.bb.p,m5out/simpoint.bb.w,10000000,5000000
+
+# N from 0 to last group of p or w
+./build/X86/gem5.opt --debug-file=lbm_trace configs/example/se.py --cmd=/home/zzx/cpu2017/benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r '--options=1000  /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_mytest-m64.0000/100_100_130_ldc.of 0 0' --restore-simpoint-checkpoint -r 2 --checkpoint-dir m5out 
+
+```
+
 
 
 ### perf
 
-For a better perf analysis, goto perf [:boom:](Perf.md)
+For a better perf analysis, goto [perf](Perf.md) :boom:
 ```
 perf stat ./a
  Performance counter stats for './a':

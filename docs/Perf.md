@@ -33,11 +33,37 @@ CPI = ((0.25 * 2) + (0.50 * 1) + (0.25 * 50)) = 13.5
 - Composite CPI: CPI = Σ CPI x F
 
 |Op|F|CPI|CPIxF|%Time|
+|---|---|---|---|---|
 |ALU|50%|1|.5|23%|
 |Load|20%|5|1.0|45%|
 |Store|10%|3|.3|14%|
 |Branch|20%|2|.4|18%|
 |Total|100%|2.2|100%|
+
+
+### Benchmark
+
+- 508
+```
+# modify try1.cfg to have static linked via gcc before gem5 start
+
+../bin/runcpu --config=try1.cfg --action=build 508.namd_r
+
+# remove previous build if not first time
+rm -rf benchspec/CPU/508.namd_r/build;
+rm -rf benchspec/CPU/508.namd_r/run;
+rm -rf benchspec/CPU/508.namd_r/exe;
+
+# ls
+ls ../benchspec/CPU/508.namd_r/build && ls ../benchspec/CPU/508.namd_r/run ; ls ../benchspec/CPU/508.namd_r/exe ; echo "Good"
+
+
+```
+
+- 509
+```
+../bin/runcpu --config=try1.cfg --action=build 519.lbm_r
+```
 
 ### Perf Metric
 - execution time : time to do the task

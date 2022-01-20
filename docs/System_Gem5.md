@@ -179,9 +179,9 @@ cat simpoint.bb.p
 
 ```
 
-- use bbv in cpu2017 to save time
+- take points by length is not *OK*
 ```
-# the bb file is from spec
+# (use bbv in cpu2017 to save time)
 ./simpoint -loadFVFile simpoint.bb -maxK 30 -saveSimpoints simpoint.bb.p -saveSimpointWeights simpoint.bb.w
 
 # interval = 10M and warmup = 5M instrs
@@ -191,8 +191,13 @@ cat simpoint.bb.p
 ./build/X86/gem5.opt --debug-file=lbm_trace configs/example/se.py --cmd=/home/zzx/cpu2017/benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r '--options=1000  /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_mytest-m64.0000/100_100_130_ldc.of 0 0' --restore-simpoint-checkpoint -r 2 --checkpoint-dir m5out 
 
 ```
+- take points at instruction is *OK*
 
+```
+./build/X86/gem5.opt configs/example/se.py --cmd=508/namd_r --options="--input 508/apoa1.input --output 508/apoa1.ref.output --iterations 1" --at-instruction --take-checkpoints=5000000 --max-checkpoints=1 --checkpoint-dir=508
 
+./build/X86/gem5.opt configs/example/se.py --cmd=508/namd_r --options="--input 508/apoa1.input --output 508/apoa1.ref.output --iterations 1" --at-instruction -r 5000000 -I 5000000 --checkpoint-dir=508
+```
 
 ### perf
 

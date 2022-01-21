@@ -42,8 +42,9 @@ The contents are shown as below, select whichever might interest you
 12. [Embed](Embed.md)
 13. [Build](Build.md)
 14. [System](System.md)
-a. [CPU](Hardware_CPU.md)
-b. [QEMU](KVM_QEMU.md)
+<br>a. [CPU](Hardware_CPU.md)
+<br>b. [QEMU](KVM_QEMU.md)
+<br>c. [IMG](Software_IMG.md)
 16. [Command](Command.md)
 17. [Server](Server.md)
 18. [Performace](Perf.md)
@@ -61,5 +62,6 @@ The appendix,
 | 1  |  Dennis Ritchie | [C Programming Language](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628) |
 | 2  |  Emoji          | [webfx](webfx.com/tools/emoji-cheat-sheet/)  |
 | 3  |  Arch           | [dive](https://diveintosystems.org/book/C5-Arch/hist.html)  |
+|    |  Algorithm      | [alg](https://runestone.academy/ns/books/published//pythonds/index.html) |
 
 <a href="#top">Back to top</a>

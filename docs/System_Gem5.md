@@ -179,7 +179,7 @@ cat simpoint.bb.p
 
 ```
 
-- take points by length is not *OK*
+- take points by length is NOT *OK*
 ```
 # (use bbv in cpu2017 to save time)
 ./simpoint -loadFVFile simpoint.bb -maxK 30 -saveSimpoints simpoint.bb.p -saveSimpointWeights simpoint.bb.w
@@ -190,6 +190,7 @@ cat simpoint.bb.p
 # N from 0 to last group of p or w
 ./build/X86/gem5.opt --debug-file=lbm_trace configs/example/se.py --cmd=/home/zzx/cpu2017/benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r '--options=1000  /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_mytest-m64.0000/100_100_130_ldc.of 0 0' --restore-simpoint-checkpoint -r 2 --checkpoint-dir m5out 
 
+./build/X86/gem5.opt configs/example/se.py --cmd=508/namd_r --options="--input 508/apoa1.input --output 508/apoa1.ref.output --iterations 1" --at-instruction --take-checkpoints=31580000000 --max-checkpoints=1 --checkpoint-dir=m5out --caches --l1d_size=1024kB --l1i_size=1024kB --l2cache --l2_size=8192kB --l3_size=65536kB --cpu-clock 2GHz
 ```
 - take points at instruction is *OK*
 

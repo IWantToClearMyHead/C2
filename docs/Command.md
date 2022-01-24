@@ -32,7 +32,7 @@
 | receiver | nc -l -p #port > passfile | |
 | sender | nc -w 3 [receiver #ip] #port < passfile | |
 |download a file|curl -O http://baidu.com/uploads/a.bb||
-| awk last column | awk '{print $0}' a.txt | [awk](Software_AWK.md) |
+| awk last column | awk '{print $0}' a.txt | [awk](Command_AWK.md) |
 
 
 

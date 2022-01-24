@@ -1,6 +1,6 @@
-### C2
+### Main
 
-[C2](https://iwanttoclearmyhead.github.io/C2/) will try to explain C 2 🤖
+[C2](https://iwanttoclearmyhead.github.io/C2/) will explain C 2 🤖
 
 ### 🤖
 
@@ -46,8 +46,9 @@ The contents are shown as below, select whichever might interest you
 <br>b. [QEMU](KVM_QEMU.md)
 <br>c. [IMG](Software_IMG.md)
 16. [Command](Command.md)
-17. [Server](Server.md)
-18. [Performace](Perf.md)
+<br>a. [AWK](Command_AWK.md)
+18. [Server](Server.md)
+19. [Performace](Perf.md)
 
 The appendix,
 1. [short name](EF.md)
@@ -62,6 +63,6 @@ The appendix,
 | 1  |  Dennis Ritchie | [C Programming Language](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628) |
 | 2  |  Emoji          | [webfx](webfx.com/tools/emoji-cheat-sheet/)  |
 | 3  |  Arch           | [dive](https://diveintosystems.org/book/C5-Arch/hist.html)  |
-|    |  Algorithm      | [alg](https://runestone.academy/ns/books/published//pythonds/index.html) |
+| 4  |  Algorithm      | [algorithm](https://runestone.academy/ns/books/published//pythonds/index.html) |
 
 <a href="#top">Back to top</a>

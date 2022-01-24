@@ -95,5 +95,21 @@ qemu-system-x86_64 -s \
     --append "nokaslr root=/dev/ram init=/init"
 ```
 
+### Parameter
+| para  | note  |
+| --- | --- |
+| -M vexpress-a9 | machine: vexpress-a9 |
+| -m 512M | dram=512MB |
+| -cpu cortex-a9 | cpu arch=a9 |
+| -smp n | cpu number, def=1 |
+| -kernel ./zImage | image |
+| -dtb ./vexpress-vap-ca9.dtb | device tree |
+| -append cmdline | linux kernel options |
+| -initrd file | use file for booting ram disk |
+| -nographic | disable graph |
+| -sd rootfs.ext3 | sd=rootfs.ext3 |
+| -net nic | network |
+| -net nic -net tap | bridge between host and guest |
+
 
 <a href="#top">Back to top</a>

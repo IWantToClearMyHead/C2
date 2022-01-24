@@ -67,6 +67,26 @@ rm -rf benchspec/CPU/519.lbm_r/exe;
 
 ```
 
+||build|symbol|tarce|asert|
+|-----|-----|-----|-----|-----|
+|debug|debug|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|opt|optimize|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|fast|optimize no debug|:heavy_exclamation_mark:|:heavy_exclamation_mark:|:heavy_exclamation_mark:|
+|prof|fast + profile||||
+
+- Full system (FS)
+ For booting operating systems
+ Models bare hardware, including devices
+ Interrupts, exceptions, privileged instructions, fault handlers
+ Simulated UART output
+ Simulated frame buffer output
+
+- Syscall emulation (SE)
+ For running individual applications, or set of applications on MP
+ Models user-visible ISA plus common system calls
+ System calls emulated, typically by calling host OS
+ Simplified address translation model, no scheduling
+
 ### SimPoint
 
 - [fatal: SimPoint/BPProbe should be done with an atomic cpu](https://github.com/uart/gem5-mirror/blob/master/configs/example/se.py)

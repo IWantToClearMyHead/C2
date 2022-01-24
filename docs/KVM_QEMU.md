@@ -25,15 +25,23 @@ qemu-system-x86_64 -boot d -cdrom image.iso -m 512 -hda mydisk.img
 
 The structure for fs is as below,
 
+to load kernel, disk and gdb, we go 
+```
+qemu-system-x86_64 -kernel linux/vmlinux -nographic -append "console=ttyS0 root=/dev/sda rw" -drive file=disk.img,format=raw,id=hd0 -S -s
+```
 
-*************************************
-*                _______            *
-* .-------.     /      /   .-----.  *
-* | Write +-+->/ Edit ++->| Share | *
-* '-------' ^ /______/ |   '-----'  *
-*           |          |            *
-*            '--------'             *
-*************************************
+and 
+
+```
+cd linux
+gdb vmlinux # you may see .gdbinit
+target remote :1234
+b kernel_execve # b point
+layout src
+c
+```
+
+
 
 ### Image
 

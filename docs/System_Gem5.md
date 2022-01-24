@@ -71,21 +71,21 @@ rm -rf benchspec/CPU/519.lbm_r/exe;
 |-----|-----|-----|-----|-----|
 |debug|debug|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |opt|optimize|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|fast|optimize no debug|:heavy_exclamation_mark:|:heavy_exclamation_mark:|:heavy_exclamation_mark:|
+|fast|optimize no debug|:heavy_multiplication_x:|:heavy_multiplication_x:|:heavy_multiplication_x:|
 |prof|fast + profile||||
 
 - Full system (FS)
- For booting operating systems
- Models bare hardware, including devices
- Interrupts, exceptions, privileged instructions, fault handlers
- Simulated UART output
- Simulated frame buffer output
+    + For booting operating systems
+    + Models bare hardware, including devices
+    + Interrupts, exceptions, privileged instructions, fault handlers
+    + Simulated UART output
+    + Simulated frame buffer output
 
 - Syscall emulation (SE)
- For running individual applications, or set of applications on MP
- Models user-visible ISA plus common system calls
- System calls emulated, typically by calling host OS
- Simplified address translation model, no scheduling
+    + For running individual applications, or set of applications on MP
+    + Models user-visible ISA plus common system calls
+    + System calls emulated, typically by calling host OS
+    + Simplified address translation model, no scheduling
 
 ### SimPoint
 

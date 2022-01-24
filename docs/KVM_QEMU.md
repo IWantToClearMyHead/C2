@@ -11,8 +11,8 @@ qemu-system means FS(not SE) mode.
 /usr/bin/qemu-system-x86_64-spice
 ```
 
-For arch linux iso, one can go to [iso](http://mirrors.163.com/archlinux/iso/2022.01.01/)
-and using 512M RAM to boot
+For arch linux iso, one can go to [archlinux](http://mirrors.163.com/archlinux/iso/2022.01.01/)
+and using 512M RAM to boot, remember to enable gtk or x11,
 ```
 qemu-system-x86_64 -boot d -cdrom archlinux.iso -m 512
 ```
@@ -25,21 +25,7 @@ qemu-system-x86_64 -boot d -cdrom image.iso -m 512 -hda mydisk.img
 
 The structure for fs is as below,
 
-to load kernel, disk and gdb, we go 
-```
-qemu-system-x86_64 -kernel linux/vmlinux -nographic -append "console=ttyS0 root=/dev/sda rw" -drive file=disk.img,format=raw,id=hd0 -S -s
-```
 
-and 
-
-```
-cd linux
-gdb vmlinux # you may see .gdbinit
-target remote :1234
-b kernel_execve # b point
-layout src
-c
-```
 
 
 
@@ -60,5 +46,54 @@ qemu-img info image.qcow2
 | VDI (VirtualBox) | vdi |
 | VHD (Hyper-V) | vpc |
 | VMDK (VMware) | vmdk |
+
+
+### [hello world](Kernel.md#hw)
+the most simple fs, only one command and looping... 
+
+### busybox
+
+```
+wget https://busybox.net/downloads/busybox-1.32.1.tar.bz2
+tar -jxvf busybox-1.32.1.tar.bz2
+# select static binary
+make menuconfig
+make -j20
+make install
+# now you should have _install
+
+cd _install/
+sudo mkdir dev 
+sudo mknod dev/console c 5 1
+sudo mknod dev/ram b 1 0 
+sudo touch init
+sudo vi init
+
+#!/bin/sh
+echo "INIT SCRIPT"
+mkdir /proc
+mkdir /sys
+mount -t proc none /proc
+mount -t sysfs none /sys
+mkdir /tmp
+mount -t tmpfs none /tmp
+echo -e "\nThis boot took $(cut -d' ' -f1 /proc/uptime) seconds\n"
+exec /bin/sh
+
+sudo chmod +x init
+
+find . -print0 | cpio --null -ov --format=newc | gzip -9 > initramfs-busybox-x64.cpio.gz
+
+```
+
+and with bzImage run
+
+```
+qemu-system-x86_64 -s \
+    -kernel bzImage  \
+    -initrd initramfs-busybox-x64.cpio.gz \
+    --append "nokaslr root=/dev/ram init=/init"
+```
+
 
 <a href="#top">Back to top</a>

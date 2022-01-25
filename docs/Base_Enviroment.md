@@ -4,57 +4,61 @@ We should first locate where C stands on, mostly it locates up from OS to APP.
 C is known for FW, which links HW and SW, and many other langueges have embedding interface to C, so they can modify the lower level of the system easily.
 Maybe the only drawback is C's UI not fashionable, after all it is 2021 now :flushed:.
                             
-     ┌────────────────┐
-     │                                │
-     │     Application                │
-     │                                │
-     └────────────────┘
+~~~
+   ┌─────────────────┐
+   │                 │
+   │ Application     │
+   │                 │
+   └─────────────────┘
 
-     ┌────────────────┐
-     │                                │
-     │     Algorithm                  │
-     │                                │
-     └────────────────┘
+   ┌─────────────────┐
+   │                 │
+   │ Algorithm       │
+   │                 │
+   └─────────────────┘
 
-     ┌────────────────┐
-     │                                │
-     │     C language                 │
-     │                                │
-     └────────────────┘
-     ┌────────────────┐
-     │                                │
-     │     Operating System           │
-     │                                │
-     └────────────────┘
+   ┌─────────────────┐
+   │                 │
+   │ C Language      │
+   │                 │
+   └─────────────────┘
 
-     ┌────────────────┐
-     │                                │
-     │     ISA                        │
-     │                                │
-     └────────────────┘
+   ┌─────────────────┐
+   │                 │
+   │ Operating System│
+   │                 │
+   └─────────────────┘
 
-     ┌────────────────┐
-     │                                │
-     │     RTL                        │
-     │                                │
-     └────────────────┘
-     ┌────────────────┐
-     │                                │
-     │     Circuit                    │
-     │                                │
-     └────────────────┘
+   ┌─────────────────┐
+   │                 │
+   │ ISA             │
+   │                 │
+   └─────────────────┘
 
-     ┌────────────────┐
-     │                                │
-     │     Component                  │
-     │                                │
-     └────────────────┘
+   ┌─────────────────┐
+   │                 │
+   │ RTL             │
+   │                 │
+   └─────────────────┘
 
-     ┌────────────────┐
-     │                                │
-     │     Physical                   │
-     │                                │
-     └────────────────┘
+   ┌─────────────────┐
+   │                 │
+   │ Circuit         │
+   │                 │
+   ├─────────────────┤
+   
+   ├─────────────────┤
+   │                 │
+   │ Component       │
+   │                 │
+   └─────────────────┘
+      
+   ├─────────────────┤
+   │                 │
+   │ Physical        │
+   │                 │
+   └─────────────────┘
+~~~
 
 ### Linux
 
@@ -105,6 +109,20 @@ Around the end of the 1950s, second-generation transistor computers appeared, an
 Over the two decades of the 1960s through the 1970s, operating systems development advanced rapidly. The first- and second-generation computers were categorized into those for scientific and engineering computing and those for business applications, and there was separate development of operating systems for batch processing, online processing and TSS. In 1964, IBM's announcement of the general-purpose computer System/360 integrated with a general-purpose operating system OS/360 was followed by widespread adoption and use of general-purpose machines and operating systems. As a result, most manufacturers shifted to production of general-purpose systems. The term "operating system （OS）" also became established. 
 
 The first official Ubuntu release — Version 4.10, codenamed the 'Warty Warthog' — was launched in October 2004, and sparked dramatic global interest as thousands of free software enthusiasts and experts joined the Ubuntu community. 
+
+|Number|Name|
+|------|----|
+|18.04|bionic|
+|18.10|cosmic|
+|19.04|disco|
+|19.10|eoan|
+|20.04|focal|
+||groovy|
+|21.04|hirsute|
+||impish|
+||streams|
+|16.04|xenial|
+
 
 We are going to start our journey now!
 

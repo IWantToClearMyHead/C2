@@ -67,7 +67,7 @@ sudo mkdir dev
 sudo mknod dev/console c 5 1
 sudo mknod dev/ram b 1 0 
 sudo touch init
-sudo vi init
+sudo vi init # copy below
 
 #!/bin/sh
 echo "INIT SCRIPT"

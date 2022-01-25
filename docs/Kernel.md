@@ -70,7 +70,7 @@ echo init | cpio -o --format=newc > initramfs
 
 ### boot with [qemu](QEMU_KVM.md) 
 
-
+- <a name="hw"></a>bare metal helloworld
 ```
 #
 # one should make sure x11 is enable if remote connect 
@@ -83,11 +83,11 @@ qemu-system-x86_64 -s \
 gdb linux-4.9.263/vmlinux
 
 target remote localhost:1234
-
-# we can try binding helloworld into busybox
-
-
 ```
+- we can try binding helloworld into busybox
+
+
+
 
 
 <a href="#top">Back to top</a>

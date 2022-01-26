@@ -35,7 +35,13 @@
 | awk last column | awk '{print $0}' a.txt | [awk](Command_AWK.md) |
 
 
-
+### SVN
+| type | command | note |
+| -----| ---- | ---- |
+||svn co https://svn.internal.foo.com/svn/mycoolgame/branches/1.81||
+|||create your new file in the correct place in the folder structure checked out.|
+||svn add your new file||
+||svn ci -m "added file lalalalala" you new file||
 
 ### Git
 | type | command | note |

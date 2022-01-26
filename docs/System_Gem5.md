@@ -27,17 +27,17 @@ cat m5out/config.ini
 - Clean
 ```
 python3 `which scons` --clean --no-cache        # cleaning the build folder
-python3 `which scons` build/X86/gem5.opt -j 9   # re-compiling gem5
+python3 `which scons` build/ARM/gem5.opt -j 9   # re-compiling gem5
 
 # even stronger
 rm -rf build/                                   # completely removing the gem5 build folder
-python3 `which scons` build/X86/gem5.opt -j 9   # re-compiling gem5
+python3 `which scons` build/ARM/gem5.opt -j 9   # re-compiling gem5
 
 ```
 
 ### Runcpu 
 
-- Run
+- Run, build goto [perf](Perf.md#spec)
 ```
 ../bin/runcpu --config try1.cfg --rebuild --iterations 1 --noreportable --output_format=html --size=test --copies=1 508
 # ls result/ -lrt | tail -4
@@ -86,6 +86,14 @@ rm -rf benchspec/CPU/519.lbm_r/exe;
     + Models user-visible ISA plus common system calls
     + System calls emulated, typically by calling host OS
     + Simplified address translation model, no scheduling
+
+### CPU
+|Type|Note|
+|----|----|
+|AtomicSimple|one instruction per cycle<br>atomic memory|
+|TimingSimple|none pipeline<br>used register|
+|In-order|pipleine:FDERW<br>cache<br>branch|
+|O3|pipeline:FDREEWC<br>IQ/LSQ/ROB/FU|
 
 ### SimPoint
 
@@ -208,6 +216,7 @@ cat simpoint.bb.p
 ./build/X86/gem5.opt configs/example/se.py --cmd=/home/zzx/cpu2017/benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r '--options=1000  /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_mytest-m64.0000/100_100_130_ldc.of 0 0' --take-simpoint-checkpoint=m5out/simpoint.bb.p,m5out/simpoint.bb.w,10000000,5000000
 
 # N from 0 to last group of p or w
+
 ./build/X86/gem5.opt --debug-file=lbm_trace configs/example/se.py --cmd=/home/zzx/cpu2017/benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r '--options=1000  /home/zzx/cpu2017/benchspec/CPU/519.lbm_r/run/run_base_refrate_mytest-m64.0000/100_100_130_ldc.of 0 0' --restore-simpoint-checkpoint -r 2 --checkpoint-dir m5out 
 
 ./build/X86/gem5.opt configs/example/se.py --cmd=508/namd_r --options="--input 508/apoa1.input --output 508/apoa1.ref.output --iterations 1" --at-instruction --take-checkpoints=31580000000 --max-checkpoints=1 --checkpoint-dir=m5out --caches --l1d_size=1024kB --l1i_size=1024kB --l2cache --l2_size=8192kB --l3_size=65536kB --cpu-clock 2GHz
@@ -219,6 +228,20 @@ cat simpoint.bb.p
 
 ./build/X86/gem5.opt configs/example/se.py --cmd=508/namd_r --options="--input 508/apoa1.input --output 508/apoa1.ref.output --iterations 1" --at-instruction -r 5000000 -I 5000000 --checkpoint-dir=508
 ```
+
+### FS 
+
+- aarch64
+```
+./build/ARM/gem5.opt ./configs/example/fs.py \
+	--kernel /tmp/vmlinux.arm64 \
+	--disk-image /tmp/ubuntu-18.04-arm64-docker.img
+    
+# we should see system.terminal: Listening for connections on port 3456, then we connnect
+
+./util/term/m5term 3456
+```
+
 
 ### perf
 

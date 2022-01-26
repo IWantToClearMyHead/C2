@@ -39,7 +39,7 @@
 | type | command | note |
 | -----| ---- | ---- |
 ||svn co https://svn.internal.foo.com/svn/mycoolgame/branches/1.81||
-|||create your new file in the correct place in the folder structure checked out.|
+|create your new file|||
 ||svn add your new file||
 ||svn ci -m "added file lalalalala" you new file||
 

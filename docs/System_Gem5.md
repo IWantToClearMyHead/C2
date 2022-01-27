@@ -301,7 +301,13 @@ drwxrwxr-x 2 zzx zzx   4096 Jan 27 03:32 cpt.4674860317000/
 ```
 
 - add exec into img
-TBD
+```
+mkdir add
+# sudo only for umount?
+$GEM5_PATH/util/gem5img.py mount ubuntu.img add
+cp yourbin add/root/yourbin
+$GEM5_PATH/util/gem5img.py umount add
+```
 
 
 ### perf

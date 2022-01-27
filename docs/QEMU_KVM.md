@@ -144,10 +144,16 @@ qemu-system-aarch64 -nographic -machine virt,gic-version=max -m 512M -cpu max -s
 
 - ubuntu img in terms of cpio
 ```
+# ramdisk-busybox.img: ASCII cpio archive (SVR4 with no CRC)
+
 qemu-system-aarch64 -machine virt -cpu cortex-a57 -machine type=virt -m 100 -smp 2 -kernel Image -initrd ramdisk.img --append "rdinit=/init console=ttyAMA0" -nographic
 ```
 
 - ubuntu img in terms of raw
 
+😅 suffer
+```
+qemu-system-aarch64 -M virt -cpu cortex-a57 -m 100 -smp 2 -kernel Image -drive format=raw,file=rootfs.ext -append "rdinit=/init console=ttyAMA0" -nographic 
+```
 
 <a href="#top">Back to top</a>

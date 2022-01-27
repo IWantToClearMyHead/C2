@@ -95,6 +95,8 @@ rm -rf benchspec/CPU/519.lbm_r/exe;
 |In-order|pipleine:FDERW<br>cache<br>branch|
 |O3|pipeline:FDREEWC<br>IQ/LSQ/ROB/FU|
 
+### Simple
+
 ### SimPoint
 
 - [fatal: SimPoint/BPProbe should be done with an atomic cpu](https://github.com/uart/gem5-mirror/blob/master/configs/example/se.py)
@@ -187,7 +189,7 @@ T:52:8   :53:1   :56:4   :57:12   :58:3   :59:2   :60:1   :15:5   :8:4   :9:1   
 # each T measn size instructions(maxium 100)
 # 
 ```
-### 519
+### 519 on x86 SE
 - cpu2017
 ```
 ../bin/runcpu --config try1.cfg --rebuild --iterations 1 --noreportable --output_format=html --size=test --copies=1 519
@@ -229,18 +231,77 @@ cat simpoint.bb.p
 ./build/X86/gem5.opt configs/example/se.py --cmd=508/namd_r --options="--input 508/apoa1.input --output 508/apoa1.ref.output --iterations 1" --at-instruction -r 5000000 -I 5000000 --checkpoint-dir=508
 ```
 
-### FS 
+### Take and Resume on ARM FS 
 
-- aarch64
+From host to gem5 guest, we should download and build then run,
+- build
+
 ```
+git clone https://github.com/gem5/gem5.git
+cd gem5/
+scons build/ARM/gem5.opt -j9
+
+# make bootloader
+make -C system/arm/bootloader/arm
+make -C system/arm/bootloader/arm64
+# make device trees
+make -C system/arm/dt
+
+# build m5ops library
+cd util/m5
+scons build/aarch64/out/m5
+cd util/term; make
+
+
+wget http://dist.gem5.org/dist/v21-0/arm/aarch-system-201901106.tar.bz2
+bzip2 -d aarch-system-20210904.tar.bz2 
+tar xvf aarch-system-20210904.tar
+wget http://dist.gem5.org/dist/current/arm/disks/ubuntu-18.04-arm64-docker.img.bz2
+bzip2 -d ubuntu-18.04-arm64-docker.img.bz2
+```
+
+- run
+```
+export M5_PATH=???
 ./build/ARM/gem5.opt ./configs/example/fs.py \
-	--kernel /tmp/vmlinux.arm64 \
-	--disk-image /tmp/ubuntu-18.04-arm64-docker.img
+               --kernel $M5_PATH/binaries/vmlinux.arm64 \
+               --disk-image $M5_PATH/disks/ubuntu-18.04-arm64-docker.img \
+               --bootloader $M5_PATH/binaries/boot.arm64 \
+               --param "system.highest_el_is_64 = True"
     
 # we should see system.terminal: Listening for connections on port 3456, then we connnect
 
 ./util/term/m5term 3456
+
+# and wait for 5mins...
+m5 checkpoint
+m5 dumpstats
+m5 exit
+
+# on host
+-rw-rw-r-- 1 zzx zzx   5675 Jan 27 03:22 system.dtb
+-rw-rw-r-- 1 zzx zzx  40760 Jan 27 03:22 config.ini
+-rw-rw-r-- 1 zzx zzx 107725 Jan 27 03:22 config.json
+-rw-rw-r-- 1 zzx zzx      0 Jan 27 03:22 system.realview.uart3.device
+-rw-rw-r-- 1 zzx zzx      0 Jan 27 03:22 system.realview.uart2.device
+-rw-rw-r-- 1 zzx zzx      0 Jan 27 03:22 system.realview.uart1.device
+drwxrwxr-x 2 zzx zzx   4096 Jan 27 03:32 cpt.4674860317000/
+-rw-rw-r-- 1 zzx zzx  13962 Jan 27 03:34 system.terminal
+-rw-rw-r-- 1 zzx zzx 185002 Jan 27 03:34 stats.txt
+
+# resume later
+./build/ARM/gem5.opt ./configs/example/fs.py \
+--kernel $M5_PATH/binaries/vmlinux.arm64 \
+--disk-image $M5_PATH/disks/ubuntu-18.04-arm64-docker.img \
+--bootloader $M5_PATH/binaries/boot.arm64 \
+--param "system.highest_el_is_64 = True" \
+--checkpoint-dir=m5out -r 1
+                                
+
 ```
+
+- add exec into img
+TBD
 
 
 ### perf

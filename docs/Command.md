@@ -59,6 +59,8 @@
 | |  screen -rd pid | for attached |
 |list |  screen -ls | |
 |kill a detached|screen -S 1186535 -X quit||
+|con tcp|screen //telnet 127.0.0.1 5018||
+
 
 ### Misc
 | type | command | note |

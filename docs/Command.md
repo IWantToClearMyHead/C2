@@ -54,12 +54,15 @@
 ### Screen
 | type | command | note |
 | -----| ---- | ---- |
-|detach |  Ctrl + A, d | |
+|detach |  Ctrl + a, d | |
 |rettach |  screen -r pid | for dettached |
 | |  screen -rd pid | for attached |
 |list |  screen -ls | |
 |kill a detached|screen -S 1186535 -X quit||
 |con tcp|screen //telnet 127.0.0.1 5018||
+|switch|Ctrl + a, Ctrl + a||
+|lock|Ctrl + a, x|need input password|
+|kill current|Ctrl + a, k, y|no to cancel|
 
 
 ### Misc

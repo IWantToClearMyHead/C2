@@ -19,6 +19,12 @@ and using 512M RAM to boot, remember to enable gtk or x11,
 qemu-system-x86_64 -boot d -cdrom archlinux.iso -m 512
 ```
 
+or 
+
+```
+qemu-system-x86_64 -drive format=raw,media=cdrom,readonly,file=archlinux-2022.01.01-x86_64.iso -nographic
+```
+
 and if we want use disk, we need to create ourselves,
 ```
 qemu-img create mydisk.img 10G
@@ -144,6 +150,7 @@ qemu-system-aarch64 -nographic -machine virt,gic-version=max -m 512M -cpu max -s
 
 - ubuntu img in terms of cpio
 ```
+# Image: MS-DOS executable PE32+ executable (EFI application) Aarch64 (stripped to external PDB), for MS Windows
 # ramdisk-busybox.img: ASCII cpio archive (SVR4 with no CRC)
 
 qemu-system-aarch64 -machine virt -cpu cortex-a57 -machine type=virt -m 100 -smp 2 -kernel Image -initrd ramdisk.img --append "rdinit=/init console=ttyAMA0" -nographic

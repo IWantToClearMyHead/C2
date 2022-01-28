@@ -151,9 +151,57 @@ qemu-system-aarch64 -nographic -machine virt,gic-version=max -m 512M -cpu max -s
 - ubuntu img in terms of cpio
 ```
 # Image: MS-DOS executable PE32+ executable (EFI application) Aarch64 (stripped to external PDB), for MS Windows
-# ramdisk-busybox.img: ASCII cpio archive (SVR4 with no CRC)
+# make from kernel
 
-qemu-system-aarch64 -machine virt -cpu cortex-a57 -machine type=virt -m 100 -smp 2 -kernel Image -initrd ramdisk.img --append "rdinit=/init console=ttyAMA0" -nographic
+# ramdisk-busybox.img: ASCII cpio archive (SVR4 with no CRC)
+# make via cpio
+mkdir rootfs
+# cat rootfs/d.c
+#include <stdio.h>
+#include <time.h>
+#define KNRM  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KMAG  "\x1B[35m"
+#define KCYN  "\x1B[36m"
+#define KWHT  "\x1B[37m"
+
+int main(void)
+{
+
+        long i = 100000000L;
+        clock_t start, finish;
+        double duration;
+
+        printf("Seconds used: ", i);
+
+        start = clock();
+        while(i--);
+        finish = clock();
+        duration = (double)(finish - start) / CLOCKS_PER_SEC;
+        //printf("\e[1;34m%f\e[0m seconds\n", duration);
+        printf("%s%f%s\n", KRED, duration, KNRM);
+        //while(1);
+//how to mimic key stroke? so we can exit qemu...
+        
+}
+
+g++ -static -ggdb3 -O0 -std=c++11 -Wall -Wextra -pedantic -o init d.c
+
+echo init | cpio -o --format=newc > ../ramdisk.img
+
+# stdio to enable Ctrl+c
+qemu-system-aarch64 -machine virt -cpu cortex-a57 -machine type=virt -m 100 -smp 2 -kernel Image -initrd ramdisk.img --append "rdinit=/init console=ttyAMA0" -nographic -serial mon:stdio
+
+
+
+# 
+Image  ramdisk.img
+
+rootfs:
+d.c  init  t.c
 ```
 
 - ubuntu img in terms of raw
@@ -161,6 +209,61 @@ qemu-system-aarch64 -machine virt -cpu cortex-a57 -machine type=virt -m 100 -smp
 😅 suffer
 ```
 qemu-system-aarch64 -M virt -cpu cortex-a57 -m 100 -smp 2 -kernel Image -drive format=raw,file=rootfs.ext -append "rdinit=/init console=ttyAMA0" -nographic 
+```
+
+
+- aarch64 (kernel)[https://github.com/freedomtan/aarch64-bare-metal-qemu/tree/2ae937a2b106b43bfca49eec49359b3e30eac1b1]
+- arm(32bit)
+```
+$ cat startup.s
+volatile unsigned int * const UART0DR = (unsigned int *)0x101f1000;
+ 
+void print_uart0(const char *s) {
+ while(*s != '\0') { /* Loop until end of string */
+ *UART0DR = (unsigned int)(*s); /* Transmit char */
+ s++; /* Next char */
+ }
+}
+ 
+void c_entry() {
+ print_uart0("Hello world!\n");
+}
+
+$ cat test.ld
+ENTRY(_Reset)
+SECTIONS
+{
+ . = 0x10000;
+ .startup . : { startup.o(.text) }
+ .text : { *(.text) }
+ .data : { *(.data) }
+ .bss : { *(.bss COMMON) }
+ . = ALIGN(8);
+ . = . + 0x1000; /* 4kB of stack memory */
+ stack_top = .;
+}
+
+$ cat test.c
+volatile unsigned int * const UART0DR = (unsigned int *)0x101f1000;
+ 
+void print_uart0(const char *s) {
+ while(*s != '\0') { /* Loop until end of string */
+ *UART0DR = (unsigned int)(*s); /* Transmit char */
+ s++; /* Next char */
+ }
+}
+ 
+void c_entry() {
+ print_uart0("Hello world!\n");
+}
+
+arm-none-eabi-gcc -c -mcpu=arm926ej-s -g test.c -o test.o
+arm-none-eabi-ld -T test.ld test.o startup.o -o test.elf
+arm-none-eabi-objcopy -O binary test.elf test.bin
+qemu-system-arm -M versatilepb -m 128M -nographic -kernel test.bin
+
+# file test.bin
+data
 ```
 
 <a href="#top">Back to top</a>

@@ -49,7 +49,9 @@
 | show |  git config --list --show-origin | |
 | delete after commit | git restore --source=HEAD^ --staged  -- path/*.* | :heavy_multiplication_x: |
 | check tag |git clone -b vx.x.x.x https://gem5.googlesource.com/public/gem5||
-||||
+| clean build |git fetch origin<br>git checkout branchname<br>git reset --hard origin/branchname<br>git  clean -d --force||
+
+
 
 ### Screen
 | type | command | note |

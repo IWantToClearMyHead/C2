@@ -133,4 +133,95 @@ gcc a.c
 
 ```
 
+### Busybox
+
+we can run busybox via . ./run.sh
+```
+echo $DISPLAY
+export XAUTHORITY=/home/zzx/.Xauthority
+xauth list
+p=/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra
+cd $(dirname $p)
+#echo `pwd`
+export MODEL=/home/zzx/85test/fvp/support/Model/FVP_RD_N2_Cfg1
+echo $MODEL
+echo "run model now..."
+
+./boot.sh -p rdn2cfg1 -n false -a "-C board.flash0.diagnostics=1 -a cluster0.cpu*=/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/hello.axf"
+```
+
+```
+# qemu-img info output/rdn2cfg1/grub-busybox.img
+image: output/rdn2cfg1/grub-busybox.img
+file format: raw
+virtual size: 222 MiB (232783872 bytes)
+disk size: 222 MiB
+
+# file output/rdn2cfg1/grub-busybox.img 
+output/rdn2cfg1/grub-busybox.img: DOS/MBR boot sector; partition 1 : ID=0xee, start-CHS (0x0,0,2), end-CHS (0x1c,76,48), startsector 1, 454655 sectors, extended partition table (last)
+
+# fdisk -l output/rdn2cfg1/grub-busybox.img
+Disk output/rdn2cfg1/grub-busybox.img: 222 MiB, 232783872 bytes, 454656 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 276A6AB2-EFB5-40AB-AA91-36CAE935643F
+
+Device                            Start    End Sectors  Size Type
+output/rdn2cfg1/grub-busybox.img1  2048  43006   40959   20M Microsoft basic dat
+output/rdn2cfg1/grub-busybox.img2 43008 452606  409599  200M Linux filesystem
+
+```
+
+we can unpack the img
+```
+mkdir ramfs
+sudo mount -o loop,offset=$((43008 * 512)) output/rdn2cfg1/grub-busybox.img ramfs
+
+ls ramfs
+Image  lost+found  ramdisk-busybox.img
+
+file ramfs/ramdisk-busybox.img
+ramfs/ramdisk-busybox.img: ASCII cpio archive (SVR4 with no CRC)
+
+cpio -t -F ramfs/ramdisk-busybox.img 
+dev
+dev/console
+dev/loop0
+bin
+bin/busybox
+bin/sh
+linuxrc
+proc
+sys
+mnt
+usr
+sbin
+usr/bin
+usr/sbin
+init
+etc
+usr/share
+usr/share/udhcpc
+usr/share/udhcpc/default.script
+3837 blocks
+
+mkdir tmp
+cd tmp
+# sudo cpio -i -u -I ../ramfs/ramdisk-busybox.img
+
+sudo cpio -idmv < ../ramfs/ramdisk-busybox.img
+ls
+sudo find . | cpio -o -H newc > ../bb.cpio
+sudo mv ramfs/ramdisk-busybox.img .
+sudo mv bb.cpio ramfs/ramdisk-busybox.img
+sudo umount ramfs
+ls ramfs
+
+
+```
+
+Checkpoint is a faster way to boot up to a certain point,
+
 <a href="#top">Back to top</a>

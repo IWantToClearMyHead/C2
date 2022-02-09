@@ -281,17 +281,17 @@ int main(void)
         printf("Time : %s\n", __TIME__);
         //printf("File : %s\n", __FILE__);
         //printf("Line : %d\n", __LINE__);
-        clock_t start, finish;
-        double duration;
 
         unsigned theTick = 0U;
         struct timespec ts, te;
+        long start, finish, duration;
         clock_gettime( CLOCK_REALTIME, &ts );
-        printf("=====start @%ld=====\n", ts.tv_sec);
+        start = ts.tv_sec;
+        printf("=====start @%ld=====\n", start);
 
 
-        int status;
-        if(fork() == 0) {
+        int cpid = fork();
+        if(cpid == 0) {
                 puts("\e[5m\n"
 " _______     ______  \n"
 "|  ___\\ \\   / /  _ \\ \n"
@@ -306,19 +306,20 @@ int main(void)
                 while(i--);
                 */
 
-                status = system("508/namd_r --input 508/apoa1.input --output 508/apoa1.ref.output --iterations 1");
+                int status = system("508/namd_r --input 508/apoa1.input --output 508/apoa1.ref.output --iterations 1");
 //              status = execl("508/namd_r", "508/namd_r", "--input", "508/apoa1.input", "--output", "508/apoa1.ref.output", "--iterations", "1", (char*)0);
-                finish = clock();
-                duration = (double)(finish - start) / CLOCKS_PER_SEC;
                 //printf("\e[1;34m%f\e[0m seconds\n", duration);
                 //printf("%s%f%s\n", KRED, duration, KNRM);
-                printf("Secs : %f\n", duration);
-        } else {
-                printf("\033[4m wait a sec... \033[0m\n");
+                exit(0);
         }
+        printf("\033[4m Running Spec On \033[0m\n");
+        wait(cpid);
 
         clock_gettime( CLOCK_REALTIME, &te );
-        printf("=====finish@%ld=====\n", te.tv_sec);
+        finish = te.tv_sec;
+        printf("=====finish @%ld=====\n", finish);
+        duration = (finish - start);
+        printf("Secs : %ld\n", duration);
 
 
         theTick  = (te.tv_nsec - ts.tv_nsec) / 1000000;

@@ -35,6 +35,9 @@ The contents are shown as below, select whichever might interest you
 5. [👨‍🎓story](History.md)
 6. [Keywrod](Keyword.md)
 7. [Function](Function.md)
+<br>a. [Information](Information.md)
+<br>b. [Service](Service.md)
+<br>c. [c](c.md)
 8. [Pointer](Pointer.md)
 9. [Fancy](Fancy.md)
 10. [⚛️licon](Silicon.md)
@@ -64,5 +67,6 @@ The appendix,
 | 2  |  Emoji          | [webfx](webfx.com/tools/emoji-cheat-sheet/)  |
 | 3  |  Arch           | [dive](https://diveintosystems.org/book/C5-Arch/hist.html)  |
 | 4  |  Algorithm      | [algorithm](https://runestone.academy/ns/books/published//pythonds/index.html) |
+| 5  |  Emoji          | [getemoji](https://getemoji.com/) |
 
 <a href="#top">Back to top</a>

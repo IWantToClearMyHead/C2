@@ -34,7 +34,9 @@
 |download a file|curl -O http://baidu.com/uploads/a.bb||
 | awk last column | awk '{print $0}' a.txt | [awk](Command_AWK.md) |
 | grep number |ls benchspec/CPU/ \| grep -E '[0-9]{3}' \| wc -l||
-| echo flash |echo -e "\033[44;37;5m flash \033[44;37;0m||
+| echo flash |echo -e "\033[44;37;5m flash \033[44;37;0m"||
+| cd in script |. ./a.sh||
+| clear content| : > a.txt ||
 
 
 ### SVN

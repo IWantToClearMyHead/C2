@@ -18,6 +18,7 @@ In short,
 - RISC: Reduce the cycles per instruction at the cost of the number of instructions per program. 
 
 In long,
+
 |CISC|RISC|
 |----|----|
 |Uses both hardwired and microprogrammed control unit|Focus on software	Focus on hardware|Uses only Hardwired control unit|
@@ -48,6 +49,7 @@ So if we want our program runs fast, we really have three ways,
 ### assembly
 
 Before to try asm, we first should know which isa we want to use, so we have to learn the relationship.
+
 |ARM family|ARM architecture|
 |---|---|
 |ARM7|	ARM v4|
@@ -97,10 +99,11 @@ $ gcc -c -g e3.s
 $ gcc -o e3 e3.o
 ```
 
-:question: is one line one instruction?
+❓ is one line one instruction
 
 In C, there are three kinds of instruction: declare, arithmetic and contorl.
 For control, there are four kinds:
+
 |||
 |----|----|
 |Sequentail|Order|

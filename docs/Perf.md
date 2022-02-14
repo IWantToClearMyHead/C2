@@ -65,6 +65,56 @@ ls ../benchspec/CPU/508.namd_r/build && ls ../benchspec/CPU/508.namd_r/run ; ls 
 ../bin/runcpu --config=try1.cfg --action=build 519.lbm_r
 ```
 
+- bench table
+|Rate and Speed|Total 43|Language|Line Count/1000|APP|
+|----|----|----|----|----|
+| SPECrate®2017 Integer	| SPECspeed®2017 Integer | Language |	KLOC | Application Area |
+|500.perlbench_r|600.perbench_s|C|362|Per interpreter|
+|502.gcc_r|602.gcc_s|C|1304|GNU C compiler|
+|505.mcf_r|605.mcf_s|C|3|Route planing|
+|520.omnetpp_r|620.omnetpp_s|C++|134|Discrete Devent simulation - computer network|
+|523.xalancbmk_r|623.xalancbmk_s|C++|520|XML to HTML conversion via XSLT|
+|525.X264_r|625.X264_s|C|C|96|Video compression|
+|531.deepsjeng_r|631.deepsjeng_s|C++|10|Artificial Intelligence: alpha-beta tree search(Chess)|
+|541.leela_r|641.leela_s|C++|21|Artificial Intelligence: Monte Carlo tree search(Go)|
+|548.exchage2_r|648.exchange2_s|Fortran|1|Artificial Intelligence: recursive solution generator(Sudoku)|
+|557.xz_r|657.xz_s|C|33|General data compression|
+| SPECrate®2017 Floating Point	| SPECspeed®2017 Floating Point | Language |	KLOC | Application Area |
+|503.bwaves_r|603.bwaves_s|Fortran|1|Explosion modeling|
+|508.namd_r||C++|8|Molecular dynamics|
+|510.parest_r||C++|427|Biomedical imaging: optical tomography with finite elements|
+|511.povray_r||C++, C|170|Ray tracing|
+|519.lbm_r|619.lbm_s|C|1|Fluid dynamics|
+|521.wrf_r|621.wrf_s|Fortran, C|991|Weather forecasting|
+|526.blender_r||C++, C|1577|3D rendering and animation|
+|527.cam4_r|627.cam4_s|Fortran, C|407|Atmosphere modeling|
+||628.pop2_s|Fortran, C|338|Wide-scale ocean modeling (climate level)|
+|538.imagick_r|638.imagick_s|C|259|Image manipulation|
+|544.nab_r|644.nab_s|C|24|Molecular dynamics|
+|549.fotonik3d_r|649.fotonik3d_s|Fortran|14|Computational Electromagnetics|
+|554.roms_r|654.roms_s|Fortran|210|Regional ocean modeling|
+
+install all,
+```
+sudo apt-get install gfortran, gcc, g++
+ ../bin/runcpu --config=ysemi.cfg all -i test &
+Locating benchmarks...found 47 benchmarks in 53 benchsets.
+Reading config file '/home/zzx/cpu2017/config/ysemi.cfg'
+4 configurations selected:
+
+ Action    Run Mode   Workload      Report Type      Benchmarks
+--------   --------   --------   -----------------   --------------------------
+validate   rate       test       SPECrate2017_fp     fprate                    
+validate   speed      test       SPECspeed2017_fp    fpspeed                   
+validate   rate       test       SPECrate2017_int    intrate                   
+validate   speed      test       SPECspeed2017_int   intspeed                  
+-------------------------------------------------------------------------------
+
+Benchmarks selected: 503.bwaves_r, 507.cactuBSSN_r, 508.namd_r, 510.parest_r, 511.povray_r, 519.lbm_r, 521.wrf_r, 526.blender_r, 527.cam4_r, 538.imagick_r, 544.nab_r, 549.fotonik3d_r, 554.roms_r, 997.specrand_fr
+
+
+```
+
 ### Perf Metric
 - execution time : time to do the task
 - throughput : number of tasks completed per unit time

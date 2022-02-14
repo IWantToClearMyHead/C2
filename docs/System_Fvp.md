@@ -227,14 +227,50 @@ Checkpoint is a faster way to boot up to a certain point, we try to use *Iris*
 ```
 /home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/../../../support/Model/FVP_RD_N2_Cfg1 --data css.scp.armcortexm7ct=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/scp_ramfw.bin@0x0BD80000 --data css.mcp.armcortexm7ct=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/mcp_ramfw.bin@0x0BF80000 -C css.mcp.ROMloader.fname=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/mcp_romfw.bin -C css.scp.ROMloader.fname=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/scp_romfw.bin -C css.trustedBootROMloader.fname=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/tf-bl1.bin -C board.flashloader0.fname=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/fip-uefi.bin -C board.flashloader1.fname=/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/nor1_flash.img -C board.flashloader1.fnameWrite=/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/nor1_flash.img -C board.flashloader2.fname=/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/nor2_flash.img -C board.flashloader2.fnameWrite=/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/nor2_flash.img -I -R -A -p --iris-port 7101 -C css.scp.pl011_uart_scp.out_file=rdn2cfg1/refinfra-948586-uart-0-scp_2022-02-08_06.39.15 -C css.scp.pl011_uart_scp.unbuffered_output=1 -C css.scp.pl011_uart_scp.uart_enable=true -C css.pl011_s_uart_ap.out_file=rdn2cfg1/refinfra-948586-uart-0-console_2022-02-08_06.39.15 -C soc.pl011_uart_mcp.out_file=rdn2cfg1/refinfra-948586-uart-0-mcp_2022-02-08_06.39.15 -C soc.pl011_uart_mcp.unbuffered_output=1 -C soc.pl011_uart0.out_file=rdn2cfg1/refinfra-948586-uart-0-armtf_2022-02-08_06.39.15 -C soc.pl011_uart0.unbuffered_output=1 -C soc.pl011_uart0.flow_ctrl_mask_en=1 -C soc.pl011_uart0.enable_dc4=0 -C soc.pl011_uart1.out_file=rdn2cfg1/refinfra-948586-uart-1-mm_2022-02-08_06.39.15 -C soc.pl011_uart1.unbuffered_output=1 -C soc.pl011_uart1.flow_ctrl_mask_en=1 -C soc.pl011_uart1.enable_dc4=0 -C css.pl011_s_uart_ap.unbuffered_output=1 -C css.gic_distributor.ITS-device-bits=20 -C pcie_group_0.pciex16.hierarchy_file_name=\<default\> -C pcie_group_0.pciex16.pcie_rc.ahci0.endpoint.ats_supported=true -C soc.nonPCIe_devices_iomacro.pl330_dma_0.p_controller_nsecure=1 -C soc.nonPCIe_devices_iomacro.pl330_dma_0.p_irq_nsecure=1 -C soc.nonPCIe_devices_iomacro.pl330_dma_0.p_periph_nsecure=1 -C soc.nonPCIe_devices_iomacro.pl330_dma_1.p_controller_nsecure=1 -C soc.nonPCIe_devices_iomacro.pl330_dma_1.p_irq_nsecure=1 -C soc.nonPCIe_devices_iomacro.pl330_dma_1.p_periph_nsecure=1 -C board.virtioblockdevice.image_path=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/grub-busybox.img -C board.flash0.diagnostics=1 -s /home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/rdn2cfg1/  --stat --log rdn2cfg1/log -o rdn2cfg1/output -C board.virtio_net.hostbridge.interfaceName=tap0 -C board.virtio_net.enabled=1 -C board.virtio_net.transport=legacy
 
+Iris server started listening to port 7101
+terminal_uart_scp: Listening for serial connection on port 5001
+terminal_uart_mcp: Listening for serial connection on port 5002
+INFO: cmn700:: CMN700:: Using 'CFGM_PERIPHBASE_PARAM' for periphbase address.
+
+terminal_ns_uart_ap: Listening for serial connection on port 5003
+terminal_s_uart_ap: Listening for serial connection on port 5004
+iomacro_terminal_0: Listening for serial connection on port 5005
+iomacro_terminal_1: Listening for serial connection on port 5006
+terminal_s0: Listening for serial connection on port 5007
+terminal_s1: Listening for serial connection on port 5008
+terminal_mcp: Listening for serial connection on port 5009
+terminal_0: Listening for serial connection on port 5010
+terminal_1: Listening for serial connection on port 5011
+
+Info: RD_N2_Cfg1: RD_N2_Cfg1.css.scp.ROMloader: FlashLoader: Loaded 44 kB from file '/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/scp_romfw.bin'
+
+Info: RD_N2_Cfg1: RD_N2_Cfg1.css.mcp.ROMloader: FlashLoader: Loaded 43 kB from file '/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/mcp_romfw.bin'
+
+Info: RD_N2_Cfg1: RD_N2_Cfg1.css.trustedBootROMloader: FlashLoader: Loaded 30 kB from file '/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/tf-bl1.bin'
+
+Info: RD_N2_Cfg1: RD_N2_Cfg1.board.flashloader0: FlashLoader: Loaded 5 MB from file '/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/fip-uefi.bin'
+
+Info: RD_N2_Cfg1: RD_N2_Cfg1.board.flashloader1: FlashLoader: Loaded 64 MB from file '/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/nor1_flash.img'
+
+Info: RD_N2_Cfg1: RD_N2_Cfg1.board.flashloader2: FlashLoader: Loaded 64 MB from file '/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/nor2_flash.img'
+
+Info: RD_N2_Cfg1: board.flash0: reset
+
+
+
 cd /home/zzx/FVP_ARM_Std_Library/Iris/Python
 import sys
 sys.path.append('/home/zzx/FVP_ARM_Std_Library/Iris/Python/iris')
 import iris.debug
 model = iris.debug.NetworkModel("localhost",7101)
-cpu = model.get_cpus()[2] #cluseter 0 cpu0
+cpulist = model.get_cpus()[2]
+cpu = cpulist #cluseter 0 cpu0
 cpu.get_pc()
 cpu.get_instruction_count()
+
+cpu.load_application("/home/zzx/Foundation_Platformpkg/examples/hello.axf", loadData = None, verbose = None, parameters = None)
+
+
 ```
 
 <a href="#top">Back to top</a>

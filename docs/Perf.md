@@ -66,6 +66,7 @@ ls ../benchspec/CPU/508.namd_r/build && ls ../benchspec/CPU/508.namd_r/run ; ls 
 ```
 
 - bench table
+
 |Rate and Speed|Total 43|Language|Line Count/1000|APP|
 |----|----|----|----|----|
 | SPECrate®2017 Integer	| SPECspeed®2017 Integer | Language |	KLOC | Application Area |
@@ -109,11 +110,107 @@ validate   speed      test       SPECspeed2017_fp    fpspeed
 validate   rate       test       SPECrate2017_int    intrate                   
 validate   speed      test       SPECspeed2017_int   intspeed                  
 -------------------------------------------------------------------------------
-
+503-554
 Benchmarks selected: 503.bwaves_r, 507.cactuBSSN_r, 508.namd_r, 510.parest_r, 511.povray_r, 519.lbm_r, 521.wrf_r, 526.blender_r, 527.cam4_r, 538.imagick_r, 544.nab_r, 549.fotonik3d_r, 554.roms_r, 997.specrand_fr
+603-654
+Benchmarks selected: 603.bwaves_s, 607.cactuBSSN_s, 619.lbm_s, 621.wrf_s, 627.cam4_s, 628.pop2_s, 638.imagick_s, 644.nab_s, 649.fotonik3d_s, 654.roms_s, 996.specrand_fs
+500-557
+Benchmarks selected: 500.perlbench_r, 502.gcc_r, 505.mcf_r, 520.omnetpp_r, 523.xalancbmk_r, 525.x264_r, 531.deepsjeng_r, 541.leela_r, 548.exchange2_r, 557.xz_r,  999.specrand_ir
+600-657
+Benchmarks selected: 600.perlbench_s, 602.gcc_s, 605.mcf_s, 620.omnetpp_s, 623.xalancbmk_s, 625.x264_s, 631.deepsjeng_s, 641.leela_s, 648.exchange2_s, 657.xz_s, 998.specrand_is
 
+result/CPU2017.003.log ====>>>
+
+500-557, 600-657, 503-554, 603-654
+```
+
+- app command
 
 ```
+ls benchspec/CPU/  -I *.bset -I 99*
+
+ls benchspec/CPU/  -I *.bset -I 99* -m 
+
+for app in `ls benchspec/CPU/  -I *.bset -I 99*`; do echo $app; done
+
+for app in `ls benchspec/CPU/  -I *.bset -I 99*`; do find benchspec/CPU/$app/build/build_base_mytest-m64.0000/ -type f -executable -print; done
+test -x $f && 
+
+find . -type f -exec file {} + | grep ELF
+
+
+
+for app in `ls benchspec/CPU/  -I *.bset -I 99*`;
+do 
+    d=benchspec/CPU/$app/build/build_base_mytest-m64.0000/
+    if [ -d $d ]; then
+        find $d -type f -exec file {} + | grep linked, | cut -d: -f1
+    fi
+done
+
+benchspec/CPU/500.perlbench_r/build/build_base_mytest-m64.0000/perlbench_r
+benchspec/CPU/503.bwaves_r/build/build_base_mytest-m64.0000/bwaves_r
+benchspec/CPU/505.mcf_r/build/build_base_mytest-m64.0000/mcf_r
+benchspec/CPU/507.cactuBSSN_r/build/build_base_mytest-m64.0000/cactusBSSN_r
+benchspec/CPU/508.namd_r/build/build_base_mytest-m64.0000/namd_r
+benchspec/CPU/510.parest_r/build/build_base_mytest-m64.0000/parest_r
+benchspec/CPU/511.povray_r/build/build_base_mytest-m64.0000/imagevalidate_511
+benchspec/CPU/511.povray_r/build/build_base_mytest-m64.0000/povray_r
+benchspec/CPU/519.lbm_r/build/build_base_mytest-m64.0000/lbm_r
+benchspec/CPU/520.omnetpp_r/build/build_base_mytest-m64.0000/omnetpp_r
+benchspec/CPU/521.wrf_r/build/build_base_mytest-m64.0000/wrf_r
+benchspec/CPU/521.wrf_r/build/build_base_mytest-m64.0000/diffwrf_521
+benchspec/CPU/523.xalancbmk_r/build/build_base_mytest-m64.0000/cpuxalan_r
+benchspec/CPU/525.x264_r/build/build_base_mytest-m64.0000/x264_r
+benchspec/CPU/525.x264_r/build/build_base_mytest-m64.0000/imagevalidate_525
+benchspec/CPU/525.x264_r/build/build_base_mytest-m64.0000/ldecod_r
+benchspec/CPU/526.blender_r/build/build_base_mytest-m64.0000/blender_r
+benchspec/CPU/526.blender_r/build/build_base_mytest-m64.0000/imagevalidate_526
+benchspec/CPU/527.cam4_r/build/build_base_mytest-m64.0000/cam4_validate_527
+benchspec/CPU/527.cam4_r/build/build_base_mytest-m64.0000/cam4_r
+benchspec/CPU/531.deepsjeng_r/build/build_base_mytest-m64.0000/deepsjeng_r
+benchspec/CPU/538.imagick_r/build/build_base_mytest-m64.0000/imagevalidate_538
+benchspec/CPU/538.imagick_r/build/build_base_mytest-m64.0000/imagick_r
+benchspec/CPU/541.leela_r/build/build_base_mytest-m64.0000/leela_r
+benchspec/CPU/544.nab_r/build/build_base_mytest-m64.0000/nab_r
+benchspec/CPU/548.exchange2_r/build/build_base_mytest-m64.0000/exchange2_r
+benchspec/CPU/549.fotonik3d_r/build/build_base_mytest-m64.0000/fotonik3d_r
+benchspec/CPU/554.roms_r/build/build_base_mytest-m64.0000/roms_r
+benchspec/CPU/557.xz_r/build/build_base_mytest-m64.0000/xz_r
+benchspec/CPU/600.perlbench_s/build/build_base_mytest-m64.0000/perlbench_s
+benchspec/CPU/603.bwaves_s/build/build_base_mytest-m64.0000/speed_bwaves
+benchspec/CPU/605.mcf_s/build/build_base_mytest-m64.0000/mcf_s
+benchspec/CPU/607.cactuBSSN_s/build/build_base_mytest-m64.0000/cactuBSSN_s
+benchspec/CPU/619.lbm_s/build/build_base_mytest-m64.0000/lbm_s
+benchspec/CPU/620.omnetpp_s/build/build_base_mytest-m64.0000/omnetpp_s
+benchspec/CPU/621.wrf_s/build/build_base_mytest-m64.0000/wrf_s
+benchspec/CPU/621.wrf_s/build/build_base_mytest-m64.0000/diffwrf_621
+benchspec/CPU/627.cam4_s/build/build_base_mytest-m64.0000/cam4_validate_627
+benchspec/CPU/627.cam4_s/build/build_base_mytest-m64.0000/cam4_s
+benchspec/CPU/628.pop2_s/build/build_base_mytest-m64.0000/speed_pop2
+benchspec/CPU/638.imagick_s/build/build_base_mytest-m64.0000/imagick_s
+benchspec/CPU/638.imagick_s/build/build_base_mytest-m64.0000/imagevalidate_638
+benchspec/CPU/644.nab_s/build/build_base_mytest-m64.0000/nab_s
+benchspec/CPU/649.fotonik3d_s/build/build_base_mytest-m64.0000/fotonik3d_s
+benchspec/CPU/654.roms_s/build/build_base_mytest-m64.0000/sroms
+
+for app in `ls benchspec/CPU/  -I *.bset -I 99*`;
+do 
+    d=benchspec/CPU/$app/build/build_base_mytest-m64.0000/
+    
+    if [ -d $d ]; then
+        a=`find $d -type f -exec file {} + | grep linked, | cut -d: -f1`
+        #[ -n "$a" ] && c="$a"" ""--help | head -n 1" && $c
+        [ -n "$a" ] && c="$a"" ""--help" && echo $c
+    fi
+done
+
+```
+
+|APP|CMD|
+|---|---|
+|500|benchspec/CPU/500.perlbench_r/build/build_base_mytest-m64.0000/perlbench_r [switches] [--] [programfile] [arguments]|
+
 
 ### Perf Metric
 - execution time : time to do the task

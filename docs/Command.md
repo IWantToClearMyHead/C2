@@ -37,6 +37,8 @@
 | echo flash |echo -e "\033[44;37;5m flash \033[44;37;0m"||
 | cd in script |. ./a.sh||
 | clear content| : > a.txt ||
+|delete many ps|ps aux | grep FVP | awk '{print $2}' | xargs kill -9|
+|show column 2 and 3|cut -d' ' -f2,3|
 
 
 ### SVN

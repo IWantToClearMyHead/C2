@@ -85,6 +85,8 @@
     
 * `FVP_TC1`
 
+
+
 ### Alpine
 
 - host
@@ -259,6 +261,7 @@ Info: RD_N2_Cfg1: board.flash0: reset
 
 
 cd /home/zzx/FVP_ARM_Std_Library/Iris/Python
+python3
 import sys
 sys.path.append('/home/zzx/FVP_ARM_Std_Library/Iris/Python/iris')
 import iris.debug
@@ -268,9 +271,90 @@ cpu = cpulist #cluseter 0 cpu0
 cpu.get_pc()
 cpu.get_instruction_count()
 
+>>> model.host
+'localhost'
+>>> model.port
+7101
+>>> model.client.hostname
+'localhost'
+>>> model.client
+<iris.iris.IrisTcpClient object at 0x7f23db51e940>
+>>> model.client.port
+7101
+>>> model.client.instance
+<iris.iris.IrisInstance object at 0x7f23db51ebe0>
+>>> model.client.instanceName
+'client.iris_debug'
+>>> model.client.instId
+516
+
+# there are two types of sub-class, CPU vs NON-CPU 
+
+cpus = model.get_cpus()
+target = model.get_target(name) #this is the target name
+# but we need get name via info
+l = list(model.get_target_info())
+# and we need to print cut-line
+for i, x in enumerate(l): print(i, x.target_name)
+
+s = []
+for i in l:
+    s.append(i.target_name)
+
+set(s)
+{'PVBusSlave', 'VisEventRecorder', 'MessageHandlingUnitV2', 'Kits2_PowerStateGate', 'FlashLoader', 'TZFilterUnit', 'filter1', 'PVBusExclusiveMonitor', 'ARM_Cortex-M7', 'hostbridge', 'MSIRewriter', 'SMSC_91C111', 'PCIe_Controllers', 'ahci1', 'PVBusLogger', 'RAMDevice', 'IOMACRO', 'nonPCIe_devices', 'Kits2_Timer', 'MemoryMappedGenericWatchdog', 'PVBusSecureSquasher', 'Infra5_SCP', 'Infra5_MSCP_PIK', 'IntelStrataFlashJ3', 'ahci0', 'Infra5_CSS_NIC400', 'Infra5_Board', 'WarningMemory', 'PCIeEndpoint', 'DMA330x4', 'ClockDivider', 'HostBridge', 'RD_N2_Cfg1_CSS', 'TelnetTerminal', 'MMC', 'RD_N2_Cfg1', 'Kits4_SystemIdUnit', 'Infra5_SoC', 'filter0', 'SMMUv3_FOR_PCIE', 'exerciser4', 'exerciser3', 'PL330_DMAC', 'exerciser2', 'Ashbrook_DebugUnit', 'ClockGate', 'PVBusMapper', 'PL011_Uart', 'Infra5_Debug_PIK', 'Infra_AddrTran', 'ClockTimerThread', 'VirtioNetMMIO', 'OrGate', 'Infra5_MCP', 'CounterModule', 'Cluster_ARM_Neoverse-N2', 'ahci2', 'Infra1_PLLControl', 'PL370_HDLCD', 'ClockTimerThread64', 'GICv4RedistributorInternal', 'Ashbrook_MCP_SCC', 'RandomNumberGenerator', 'LabellerForDMA330', 'NI-700', 'WideOrGate', 'SchedulerThreadEvent', 'PPUv1', 'GICv3ProtocolChecker', 'exerciser5', 'ScalableClockControl', 'Juno_sysregs', 'ARM_Neoverse-N2', 'smmuv3testengine0', 'GICv3Redistributor', 'Infra5_SCP_SCC', 'TLB', 'SP804_Timer', 'MMU_700', 'SMMUv3AEM', 'AsyncCacheFlushUnit', 'transaction_router_tracer', 'SP810_SysCtrl', 'PL031_RTC', 'Infra5_System_PIK', 'SMMUv3TestEngine', 'exerciser0', 'MemoryMappedGenericTimer', 'TestbedGPIOConnector', 'DummyAPB', 'smmuv3testengine1', 'Temperature', 'SRAM_ECC_RAS', 'CMSDK_Watchdog', 'MemoryMappedCounterModule', 'PS2Keyboard', 'PCIeBridge', 'PS2Mouse', 'MMU_500_BASE', 'GICv3CPUInterface', 'Exerciser', 'PVBusExclusiveSquasher', 'GICv3Distributor', 'NonVolatileCounter', 'TlbCadi', 'PL180_MCI', 'GICv3CPUInterfaceDecoder', 'PVCache', 'SP805_Watchdog', 'Infra5_Cluster_PIK', 'ClockSelector', None, 'PL350_SMC', 'SwitchedClockControl', 'FrequencyProbe', 'Infra4_MemoryElement_TZC400', 'PL061_GPIO', 'GICv4InterruptTranslationService', 'Ashbrook_SoC_SCC', 'TZSwitch', 'RD_MemoryElement_NoDMC', 'DisplayMemory', 'exerciser1', 'PVBusMaster', 'filter2', 'DSU', 'filter3', 'smmuv3testengine2', 'BasePlatformPCISBSA', 'PL050_KMI', 'Labeller', 'PCIeRootComplex', 'Visualisation_sdl2', 'ahci_sata', 'smmuv3testengine3', 'SchedulerThread', 'RootKeyStorage', 'Kits2_Privileged_to_Secure_Mapper', 'Juno_SoC_SOR'}
+
+s = []
+for i in l:
+    s.append(i.instance_name)
+    
+in fact, we can print without list conversion,
+
+['_Target__add_memspace_alias', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_disass_modes', '_event_manager', '_get_address_space', '_get_default_memory_space', '_get_register_by_name', '_handle_semihost_io', '_insert_breakpoint', '_memory_spaces_by_name', '_memory_spaces_by_number', '_stderr', '_stdin', '_stdout', '_table_info_by_name', 'add_bpt_mem', 'add_bpt_prog', 'add_bpt_reg', 'add_event_callback', 'all_registers_by_id', 'ambiguous_register_names', 'breakpoints', 'clear_bpts', 'client', 'component_type', 'description', 'disass_mode', 'disassemble', 'ec_IRIS_BREAKPOINT_HIT', 'ec_IRIS_SEMIHOSTING_INPUT_REQUEST', 'ec_IRIS_SEMIHOSTING_OUTPUT', 'executes_software', 'get_disass_modes', 'get_event_info', 'get_execution_state', 'get_hit_breakpoints', 'get_instruction_count', 'get_pc', 'get_register_info', 'get_steps', 'get_table_info', 'handle_semihost_io', 'has_register', 'has_table', 'instId', 'instName', 'instance_name', 'is_running', 'load_application', 'long_register_names', 'parameters', 'pc_info', 'pc_name_prefix', 'pc_space_id_info', 'properties', 'read_all_registers', 'read_memory', 'read_register', 'read_table', 'remove_bpt', 'remove_event_callback', 'restore_state', 'save_state', 'set_execution_state', 'set_steps', 'short_register_names', 'stderr', 'stdin', 'stdout', 'supports_disassembly', 'supports_per_inst_exec_control', 'supports_tables', 'target_name', 'write_memory', 'write_register', 'write_table']
+
+
+t = model.get_targets()
+for i in t:
+    print(type(i.target_name))
+    input("Press Enter to continue...")
+    if (i.target_name is None):
+        print(i.instName)
+```
+
+Load application for a certain CPU, The file can be ELF, Motorola S-Record, or in a gzip-compressed version
+
+```
+# 
+$ file /home/zzx/Foundation_Platformpkg/examples/hello.axf
+/home/zzx/Foundation_Platformpkg/examples/hello.axf: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, with debug_info, not stripped
+
 cpu.load_application("/home/zzx/Foundation_Platformpkg/examples/hello.axf", loadData = None, verbose = None, parameters = None)
+model.stop()
+model.run()
 
 
 ```
+
+
+### RDN2
+
+* `Cfg1`
+
+- 8xMP1 Neoverse N2 CPUs
+- CMN-700 interconnect (mesh size 3x3)
+- Multiple AXI expansion ports for I/O Coherent PCIe, Ethernet, offload
+- GIC-700.
+- MMU-700
+- Arm Cortex-M7 for System Control Processor (SCP) and Manageability Control Processor (MCP)
+
+* `CPU vs Non-CPU`
+- SoC
+The SoC peripherals represent peripherals that might be added to a compute subsystem in an
+SoC design. The RD-N2 SoC model is based on the Juno Arm® Development Platform (ADP).
+- Board
+The board peripherals represent peripherals that might be present on the board onto which
+the SoC is mounted. The RD-N2 board model is based on the Juno ADP
+- Interrupts
+
 
 <a href="#top">Back to top</a>

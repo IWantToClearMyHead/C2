@@ -315,10 +315,14 @@ in fact, we can print without list conversion,
 
 t = model.get_targets()
 for i in t:
-    print(type(i.target_name))
-    input("Press Enter to continue...")
     if (i.target_name is None):
         print(i.instName)
+        
+# we can have suspend
+|Version|Command|
+|-------|-------|
+|Python2 |raw_input("Press Enter to continue...")|
+|Python 3|input("Press Enter to continue...")|
 ```
 
 Load application for a certain CPU, The file can be ELF, Motorola S-Record, or in a gzip-compressed version

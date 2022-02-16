@@ -39,7 +39,9 @@
 | clear content| : > a.txt ||
 |delete many ps|ps aux | grep FVP | awk '{print $2}' | xargs kill -9|
 |show column 2 and 3|cut -d' ' -f2,3|
-
+|make folder into html|tree -C -L 3 -T "fvpdoc" -H "index.html" -I "node_modules" --charset=gbk -o ooTree.html|
+|make html|ansifilter -i css.cfg1 -H -o css.cfg1.html|
+|delete a file start with dash|rm -- -H|
 
 ### SVN
 | type | command | note |

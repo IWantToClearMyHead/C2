@@ -1,4 +1,7 @@
+```js
 // Use this to give interviewees short questions
+```
+
 
 ### [Python]lambda print calculation
 ```

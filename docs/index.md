@@ -35,8 +35,8 @@ The contents are shown as below, select whichever might interest you
 5. [👨‍🎓story](History.md)
 6. [Keywrod](Keyword.md)
 7. [Function](Function.md)
-<br>a. [Information](Information.md)
-<br>b. [Service](Service.md)
+<br>a. [bash](bash.md)
+<br>b. [python](python.md)
 <br>c. [c](c.md)
 8. [Pointer](Pointer.md)
 9. [Fancy](Fancy.md)
@@ -50,6 +50,7 @@ The contents are shown as below, select whichever might interest you
 <br>c. [IMG](Software_IMG.md)
 16. [Command](Command.md)
 <br>a. [AWK](Command_AWK.md)
+<br>a. [Bash](Command_Bash.md)
 18. [Server](Server.md)
 19. [Performace](Perf.md)
 

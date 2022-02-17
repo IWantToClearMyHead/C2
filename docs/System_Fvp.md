@@ -360,5 +360,23 @@ The board peripherals represent peripherals that might be present on the board o
 the SoC is mounted. The RD-N2 board model is based on the Juno ADP
 - Interrupts
 
+* `Cfg2` is a quad-chip, connected via CCG link through CMN700 CML feature. Each chip,
+
+- 4xMP1 Neoverse N2 CPUs
+- CMN-700 interconnect (mesh size 6x6)
+- Multiple AXI expansion ports for I/O Coherent PCIe, Ethernet, offload
+- GIC-700.
+- MMU-700
+- Arm Cortex-M7 for System Control Processor (SCP) and Manageability Control Processor (MCP)
+
+* `RD-N2` in particular is based on the following hardware configuration.
+
+- 32xMP1 Neoverse N2 CPUs
+- CMN-700 interconnect
+- Multiple AXI expansion ports for I/O Coherent PCIe, Ethernet, offload
+- Arm Cortex-M7 for System Control Processor (SCP) and
+- Manageability Control Processor (MCP)
+
+The _ixed Virtual Platform_ of RD-N2 config supports 16xMP1 Neoverse N2 CPUs.
 
 <a href="#top">Back to top</a>

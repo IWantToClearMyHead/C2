@@ -42,7 +42,7 @@
 |make folder into html|tree -C -L 3 -T "fvpdoc" -H "index.html" -I "node_modules" --charset=gbk -o ooTree.html|
 |make html|ansifilter -i css.cfg1 -H -o css.cfg1.html|
 |delete a file start with dash|rm -- -H|
-|newest file in folder|find . -type f -printf "%T@ %p\n" \| sort -n \| cut -d' ' -f 2- \| tail -n 1|
+|newest file in folder|find . -type f -printf "%T@ %p\n" \| sort -n \| cut -d' ' -f2 \| tail -n 1|
 |align via awk|sudo cat /proc/1/maps \| awk '{printf("%-35s %-s\n", $1, $6);}'|
 |show files in better format|ls -l \| awk '{printf("%6s %s %2s %s %-s\n", $5, $6, $7, $8, $9);}'|
 
@@ -84,6 +84,7 @@ is not working...
 |switch|Ctrl + a, Ctrl + a||
 |lock|Ctrl + a, x|need input password|
 |kill current|Ctrl + a, k, y|no to cancel|
+|scroll| Ctrl + a, Esc, ← ↑ → ↓ |
 
 
 ### Misc

@@ -336,7 +336,101 @@ cpu.load_application("/home/zzx/Foundation_Platformpkg/examples/hello.axf", load
 model.stop()
 model.run()
 
+```
 
+try read memory, and save into file if ok
+
+the memory is from spec, i.e. 0x00 2000 0000 - 0x00 200F FFFF is Processor block 0, 0x00_0600_0000 0x00_07FF_FFFF 32MB AP Non-secure RAM
+```
+
+def seq():
+    gap = 1
+    start = 0x0020000000
+    end = 0x00200FFFFF
+    while start < end:
+        yield start
+        start = start + gap
+
+gen = seq()
+for i in gen:
+    try:
+        c.read_memory(i)
+        
+    except Exception as exception:
+        print(exception, hex(i))
+    else:
+        with open('mem', 'w+') as f: f.write(I, '\n')
+
+```
+
+:heavy_exclamation_mark: so what is the memory space in console now
+
+```
+# cat /proc/1/maps | awk {'print $1, $6'}
+00400000-005dc000 /bin/busybox
+005eb000-005ec000 /bin/busybox
+005ec000-005ee000 /bin/busybox
+005ee000-005f1000 
+102c0000-102e2000 [heap]
+ffffacf5b000-ffffacf5d000 [vvar]
+ffffacf5d000-ffffacf5e000 [vdso]
+ffffdf237000-ffffdf258000 [stack]
+
+# cat /proc/meminfo
+MemTotal:        8092044 kB
+MemFree:         8033820 kB
+MemAvailable:    7943800 kB
+Buffers:               0 kB
+Cached:             6864 kB
+SwapCached:            0 kB
+Active:                4 kB
+Inactive:             56 kB
+Active(anon):          4 kB
+Inactive(anon):       56 kB
+Active(file):          0 kB
+Inactive(file):        0 kB
+Unevictable:        6864 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:            60 kB
+Mapped:             1220 kB
+Shmem:                 0 kB
+KReclaimable:       2988 kB
+Slab:              18224 kB
+SReclaimable:       2988 kB
+SUnreclaim:        15236 kB
+KernelStack:        1648 kB
+PageTables:           60 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     4046020 kB
+Committed_AS:        584 kB
+VmallocTotal:   133143461888 kB
+VmallocUsed:        2516 kB
+VmallocChunk:          0 kB
+Percpu:              832 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:          32768 kB
+CmaFree:           26480 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+
+/proc/vmallocinfo
+/proc/iomem
+/proc/ioport
 ```
 
 

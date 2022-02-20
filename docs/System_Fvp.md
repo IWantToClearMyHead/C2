@@ -317,14 +317,36 @@ t = model.get_targets()
 for i in t:
     if (i.target_name is None):
         print(i.instName)
-        
-# we can have suspend
+```
+
+we can have suspend
 |Version|Command|
 |-------|-------|
 |Python2 |raw_input("Press Enter to continue...")|
 |Python 3|input("Press Enter to continue...")|
-```
 
+we can read memory
+```
+def seq():
+    gap = 1
+    start = 0x400003
+    #end = 0x00200FFFFF
+    end = sys.maxsize
+    while start < end:
+        yield start
+        start = start + gap
+
+gen = seq()
+for i in gen:
+    try:
+        print(c.read_memory(i), hex(i))
+        #break 
+    except Exception as exception:
+        print(exception, hex(i))
+    #else:
+        #with open('mem', 'w+') as f: f.write(i); f.write('\n') 
+
+```
 Load application for a certain CPU, The file can be ELF, Motorola S-Record, or in a gzip-compressed version
 
 ```

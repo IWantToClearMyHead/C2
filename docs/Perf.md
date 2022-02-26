@@ -4,6 +4,91 @@
 git clone https://github.com/brendangregg/FlameGraph.git
 ```
 
+Take anbox as example
+```
+robox@ubuntu:~/robox_920_huawei/script/download/robox/binaryFiles$ ./robox -v stop 10
+./robox: line 40: $ROBOXALLLOG: ambiguous redirect
+: @@@ args vnc
+./robox: line 40: $ROBOXALLLOG: ambiguous redirect
+: @@@ args stop
+10: Attempting to stop instance instance10
+10: STOPPING Docker
+./robox: line 196: 108288 Killed                  taskset -c 8-14 anbox session-manager --run-multiple=10 --standalone --experimental --single-window --window-size=720,1280
+
+10: NOT stopping Session Manager, it's not running
+robox@ubuntu:~/robox_920_huawei/script/download/robox/binaryFiles$ ./robox -v start 10
+./robox: line 40: $ROBOXALLLOG: ambiguous redirect
+: @@@ args vnc
+./robox: line 40: $ROBOXALLLOG: ambiguous redirect
+: @@@ args start
+10: Attempting to start instance instance10
+10: @@ start frame
+10: 10: STARTING Frame Buffer
+10: The Xorg service has been created
+10: @@ start session
+10: STARTING Session Manager
+taskset -c 8-14 anbox session-manager --run-multiple=10 --standalone --experimental --single-window --window-size=720,1280
+10: @@ start configurenetwork
+10: CREATING network configuration (using 172.17.0.14)
+10: @@ start container
+10: @@@ STARTING Docker container
+10: @@@ add vnc start
+10: STARTING VNC Server 000
+10: STARTING VNC Server
+10: FAILED to start the VNC Server
+10: @@@ STARTING Launcher 000
+robox@ubuntu:~/robox_920_huawei/script/download/robox/binaryFiles$ ps aux | grep start
+root       2071  0.0  0.0 100016 16296 ?        Ssl  Feb24   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+robox     16638  0.0  0.0  14724 11488 pts/8    T    09:56   0:00 /bin/bash ./robox -v start 1
+robox     20778  0.0  0.0  14724 11548 pts/8    T    09:57   0:00 /bin/bash ./robox -v start 1 -lf /tmp/robox/1/2022-02-26-09AM -x 2
+robox     21431  0.0  0.0   6528  3188 pts/8    T    09:57   0:00 /bin/bash ./robox -v start 1 -lf /tmp/robox/1/2022-02-26-09AM -x 3
+robox     31766  0.0  0.0 455648 11396 ?        Sl   Feb24   0:00 /usr/bin/pulseaudio --start --log-target=syslog
+robox     44961  0.0  0.0  14724 11488 pts/8    T    10:01   0:00 /bin/bash ./robox -v start 1
+robox     47168  0.9  0.0   6528  3256 pts/8    T    10:02   0:05 /bin/bash ./robox -v start 1 -lf /tmp/robox/1/2022-02-26-10AM -x 4
+root      89723  0.0  0.0  14724 11352 pts/8    T    10:08   0:00 /bin/bash ./robox -v start 1
+root      97549  0.0  0.0  14724 11328 pts/8    S+   10:09   0:00 /bin/bash ./robox -v start 1
+root      97594  0.0  0.0   6528  1800 pts/8    S+   10:09   0:00 /bin/bash ./robox -v start 1
+root      99474  0.0  0.0  14724 11352 pts/8    S+   10:09   0:00 /bin/bash ./robox -v start 1 -lf /tmp/robox/1/2022-02-26-10AM -x 1
+root     103463  0.0  0.0  14724 11384 pts/8    S+   10:10   0:00 /bin/bash ./robox -v start 1 -lf /tmp/robox/1/2022-02-26-10AM -x 2
+root     107784  0.1  0.0  14724 11376 pts/8    S+   10:10   0:00 /bin/bash ./robox -v start 1 -lf /tmp/robox/1/2022-02-26-10AM -x 3
+root     112578  0.2  0.0  14724 11284 pts/8    S+   10:11   0:00 /bin/bash ./robox -v start 1 -lf /tmp/robox/1/2022-02-26-10AM -x 4
+robox    113913  0.0  0.0   6528  1868 pts/2    S    10:11   0:00 /bin/bash ./robox -v start 10
+robox    114817  0.0  0.0   5668   644 pts/2    S+   10:11   0:00 grep --color=auto start
+robox@ubuntu:~/robox_920_huawei/script/download/robox/binaryFiles$ pstree -p 113913
+robox(113913)───anbox(113914)─┬─{anbox}(113926)
+                              ├─{anbox}(113927)
+                              ├─{anbox}(113934)
+                              ├─{anbox}(113935)
+                              ├─{anbox}(113936)
+                              ├─{anbox}(113937)
+                              ├─{anbox}(113938)
+                              ├─{anbox}(113939)
+                              ├─{anbox}(113940)
+                              ├─{anbox}(113941)
+                              ├─{anbox}(113942)
+                              ├─{anbox}(114495)
+                              ├─{anbox}(114496)
+                              ├─{anbox}(115227)
+                              ├─{anbox}(115228)
+                              ├─{anbox}(115234)
+                              ├─{anbox}(115235)
+                              ├─{anbox}(115338)
+                              ├─{anbox}(115339)
+                              ├─{anbox}(115721)
+                              ├─{anbox}(115722)
+                              ├─{anbox}(115749)
+                              ├─{anbox}(115750)
+                              ├─{anbox}(115756)
+                              ├─{anbox}(115757)
+                              ├─{anbox}(115936)
+                              ├─{anbox}(115937)
+                              ├─{anbox}(116038)
+                              └─{anbox}(116039)
+
+sudo perf record -F 99 -p 113913 -g -- sleep 30
+sudo perf script | FlameGraph-master/stackcollapse-perf.pl | FlameGraph-master/flamegraph.pl > process.svg
+```
+
 ### CPU Time
 - CPU time is a true measure of processor/memory performance
 - Performance of processor/memory = 1 / CPU time 

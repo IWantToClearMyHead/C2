@@ -61,4 +61,48 @@ executable('a', 'a.c', dependencies : gtkdep)
 export fn=/tmp/cmake.sh && ls $fn && (echo "use previous $fn? Enter for yes, ctrl+d for no." && read) || (wget -O $fn http://www.cmake.org/files/v3.0/cmake-3.0.2-Linux-i386.sh 1>&2) && (cd /opt && sudo bash ${fn} && echo sudo ln -f -s /opt/cmake*/bin/cmake /usr/local/bin/cmake && cd -)
 ```
 
+### GCC
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+        printf("__func__: %s\n", __func__);
+        printf("__FILE__: %s\n", __FILE__);
+        printf("__DATE__: %s\n", __DATE__);
+        printf("__TIME__: %s\n", __TIME__);
+        printf("__LINE__: %d\n", __LINE__);
+}
+```
+
+### warning not error
+`make CFLAGS="-Wno-error"`
+
+### arm cc
+gcc-arm-none-eabi
+`make CC="/home/ubuntu/zzx/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc"`
+
+### make print
+```
+define msg_start
+================================================================
+Arm SCP/MCP Software build System
+Platform    : $(BS_PRODUCT_NAME)
+Mode        : $(MODE)
+Firmware(s) : $(BS_FIRMWARE_LIST)
+================================================================
+endef
+
+    $(info $(msg_start))
+endif
+
+```
+
+### make cmd
+```
+$(shell pwd)
+```
+
 <a href="#top">Back to top</a>

@@ -42,4 +42,74 @@ int main() {
 }
 ```
 
+### Stack
+```
+#include <execinfo.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void fun1();
+void fun2();
+void fun3();
+
+void print_stacktrace();
+
+int main()
+{
+printf("%s is calling\n", "main");
+fun3();
+}
+
+void fun1()
+{
+printf("%d is calling\n", 1);
+printf("stackstrace begin:\n");
+print_stacktrace();
+}
+
+void fun2()
+{
+printf("%d is calling\n", 2);
+fun1();
+}
+
+void fun3()
+{
+printf("%d is calling\n", 3);
+fun2();
+}
+
+void print_stacktrace()
+{
+int size = 16;
+void * array[16];
+int stack_num = backtrace(array, size);
+char ** stacktrace = backtrace_symbols(array, stack_num);
+for (int i = 0; i < stack_num; ++i)
+{
+printf("%s\n", stacktrace[i]);
+}
+free(stacktrace);
+}
+
+$ gcc b.c -rdynamic -g
+$ ./a.out
+main is calling
+3 is calling
+2 is calling
+1 is calling
+stackstrace begin:
+./a.out(print_stacktrace+0x3f) [0x5594ba9fb2e6]
+./a.out(fun1+0x34) [0x5594ba9fb24e]
+./a.out(fun2+0x28) [0x5594ba9fb279]
+./a.out(fun3+0x28) [0x5594ba9fb2a4]
+./a.out(main+0x2a) [0x5594ba9fb213]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fbeb502c0b3]
+./a.out(_start+0x2e) [0x5594ba9fb12e]
+$ addr2line -a 0x5594ba9fb279 -e a.out -f -C
+0x0000563af01ee279
+??
+??:0
+```
+
 <a href="#top">Back to top</a>

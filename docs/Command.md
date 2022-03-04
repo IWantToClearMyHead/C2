@@ -45,6 +45,7 @@
 |newest file in folder|find . -type f -printf "%T@ %p\n" \| sort -n \| cut -d' ' -f2 \| tail -n 1|
 |align via awk|sudo cat /proc/1/maps \| awk '{printf("%-35s %-s\n", $1, $6);}'|
 |show files in better format|ls -l \| awk '{printf("%6s %s %2s %s %-s\n", $5, $6, $7, $8, $9);}'|
+|tree all file in a folder|tree . -H "." -o tree.html|
 
 <!---
 div class="special-class" markdown="1"
@@ -69,6 +70,11 @@ is not working...
 | delete after commit | git restore --source=HEAD^ --staged  -- path/*.* | :heavy_multiplication_x: |
 | check tag |git clone -b vx.x.x.x https://gem5.googlesource.com/public/gem5||
 | clean build |git fetch origin<br>git checkout branchname<br>git reset --hard origin/branchname<br>git  clean -d --force||
+| remove all|git checkout .<br>git clean -df<br>git status|only use when no add and commit|
+|           |git reset .|otherwise one must cancel add |
+| current version|git rev-parse HEAD||
+|                |git log -1||
+
 
 
 

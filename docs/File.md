@@ -73,6 +73,51 @@ size, the section type as well as its address and memory offset.
 
 
 ### APK
+use android studio to build apk, and debug with adb, take robox as example
+```
+#ssh 920 use robox
+cd ~/robox_920_huawei/script/download/robox/binaryFiles
+./robox start 1
+netstat -tlp | grep 5559
+adb connect 192.168.10.111:5559
+scrcpy -s 192.168.10.111:5559
+http://192.168.10.111:8090/files
+adb install zd.apk
+#success
+#inside anbox
+adb shell
+#inside 920
+perf
+
+adb push icon.png /sdcard/Download
+
+adb shell am start com.android.documentsui/.LauncherActivity
+
+adb shell am start com.android.gallery3d/.LauncherActivity
+
+adb shell am start com.android.gallery3d/.app.GalleryActivity
+
+adb shell am force-stop com.android.gallery3d
+
+adb shell am force-stop com.android.deskclock
+
+adb shell am start com.android.music/.MusicBrowserActivity
+
+adb push icon.png /storage/self/primary/Pictures/
+
+adb shell am start -a android.intent.action.VIEW -d http://www.baidu.com
+
+adb push icon.png /storage/self/primary/Movies C:\Users\zixia\Documents\robox
+
+adb shell am force-stop com.qiyi.video
+
+adb shell dumpsys activity | findstr "mFocusedActivity"
+
+adb shell am force-stop com.android.documentsui
+
+adb shell ls sdcard
+
+```
 
 ### EXE
 

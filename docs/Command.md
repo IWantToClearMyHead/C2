@@ -6,6 +6,7 @@
 | cpu detail | wmic cpu get /format:hform > cpu.html | 
 | memory detail | wmic memorychip |  
 | hard disk | wmic diskdrive list full /format:hform > hdd.html |
+| rsync | set PATH=C:\Users\zixia\Documents\cwrsync_5.5.0_x86_free\bin;C:\Users\zixia\Documents\cmder\vendor\git-for-windows\cmd;C:\Users\zixia\Documents\cmder\vendor\conemu-maximus5\ConEmu\Scripts;C:\Users\zixia\Documents\cmder\vendor\conemu-maximus5;C:\Users\zixia\Documents\cmder\vendor\conemu-maximus5\ConEmu;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Users\zixia\AppData\Local\Microsoft\WindowsApps;C:\Users\zixia\Documents\cmder\vendor\git-for-windows\mingw64\bin;C:\Users\zixia\Documents\cmder\vendor\git-for-windows\usr\bin;C:\Users\zixia\Documents\cmder\vendor\bin;C:\Users\zixia\Documents\cmder;<br>rsync.exe -e 'ssh -v' --progress -av mywork.tar.gz zzx@192.168.10.85:/home/zzx | 
 
 ### Linux
 

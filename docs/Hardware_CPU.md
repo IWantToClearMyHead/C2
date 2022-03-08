@@ -104,14 +104,163 @@ $ gcc -o e3 e3.o
 In C, there are three kinds of instruction: declare, arithmetic and contorl.
 For control, there are four kinds:
 
-|||
+|Type|Statement|
 |----|----|
 |Sequentail|Order|
 |Decision|If..Else statement or If..Else If..Else statement|
 |Loop|While loop or Do/While loop or For loop statement|
 |Case|Switch Case statements|
 
+### [Assembly](https://azeria-labs.com/writing-arm-assembly-part-1/)
 
+- add r1, r2 into r3, use r0 as tmp
+
+```
+$ cat hello.S
+.data                                                                    
+                                                                         
+/* Data segment: define our message string and calculate its length. */  
+msg:                                                                     
+    .ascii        "Hello, ARM64!\n"                                      
+len = . - msg                                                            
+                                                                         
+.text                                                                    
+                                                                         
+/* Our application's entry point. */                                     
+.globl _start                                                            
+_start:                                                                  
+    /* syscall write(int fd, const void *buf, size_t count) */           
+    mov     x0, #1      /* fd := STDOUT_FILENO */                        
+    ldr     x1, =msg    /* buf := msg */                                 
+    ldr     x2, =len    /* count := len */                               
+    mov     w8, #64     /* write is syscall #64 */                       
+    svc     #0          /* invoke syscall */                             
+                                                                         
+    /* syscall exit(int status) */                                       
+    mov     x0, #0      /* status := 0 */                                
+    mov     w8, #93     /* exit is syscall #93 */                        
+    svc     #0          /* invoke syscall */                             
+
+
+$ as -o hello.o hello.S
+$ ld -s -o hello hello.o
+
+$ ./hello
+Hello, ARM64!
+
+zzx@ubuntu:~/test$  objdump -d hello
+
+hello:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000004000b0 <.text>:
+  4000b0:       d2800020        mov     x0, #0x1                        // #1
+  4000b4:       580000e1        ldr     x1, 0x4000d0
+  4000b8:       58000102        ldr     x2, 0x4000d8
+  4000bc:       52800808        mov     w8, #0x40                       // #64
+  4000c0:       d4000001        svc     #0x0
+  4000c4:       d2800000        mov     x0, #0x0                        // #0
+  4000c8:       52800ba8        mov     w8, #0x5d                       // #93
+  4000cc:       d4000001        svc     #0x0
+  4000d0:       004100e0        .inst   0x004100e0 ; undefined
+  4000d4:       00000000        .inst   0x00000000 ; undefined
+  4000d8:       0000000e        .inst   0x0000000e ; undefined
+  4000dc:       00000000        .inst   0x00000000 ; undefined
+  
+# its corresponding c
+#include <unistd.h>
+
+void main() {
+          const char msg[] = "Hello, ARM64!\n";
+          write(0, msg, sizeof(msg));
+          exit(0);
+}
+```
+
+- checkout cpu arch
+```
+$ cat a.c
+int main()
+{
+        int a = 1, b = 2;
+        int c = a + b;
+        return 0;
+}
+$ gcc -S a.c
+$ cat a.s
+        .arch armv8-a
+        .file   "a.c"
+        .text
+        .align  2
+        .global main
+        .type   main, %function
+main:
+        sub     sp, sp, #16
+        mov     w0, 1
+        str     w0, [sp, 4]
+        mov     w0, 2
+        str     w0, [sp, 8]
+        ldr     w1, [sp, 4]
+        ldr     w0, [sp, 8]
+        add     w0, w1, w0
+        str     w0, [sp, 12]
+        mov     w0, 0
+        add     sp, sp, 16
+        ret
+        .size   main, .-main
+        .ident  "GCC: (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) 7.5.0"
+        .section        .note.GNU-stack,"",@progbits
+        
+$ as -o a.o a.s
+$ ld -s -o a.out a.o # fail to have _start, _main not work
+
+
+```
+
+- gdb with armv8-a
+```
+(gdb) info registers                                           
+x0             0x3      3                                      
+x1             0x1      1                                      
+x2             0xfffffffff4e8   281474976707816                
+x3             0xfffffffff4f8   281474976707832                
+x4             0x1c     28                                     
+x5             0xffffbf700738   281473893533496                
+x6             0x0      0                                      
+x7             0x100404010000000        72128237928448000      
+x8             0xffffffffffffffff       -1                     
+x9             0x3f     63                                     
+x10            0x20     32                                     
+x11            0x0      0                                      
+x12            0x0      0                                      
+x13            0xffffbf6ff048   281473893527624                
+x14            0xffffbf6fd1f8   281473893519864                
+x15            0xffffbf6fd150   281473893519696                
+x16            0xffffbf6ff048   281473893527624                
+x17            0xffffbf6e6230   281473893425712                
+x18            0x3      3                                      
+x19            0x0      0                                      
+x20            0x0      0                                      
+x21            0xaaaaaaaaa340   187649984471872                
+x22            0x0      0                                      
+x23            0x0      0                                      
+x24            0x0      0                                      
+x25            0x0      0                                      
+x26            0x0      0                                      
+x27            0x0      0                                      
+x28            0x0      0                                      
+x29            0xfffffffff4c0   281474976707776                
+x30            0xffffbf6d2244   281473893343812                
+sp             0xfffffffff4c0   0xfffffffff4c0                 
+pc             0xaaaaaaaaa368   0xaaaaaaaaa368 <_start+40>     
+cpsr           0x60200000       [ EL=0 SS C Z ]                
+fpsr           0x0      0                                      
+fpcr           0x0      0                                      
+
+
+```
 
 
 

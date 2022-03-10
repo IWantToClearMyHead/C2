@@ -48,9 +48,12 @@ The contents are shown as below, select whichever might interest you
 <br>a. [CPU](Hardware_CPU.md)
 <br>b. [QEMU](QEMU_KVM.md)
 <br>c. [IMG](Software_IMG.md)
+<br>d. [FILE](File.md)
+15. [Reverse](Reverse.md)
 16. [Command](Command.md)
-<br>a. [AWK](Command_AWK.md)
-<br>a. [Bash](Command_Bash.md)
+<br>a. [Table](Command_AWK.md)
+<br>a. [Quick](Command_Bash.md)
+17. [🎵usic](Music.md)
 18. [Server](Server.md)
 19. [Performace](Perf.md)
 
@@ -58,7 +61,7 @@ The appendix,
 1. [short name](EF.md)
 2. [equation](EQ.md)
 3. [markdown](EM.md)
-4. [script](ES.md)
+4. [interview](ES.md)
 
 ### Reference
 

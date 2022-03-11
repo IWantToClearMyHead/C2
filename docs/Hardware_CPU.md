@@ -113,7 +113,7 @@ For control, there are four kinds:
 
 ### [Assembly](https://azeria-labs.com/writing-arm-assembly-part-1/)
 
-- add r1, r2 into r3, use r0 as tmp
+- add x1, x2 into x3, use x0 as tmp
 
 ```
 $ cat hello.S
@@ -262,8 +262,96 @@ fpcr           0x0      0
 
 ```
 
+### ARM64 asm self-note
+
+|Register|Function|
+|----|----|
+|x0–x7| function arguments, scratch (x0 is also function return value)|
+|x8–x18| scratch (x8 is syscall number, x16–x18 sometimes reserved)|
+|x19–x28| callee-saved registers (save to stack at beginning of function, restore from stack before returning)|
+|x29| frame pointer|
+|x30| link register (save to stack for non-leaf functions)|
+|sp| stack pointer|
+|||
+|/usr/include/asm-generic/unistd.h|syscall|
+
+- asciz vs ascii
+ .ascii "JNZ"      0x4A 0x4E 0x5A 0x00
+ .ascii "JNZ"      0x4A 0x4E 0x5A
+ 
+```
+$ cat print.s
+.data
+    msg_output: .asciz "proc start \n"
+.global _start
+.text
+_start:
+    ldr x0, =msg_output  // x0 ← &msg_output [64-bit]
+    bl printf                // call printf
+end:
+    mov x0,x2
+    mov x8, #93
+    svc #0
+    
+$ as -o print.o print.s
+$ ld -g -o  print print.o -lc -I /lib/ld-linux-aarch64.so.1
+$ ./print
 
 
+```
 
+rasm use objdump
+```
+cat hello.s
+.global _start
+.text
+_start:
+    mov x17, #0
+lewp:
+    mov x0, #1
+    ldr x1, =msg
+    ldr x2, =len
+    mov w8, #64
+    svc #0
+    mov x18, #1
+    add x17, x17, x18
+    mov x18, #10
+    cmp x18, x17
+    bgt lewp
+
+
+    mov x0, #0
+    mov w8, #93
+    svc #0
+.data
+    msg: .asciz "Hello World\n"
+    len = .-msg
+    
+as -o hello.o hello.s
+ld -o hello hello.o
+objdump -s -d hello.o > hello.o.txt
+cat hello.o.txt
+```
+
+❓how to get support ISA
+
+|Type|Arch|
+|----|----|
+|Classic||
+||ARM11|
+||ARM9|
+||ARM7|
+|Sercure||
+||SC000|
+||SC300|
+|MachineLearning||
+||Ethos|
+||CortexA|
+||CortexM|
+||Neoverse|
+|||
+|A64 instruction set|The A64 instruction set, introduced in Armv8-A to support the 64-bit architecture.|
+|A32 instruction set|The A32 instruction set, referred to as ‘ARM’ in Armv6 and Armv7 architectures.|
+|T32 instruction set|The T32 instruction set, referred to as ‘Thumb’ in Armv6 and Armv7 architectures.|
 
 <a href="#top">Back to top</a>

@@ -47,6 +47,7 @@
 |align via awk|sudo cat /proc/1/maps \| awk '{printf("%-35s %-s\n", $1, $6);}'|
 |show files in better format|ls -l \| awk '{printf("%6s %s %2s %s %-s\n", $5, $6, $7, $8, $9);}'|
 |tree all file in a folder|tree . -H "." -o tree.html|
+|kill a group|ps aux \| grep FVP \| awk '{print $2}' \| xargs kill -9|
 
 <!---
 div class="special-class" markdown="1"

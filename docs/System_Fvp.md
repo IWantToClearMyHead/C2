@@ -497,6 +497,7 @@ The _ixed Virtual Platform_ of RD-N2 config supports 16xMP1 Neoverse N2 CPUs.
 
 ### CMN700
 
+use iris to print reg value
 ```
 x = model.get_target("component.RD_N2_Cfg1.css.cmn700")
 r = x.short_register_names
@@ -519,6 +520,24 @@ for i in r.keys():
             input("Press Enter to continue...")
     else:
             print(i, bin(s))
+
+```
+
+one can also save value into file for later use
+```
+f = open("cmn.txt", "w")
+r = model.get_target("component.RD_N2_Cfg1.css.cmn700")
+x = r.short_register_names.keys()
+for i in x:
+    try:
+            s = r.read_register(i)
+    except Exception as exc:
+            print(i, exc)
+            #input("Press Enter to continue...")
+    else:
+            f.write("%s \t %s \n" % (i, bin(s)))
+
+f.close()
 
 ```
 

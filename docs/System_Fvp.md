@@ -495,4 +495,31 @@ the SoC is mounted. The RD-N2 board model is based on the Juno ADP
 
 The _ixed Virtual Platform_ of RD-N2 config supports 16xMP1 Neoverse N2 CPUs.
 
+### CMN700
+
+```
+x = model.get_target("component.RD_N2_Cfg1.css.cmn700")
+r = x.short_register_names
+
+# below gives error
+for i in r.keys():  print(i, x.read_register(i))
+...
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/zzx/FVP_ARM_Std_Library/Iris/Python/iris/debug/Target.py", line 365, in read_register
+    raise ValueError('Register read failed: {}'.format(iris.error.IrisErrorCode(errorCode)))
+ValueError: Register read failed: E_error_reading_write_only_resource
+
+# to skip the error for write only
+for i in r.keys():
+    try:
+            s = x.read_register(i)
+    except Exception as exception:
+            print(i, '----------')
+            input("Press Enter to continue...")
+    else:
+            print(i, bin(s))
+
+```
+
 <a href="#top">Back to top</a>

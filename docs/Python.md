@@ -80,4 +80,35 @@ for f in fl(10):
     except Exception as exception:
         print(f, "\033[92m{}\033[00m".format(exception))
 ```
+
+### bit print
+```
+# python a.py
+from __future__ import print_function
+
+import sys
+from time import sleep
+
+fp = sys.stdout
+x = '11000000000000000000000000000000000000000000000110'
+
+for i in range(len(x))[::-1]:
+    print('%02d' % i, end='')
+print()
+for i in x:
+    print(i.rjust(2), end='')
+print()
+fp.flush()
+#sleep(5)
+
+# python3 a.py
+x = '11000000000000000000000000000000000000000000000110'.zfill(64)
+
+for i in range(len(x))[::-1]:
+    print('%02d' % i, end='')
+print()
+for i in x:
+    print(i.rjust(2), end='')
+print()
+```
 <a href="#top">Back to top</a>

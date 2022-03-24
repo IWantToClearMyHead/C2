@@ -15,7 +15,8 @@ The first computer is ENIAC, which was invented by J. Presper Eckert and John Ma
 
 - Case
 - Motherboard
-- CPU (Processor)
+- CPU(Hardware_CPU.md) (Processor)
+- BUS(Hardware_Bus.md) (Connection)
 - GPU (Graphics Card)
 - RAM (Memory]
 - Storage Device (SSD, NVME SSD, HDD)
@@ -30,8 +31,9 @@ The first computer is ENIAC, which was invented by J. Presper Eckert and John Ma
 
 There are many types according to the operation level.
 
+- MSCP
 - BIOS
-- BL
+- Grub
 - OS
 
 ### Virtual

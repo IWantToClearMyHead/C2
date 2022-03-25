@@ -38,7 +38,6 @@
 | echo flash |echo -e "\033[44;37;5m flash \033[44;37;0m"||
 | cd in script |. ./a.sh||
 | clear content| : > a.txt ||
-|delete many ps|ps aux | grep FVP | awk '{print $2}' | xargs kill -9|
 |show column 2 and 3|cut -d' ' -f2,3|
 |make folder into html|tree -C -L 3 -T "fvpdoc" -H "index.html" -I "node_modules" --charset=gbk -o ooTree.html|
 |make html|ansifilter -i css.cfg1 -H -o css.cfg1.html|
@@ -48,6 +47,7 @@
 |show files in better format|ls -l \| awk '{printf("%6s %s %2s %s %-s\n", $5, $6, $7, $8, $9);}'|
 |tree all file in a folder|tree . -H "." -o tree.html|
 |kill a group|ps aux \| grep FVP \| awk '{print $2}' \| xargs kill -9|
+|rsync copy folder|rsync -avhW --no-compress --progress --info=progress2 src_dir dst_dir|
 
 <!---
 div class="special-class" markdown="1"
@@ -93,6 +93,7 @@ is not working...
 |lock|Ctrl + a, x|need input password|
 |kill current|Ctrl + a, k, y|no to cancel|
 |scroll| Ctrl + a, Esc, ← ↑ → ↓ |
+|log screen|Ctrl + a, H|first time start, second time stop|
 
 
 ### Misc

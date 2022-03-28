@@ -558,4 +558,24 @@ FWK_LOG_INFO(
 
 ``` 
 
+### Multichip
+
+```
+# notice the xauth must match the hostname
+# run via . ./multi.sh
+echo "===>config model now<==="
+echo $DISPLAY
+export XAUTHORITY=/home/zzx/.Xauthority
+xauth list
+p=/home/zzx/fvp/rdn2-cfg2/model-scripts/rdinfra
+ls $p
+export MODEL=/home/zzx/fvp/support/Model/FVP_RD_N2_Cfg2
+echo $MODEL
+echo "===>run model now<==="
+
+# use xclock to make sure xming runing ok
+
+
+```
+
 <a href="#top">Back to top</a>

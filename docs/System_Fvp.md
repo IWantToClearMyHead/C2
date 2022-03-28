@@ -575,7 +575,78 @@ echo "===>run model now<==="
 
 # use xclock to make sure xming runing ok
 
+/home/zzx/fvp/support/Model/FVP_RD_N2_Multichip --data css0.scp.armcortexm7ct=../../../../output/rdn2cfg2/rdn2cfg2/scp_ramfw.bin@0x0BD80000 --data css0.mcp.armcortexm7ct=../../../../output/rdn2cfg2/rdn2cfg2/mcp_ramfw.bin@0x0BF80000 -C css0.mcp.ROMloader.fname=../../../../output/rdn2cfg2/rdn2cfg2/mcp_romfw.bin -C css0.scp.ROMloader.fname=../../../../output/rdn2cfg2/rdn2cfg2/scp_romfw.bin -C css0.trustedBootROMloader.fname=../../../../output/rdn2cfg2/rdn2cfg2/tf-bl1.bin -C board0.flashloader0.fname=../../../../output/rdn2cfg2/rdn2cfg2/fip-uefi.bin -C board0.flashloader1.fname=/home/davy/rdn2-cfg2/model-scripts/rdinfra/platforms/rdn2cfg2/nor1_flash.img -C board0.flashloader1.fnameWrite=/home/davy/rdn2-cfg2/model-scripts/rdinfra/platforms/rdn2cfg2/nor1_flash.img -C board0.flashloader2.fname=/home/davy/rdn2-cfg2/model-scripts/rdinfra/platforms/rdn2cfg2/nor2_flash.img -C board0.flashloader2.fnameWrite=/home/davy/rdn2-cfg2/model-scripts/rdinfra/platforms/rdn2cfg2/nor2_flash.img -I -R -A -p --iris-port 7101 -C css0.scp.pl011_uart_scp.out_file=rdn2cfg2/refinfra-3146020-uart-0-scp_2022-01-07_05.14.47 -C css0.scp.pl011_uart_scp.unbuffered_output=1 -C css0.scp.pl011_uart_scp.uart_enable=true -C css0.pl011_s_uart_ap.out_file=rdn2cfg2/refinfra-3146020-uart-0-console_2022-01-07_05.14.47 -C soc0.pl011_uart_mcp.out_file=rdn2cfg2/refinfra-3146020-uart-0-mcp_2022-01-07_05.14.47 -C soc0.pl011_uart_mcp.unbuffered_output=1 -C soc0.pl011_uart0.out_file=rdn2cfg2/refinfra-3146020-uart-0-armtf_2022-01-07_05.14.47 -C soc0.pl011_uart0.unbuffered_output=1 -C soc0.pl011_uart0.flow_ctrl_mask_en=1 -C soc0.pl011_uart0.enable_dc4=0 -C soc0.pl011_uart1.out_file=rdn2cfg2/refinfra-3146020-uart-1-mm_2022-01-07_05.14.47 -C soc0.pl011_uart1.unbuffered_output=1 -C soc0.pl011_uart1.flow_ctrl_mask_en=1 -C soc0.pl011_uart1.enable_dc4=0 -C css0.pl011_s_uart_ap.unbuffered_output=1 -C css0.gic_distributor.ITS-device-bits=20 -C css0.gic_distributor.multichip-threaded-dgi=0 -C pcie_group_css0.pciex16.hierarchy_file_name=\<default\> --data css1.scp.armcortexm7ct=../../../../output/rdn2cfg2/rdn2cfg2/scp_ramfw.bin@0x0BD80000 --data css1.mcp.armcortexm7ct=../../../../output/rdn2cfg2/rdn2cfg2/mcp_ramfw.bin@0x0BF80000 -C css1.mcp.ROMloader.fname=../../../../output/rdn2cfg2/rdn2cfg2/mcp_romfw.bin -C css1.scp.ROMloader.fname=../../../../output/rdn2cfg2/rdn2cfg2/scp_romfw.bin -C css1.scp.pl011_uart_scp.out_file=rdn2cfg2/refinfra-3146020-uart-0-scp_2022-01-07_05.14.47_1 -C css1.scp.pl011_uart_scp.unbuffered_output=1 -C css1.scp.pl011_uart_scp.uart_enable=true -C css1.pl011_s_uart_ap.out_file=rdn2cfg2/refinfra-3146020-uart-0-console_2022-01-07_05.14.47_1 -C soc1.pl011_uart_mcp.out_file=rdn2cfg2/refinfra-3146020-uart-0-mcp_2022-01-07_05.14.47_1 -C soc1.pl011_uart_mcp.unbuffered_output=1 -C soc1.pl011_uart0.out_file=rdn2cfg2/refinfra-3146020-uart-0-armtf_2022-01-07_05.14.47_1 -C soc1.pl011_uart0.unbuffered_output=1 -C soc1.pl011_uart0.flow_ctrl_mask_en=1 -C soc1.pl011_uart0.enable_dc4=0 -C soc1.pl011_uart1.out_file=rdn2cfg2/refinfra-3146020-uart-1-mm_2022-01-07_05.14.47_1 -C soc1.pl011_uart1.unbuffered_output=1 -C soc1.pl011_uart1.flow_ctrl_mask_en=1 -C soc1.pl011_uart1.enable_dc4=0 -C css1.pl011_s_uart_ap.unbuffered_output=1 -C css1.gic_distributor.ITS-device-bits=20 -C css1.gic_distributor.multichip-threaded-dgi=0 --data css2.scp.armcortexm7ct=../../../../output/rdn2cfg2/rdn2cfg2/scp_ramfw.bin@0x0BD80000 --data css2.mcp.armcortexm7ct=../../../../output/rdn2cfg2/rdn2cfg2/mcp_ramfw.bin@0x0BF80000 -C css2.mcp.ROMloader.fname=../../../../output/rdn2cfg2/rdn2cfg2/mcp_romfw.bin -C css2.scp.ROMloader.fname=../../../../output/rdn2cfg2/rdn2cfg2/scp_romfw.bin -C css2.scp.pl011_uart_scp.out_file=rdn2cfg2/refinfra-3146020-uart-0-scp_2022-01-07_05.14.47_2 -C css2.scp.pl011_uart_scp.unbuffered_output=1 -C css2.scp.pl011_uart_scp.uart_enable=true -C css2.pl011_s_uart_ap.out_file=rdn2cfg2/refinfra-3146020-uart-0-console_2022-01-07_05.14.47_2 -C soc2.pl011_uart_mcp.out_file=rdn2cfg2/refinfra-3146020-uart-0-mcp_2022-01-07_05.14.47_2 -C soc2.pl011_uart_mcp.unbuffered_output=1 -C soc2.pl011_uart0.out_file=rdn2cfg2/refinfra-3146020-uart-0-armtf_2022-01-07_05.14.47_2 -C soc2.pl011_uart0.unbuffered_output=1 -C soc2.pl011_uart0.flow_ctrl_mask_en=1 -C soc2.pl011_uart0.enable_dc4=0 -C soc2.pl011_uart1.out_file=rdn2cfg2/refinfra-3146020-uart-1-mm_2022-01-07_05.14.47_2 -C soc2.pl011_uart1.unbuffered_output=1 -C soc2.pl011_uart1.flow_ctrl_mask_en=1 -C soc2.pl011_uart1.enable_dc4=0 -C css2.pl011_s_uart_ap.unbuffered_output=1 -C css2.gic_distributor.ITS-device-bits=20 -C css2.gic_distributor.multichip-threaded-dgi=0 --data css3.scp.armcortexm7ct=../../../../output/rdn2cfg2/rdn2cfg2/scp_ramfw.bin@0x0BD80000 --data css3.mcp.armcortexm7ct=../../../../output/rdn2cfg2/rdn2cfg2/mcp_ramfw.bin@0x0BF80000 -C css3.mcp.ROMloader.fname=../../../../output/rdn2cfg2/rdn2cfg2/mcp_romfw.bin -C css3.scp.ROMloader.fname=../../../../output/rdn2cfg2/rdn2cfg2/scp_romfw.bin -C css3.scp.pl011_uart_scp.out_file=rdn2cfg2/refinfra-3146020-uart-0-scp_2022-01-07_05.14.47_3 -C css3.scp.pl011_uart_scp.unbuffered_output=1 -C css3.scp.pl011_uart_scp.uart_enable=true -C css3.pl011_s_uart_ap.out_file=rdn2cfg2/refinfra-3146020-uart-0-console_2022-01-07_05.14.47_3 -C soc3.pl011_uart_mcp.out_file=rdn2cfg2/refinfra-3146020-uart-0-mcp_2022-01-07_05.14.47_3 -C soc3.pl011_uart_mcp.unbuffered_output=1 -C soc3.pl011_uart0.out_file=rdn2cfg2/refinfra-3146020-uart-0-armtf_2022-01-07_05.14.47_3 -C soc3.pl011_uart0.unbuffered_output=1 -C soc3.pl011_uart0.flow_ctrl_mask_en=1 -C soc3.pl011_uart0.enable_dc4=0 -C soc3.pl011_uart1.out_file=rdn2cfg2/refinfra-3146020-uart-1-mm_2022-01-07_05.14.47_3 -C soc3.pl011_uart1.unbuffered_output=1 -C soc3.pl011_uart1.flow_ctrl_mask_en=1 -C soc3.pl011_uart1.enable_dc4=0 -C css3.pl011_s_uart_ap.unbuffered_output=1 -C css3.gic_distributor.ITS-device-bits=20 -C css3.gic_distributor.multichip-threaded-dgi=0 -C board0.virtioblockdevice.image_path=../../../../output/rdn2cfg2/grub-busybox.img
 
+
+# iris
+cd /home/zzx/FVP_ARM_Std_Library/Iris/Python
+python3
+import sys
+sys.path.append('/home/zzx/FVP_ARM_Std_Library/Iris/Python/iris')
+import iris.debug
+model = iris.debug.NetworkModel("localhost",7101)
+# cpu total 24 = 6 *  4 = scp + mcp + core0 + core1 + core2 + core3
+>>> c = model.get_cpus()
+>>> for i in c: print(i.instName)
+
+# css
+>>> t = model.get_targets()
+>>> for i in t: print(i.instName)
+
+# component.RD_N2_Multichip.css0.cmn700
+# component.RD_N2_Multichip.css1.cmn700
+# component.RD_N2_Multichip.css2.cmn700
+# component.RD_N2_Multichip.css3.cmn700
+f = open("css0cmn.txt", "w")
+r = model.get_target("component.RD_N2_Multichip.css0.cmn700")
+x = r.short_register_names.keys()
+for i in x:
+    try:
+            s = r.read_register(i)
+    except Exception as exc:
+            print(i, exc)
+            #input("Press Enter to continue...")
+    else:
+            f.write("%s \t %s \n" % (i, bin(s)))
+
+f.close()
+
+# binary show
+#x = '11000000000000000000000000000000000000000000000110'.zfill(64)
+import sys
+x = sys.argv[1].zfill(64)
+
+for i in range(len(x))[::-1]:
+    print('%02d' % i, end='')
+print()
+for i in x:
+    print(i.rjust(2), end='')
+print()
+
+# check device number, 6*6 => 0-35
+# chip 0-3
+r = model.get_target("component.RD_N2_Multichip.css0.cmn700")
+# for i in range(0, 36): print(i, bin(r.read_register("XP%d.POR_MXP_NODE_INFO" % i)))
+binary = lambda n: n>0 and [n&1]+binary(n>>1) or []
+for i in range(0, 36):
+    print("XP%d" % i)
+    l = r.read_register("XP%d.POR_MXP_NODE_INFO" % i)
+    #print([x for x in l.bit_length()[::-1]])
+    y = binary(l)
+    print(y)
+    print(len(y))
+    s = (l.bit_length())
+    print([x for x in range(s)[::-1]])
+
+# show the type
+for i in range(0, 36):
+    s = bin(r.read_register("XP%d.POR_MXP_NODE_INFO" % i))[2:].zfill(64)
+    #print("XP%2d => %s" % (i, s))
+    print("XP%2d => \x1b[1;33m%s\x1b[0m" % (i, s[64-5:64]))
+    for j in range(0, 6):
+        s = bin(r.read_register("XP%d.POR_MXP_DEVICE_PORT_CONNECT_INFO_P%d" % (i, j)))[2:].zfill(64)
+        print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, s[64-5:64]))
+    
 ```
 
 <a href="#top">Back to top</a>

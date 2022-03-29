@@ -111,4 +111,93 @@ for i in x:
     print(i.rjust(2), end='')
 print()
 ```
+
+### printout with matched patter
+```
+with open('a', 'r') as f:
+    lines = f.readlines()
+    for line in lines:
+        #print(repr(line))
+        #if not line.endswith('0b0 \n'):
+        #  print(line[0:3], line[-7:-2])
+        i, j = 1, int(line[2])
+        t = line[-7:-2]
+        if t == "00000": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RSVD"))
+        if t == "00001": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-I"))
+        if t == "00010": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-D"))
+        if t == "00011": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RSVD"))
+        if t == "00100": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-F_CHIB"))
+        if t == "00101": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-F_CHIB_ESAM"))
+        if t == "00110": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-F_CHIA"))
+        if t == "00111": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-F_CHIA_ESAM"))
+        if t == "01000": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "HN-T"))
+        if t == "01001": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "HN-I"))
+        if t == "01010": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "HN-D"))
+        if t == "01011": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "HN-P"))
+        if t == "01100": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "SN-F_CHIC"))
+        if t == "01101": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "SBSX"))
+        if t == "01110": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "HN-F"))
+        if t == "01111": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "SN-F_CHIE"))
+        if t == "10000": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "SN-F_CHID"))
+        if t == "10001": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "CXHA"))
+        if t == "10010": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "CXRA"))
+        if t == "10011": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "CXRH"))
+        if t == "10100": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-F_CHID"))
+        if t == "10101": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-F_CHID_ESAM"))
+        if t == "10110": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-F_CHIC"))
+        if t == "10111": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-F_CHIC_ESAM"))
+        if t == "11000": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-F_CHIE"))
+        if t == "11001": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RN-F_CHIE_ESAM"))
+        if t == "11010": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RSVD"))
+        if t == "11011": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RSVD"))
+        if t == "11100": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "MTSX"))
+        if t == "11101": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "HN-V"))
+        if t == "11110": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "CCG"))
+        if t == "11111": print("%2d%2d => \x1b[1;33m%s\x1b[0m" % (i, j, "RSVD"))
+```
+
+### open log and split the id out
+
+```
+['RN-SAM ID', '4']
+['RN-SAM ID', '68']
+['RN-SAM ID', '260']
+['RN-SAM ID', '322']
+['RN-SAM ID', '320']
+['RN-SAM ID', '12']
+['RN-SAM ID', '8']
+['RN-SAM ID', '76']
+['RN-SAM ID', '140']
+['RN-SAM ID', '332']
+['RN-SAM ID', '328']
+['RN-SAM ID', '20']
+['RN-SAM ID', '16']
+['RN-SAM ID', '336']
+['RN-SAM ID', '28']
+['RN-SAM ID', '24']
+['RN-SAM ID', '344']
+['RN-SAM ID', '356']
+['RN-SAM ID', '355']
+['RN-SAM ID', '354']
+['RN-SAM ID', '352']
+['RN-SAM ID', '44']
+['RN-SAM ID', '104']
+['RN-SAM ID', '300']
+['RN-SAM ID', '296']
+['RN-SAM ID', '360']
+
+a = []
+with open('scpcss0', 'rb') as f:
+    s= f.read().decode('ISO-8859-1')
+    l = re.findall(r"RN-SAM ID:\d+", s)
+    for i in l:
+        #print(i.split(":")[1])
+        #sort
+        a.append(int(i.split(":")[1]))
+
+for i in sorted(a):
+    print(i)
+```
+
+
 <a href="#top">Back to top</a>

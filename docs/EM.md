@@ -24,7 +24,7 @@
 
 - diagram
 ```mermaid
-Diagram-v2
+stateDiagram-v2
   [*] --> Unwritten
   
   Unwritten --> Open: Open

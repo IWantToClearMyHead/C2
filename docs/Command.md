@@ -26,14 +26,13 @@
 |decomp xz | tar -Jvf xxx.tar.xz | |
 | comp bz2 | tar -cjf xxx.tar.bz2 xxx | |
 |decomp bz2 |  tar -xvjf xxx.tar.bz2 | |
-| kill all commands |ps aux | grep runcpu |  awk {'print $2}' | sudo xargs kill -9| root no need sudo|
+| kill all commands |ps aux \| grep runcpu \|  awk {'print $2}' \| sudo xargs kill -9| root no need sudo|
 | ls in one line | ls \| xargs| |
 | ls in one column | ls -1 | |
 | nc passfile | | |
 | receiver | nc -l -p #port > passfile | |
 | sender | nc -w 3 [receiver #ip] #port < passfile | |
 |download a file|curl -O http://baidu.com/uploads/a.bb||
-| awk last column | awk '{print $0}' a.txt | [awk](Command_AWK.md) |
 | grep number |ls benchspec/CPU/ \| grep -E '[0-9]{3}' \| wc -l||
 | echo flash |echo -e "\033[44;37;5m flash \033[44;37;0m"||
 | cd in script |. ./a.sh||

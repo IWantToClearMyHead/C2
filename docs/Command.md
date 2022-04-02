@@ -25,7 +25,7 @@
 | comp xz | tar -cvf xxx.tar xxx<br>xz -z xxx.tar | |
 |decomp xz | tar -Jvf xxx.tar.xz | |
 | comp bz2 | tar -cjf xxx.tar.bz2 xxx | |
-|decomp bz2 | tar -jvf xxx.tar.xz | |
+|decomp bz2 |  tar -xvjf xxx.tar.bz2 | |
 | kill all commands |ps aux | grep runcpu |  awk {'print $2}' | sudo xargs kill -9| root no need sudo|
 | ls in one line | ls \| xargs| |
 | ls in one column | ls -1 | |
@@ -39,15 +39,16 @@
 | cd in script |. ./a.sh||
 | clear content| : > a.txt ||
 |show column 2 and 3|cut -d' ' -f2,3|
-|make folder into html|tree -C -L 3 -T "fvpdoc" -H "index.html" -I "node_modules" --charset=gbk -o ooTree.html|
-|make html|ansifilter -i css.cfg1 -H -o css.cfg1.html|
-|delete a file start with dash|rm -- -H|
-|newest file in folder|find . -type f -printf "%T@ %p\n" \| sort -n \| cut -d' ' -f2 \| tail -n 1|
-|align via awk|sudo cat /proc/1/maps \| awk '{printf("%-35s %-s\n", $1, $6);}'|
-|show files in better format|ls -l \| awk '{printf("%6s %s %2s %s %-s\n", $5, $6, $7, $8, $9);}'|
-|tree all file in a folder|tree . -H "." -o tree.html|
-|kill a group|ps aux \| grep FVP \| awk '{print $2}' \| xargs kill -9|
-|rsync copy folder|rsync -avhW --no-compress --progress --info=progress2 src_dir dst_dir|
+|make folder into html|tree -C -L 3 -T "fvpdoc" -H "index.html" -I "node_modules" --charset=gbk -o ooTree.html||
+|make html|ansifilter -i css.cfg1 -H -o css.cfg1.html||
+|delete a file start with dash|rm -- -H||
+|newest file in folder|find . -type f -printf "%T@ %p\n" \| sort -n \| cut -d' ' -f2 \| tail -n 1||
+|align via awk|sudo cat /proc/1/maps \| awk '{printf("%-35s %-s\n", $1, $6);}'||
+|show files in better format|ls -l \| awk '{printf("%6s %s %2s %s %-s\n", $5, $6, $7, $8, $9);}'||
+|tree all file in a folder|tree . -H "." -o tree.html||
+|kill a group|ps aux \| grep FVP \| awk '{print $2}' \| xargs kill -9||
+|rsync copy folder|rsync -avhW --no-compress --progress --info=progress2 src_dir dst_dir||
+|rsync ssh folder|rsync -avL local_dir root@ip:/remote_dir||
 
 <!---
 div class="special-class" markdown="1"

@@ -28,17 +28,27 @@ Device                           Boot   Start     End Sectors   Size Id Type
 ubuntu-18.04.6-server-arm64.iso1           64 2038839 2038776 995.5M cd unknown
 ubuntu-18.04.6-server-arm64.iso2      2038840 2040183    1344   672K ef EFI (FAT-12/16/32)
 
-# 
+# show iso
+sudo mount ~/aarch64.iso ~/openimg/
+sudo umount ~/openimg/
 ```
 
 
 (IMG) format is used to create hard disk image files.
 
 - (ubuntu)[wget http://cloud-images.ubuntu.com/daily/server/daily/server/minimal/releases/bionic/release-20220325/ubuntu-18.04-minimal-cloudimg-amd64.img]
+```
+# show img
+sudo mount -o loop,offset=1049kB  /home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/grub-busybox.img ~/openimg
+sudo umount ~/openimg
+
+```
+
+- (busybox)[build myself]
 
 
-- (busybox)[]
-
+- goal
+mbr + rootfs
 ```
 $ fdisk grub-busybox-arm64.img
 
@@ -60,21 +70,86 @@ grub-busybox-arm64.img1  2048  4094    2047 1023.5K Microsoft basic data
 grub-busybox-arm64.img2  4096 32766   28671     14M Linux filesystem
 
 Command (m for help): q
-
-$ fdisk -l grub-busybox-arm64.img
-Disk grub-busybox-arm64.img: 17 MiB, 17825792 bytes, 34816 sectors
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: gpt
-Disk identifier: A61F2B17-AE1F-4E83-BA0E-90EC5817A4F0
-
-Device                  Start   End Sectors    Size Type
-grub-busybox-arm64.img1  2048  4094    2047 1023.5K Microsoft basic data
-grub-busybox-arm64.img2  4096 32766   28671     14M Linux filesystem
-$
 ```
 
+|do|cmd|
+|----|----|
+|free dev|sudo losetup -f|
+|list all dev|sudo losetup -l|
+|remove dev|sudo losetup -d /dev/loop18|
+||sudo dmsetup remove /dev/mapper/loop18p1|
+||sudo dmsetup remove /dev/mapper/loop18p2|
+|show all|sudo losetup -a|
+||sudo fdisk -l | sed -e '/Disk \/dev\/loop/,+5d'|
+|show img|sudo mount -o loop,offset=1048576  /home/zzx/armimg/ubuntu.img ~/openimg/|
+||sudo umount ~/openimg/|
 
+
+```
+
+# unit must B
+# offset is the B value
+node2:~/fvp/rdn2-cfg1$ sudo parted
+GNU Parted 3.3
+Using /dev/sda
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted) help
+  align-check TYPE N                       check partition N for TYPE(min|opt) alignment
+  help [COMMAND]                           print general help, or help on COMMAND
+  mklabel,mktable LABEL-TYPE               create a new disklabel (partition table)
+  mkpart PART-TYPE [FS-TYPE] START END     make a partition
+  name NUMBER NAME                         name partition NUMBER as NAME
+  print [devices|free|list,all|NUMBER]     display the partition table, available devices, free space, all found partitions, or a particular partition
+  quit                                     exit program
+  rescue START END                         rescue a lost partition near START and END
+  resizepart NUMBER END                    resize partition NUMBER
+  rm NUMBER                                delete partition NUMBER
+  select DEVICE                            choose the device to edit
+  disk_set FLAG STATE                      change the FLAG on selected device
+  disk_toggle [FLAG]                       toggle the state of FLAG on selected device
+  set NUMBER FLAG STATE                    change the FLAG on partition NUMBER
+  toggle [NUMBER [FLAG]]                   toggle the state of FLAG on partition NUMBER
+  unit UNIT                                set the default unit to UNIT
+  version                                  display the version number and copyright information of GNU Parted
+(parted) unit B
+(parted) print /home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/grub-busybox.img
+Model: DELL PERC H310 (scsi)
+Disk /dev/sda: 6000069312512B
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags:
+
+Number  Start          End             Size            File system     Name  Flags
+ 1      1048576B       1050673151B     1049624576B                           bios_grub
+ 2      1050673152B    74392272895B    73341599744B    ext4
+ 3      74392272896B   675687694335B   601295421440B   linux-swap(v1)        swap
+ 4      675687694336B  5953343717375B  5277656023040B  ext4
+
+  align-check TYPE N                       check partition N for TYPE(min|opt) alignment
+  help [COMMAND]                           print general help, or help on COMMAND
+  mklabel,mktable LABEL-TYPE               create a new disklabel (partition table)
+  mkpart PART-TYPE [FS-TYPE] START END     make a partition
+  name NUMBER NAME                         name partition NUMBER as NAME
+  print [devices|free|list,all|NUMBER]     display the partition table, available devices, free space, all found partitions, or a particular partition
+  quit                                     exit program
+  rescue START END                         rescue a lost partition near START and END
+  resizepart NUMBER END                    resize partition NUMBER
+  rm NUMBER                                delete partition NUMBER
+  select DEVICE                            choose the device to edit
+  disk_set FLAG STATE                      change the FLAG on selected device
+  disk_toggle [FLAG]                       toggle the state of FLAG on selected device
+  set NUMBER FLAG STATE                    change the FLAG on partition NUMBER
+  toggle [NUMBER [FLAG]]                   toggle the state of FLAG on partition NUMBER
+  unit UNIT                                set the default unit to UNIT
+  version                                  display the version number and copyright information of GNU Parted
+(parted) q
+node2:~/fvp/rdn2-cfg1$ sudo mount -o loop,offset=1048576  /home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/grub-busybox.img ~/openimg/
+node2:~/fvp/rdn2-cfg1$ ls !$
+ls ~/openimg/
+EFI/  grub/
+node2:~/fvp/rdn2-cfg1$ sudo umount !$
+sudo umount ~/openimg/
+
+```
 
 <a href="#top">Back to top</a>

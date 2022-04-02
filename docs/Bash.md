@@ -55,6 +55,42 @@ grep "${3:-^}" "$1"
 echo '</pre></body></html>'
 ```
 
-### put code into lines
+### do until file exists
+```
+until [ -f ubuntu.img ]
+do
+echo "ubuntu.img not found"
+done
+echo "ubuntu.img moved"
+mv ubuntu.img ~
+exit
 
+```
+
+### color
+```
+echo -e "\033[0;31mred\033[0m"
+echo -e "\033[0;32mgreen\033[0m" 
+
+Yellow='\033[0;33m'       # Yellow
+Blue='\033[0;34m'         # Blue
+Purple='\033[0;35m'       # Purple
+Cyan='\033[0;36m'         # Cyan
+White='\033[0;37m'        # White
+```
+
+### enter to continue
+```
+echo $script
+read -p "Press enter to continue"
+
+```
+
+### shift to left
+```
+echo $1 $2
+x=$1; shift
+y=$1; shift
+echo $x $y
+```
 <a href="#top">Back to top</a>

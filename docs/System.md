@@ -41,7 +41,7 @@ There are many types according to the operation level.
 There are many virtual machines.
 
 - QEMU
-- [FVP](System_Fvp.md)
+- FVP
 - Box
 - Gem5
 - VMware

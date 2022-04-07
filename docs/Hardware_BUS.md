@@ -16,11 +16,11 @@ A 256-Processor Sun Cluster, HPC = high performance clusters
 
 ### Parallel
 
- PVP (Parallel Vector Processor)
- SMP (Symmetric Multiprocessor)
- MPP (Massively Parallel Processor) -> 20%
- COW (Cluster of Workstation) -> 58.8%
- DSM (Distributed Shared Memory)
+- PVP (Parallel Vector Processor)
+- SMP (Symmetric Multiprocessor)
+- MPP (Massively Parallel Processor) -> 20%
+- COW (Cluster of Workstation) -> 58.8%
+- DSM (Distributed Shared Memory)
 
 MPI,(Message Passing Interface)
 
@@ -45,5 +45,16 @@ MPI,(Message Passing Interface)
   - CCIX
   - CXL
   - SMP
+
+### AMBA
+|1  |2  |3  |4  |CHI|
+|---|---|---|---|---|
+|ASB<br>Advanced System Bus|ASB|   |    |   |
+|APB<br>Advanced Peripheral Bus|APB|APB     |APB||
+|   |AHB<br>Advanced High-performance Bus|AHB-Lite|   ||
+|   |   |ATB|ATB|ATB|
+|   |   |AXI<br>Advanced eXtensible Interface|AXI||
+
+
 
 <a href="#top">Back to top</a>

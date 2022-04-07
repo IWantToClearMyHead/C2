@@ -66,6 +66,7 @@ Base  => 0x60000000
 
 
 |Device|Type|Inst|
+|---|---|---|
 |AP|RN-F|with cache|
 |SRAM|SBSX||
 |AP|RN-I|without cache|

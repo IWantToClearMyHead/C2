@@ -65,14 +65,19 @@ Base  => 0x60000000
 256MB => 268435456B
 
 
-|Node|Device|
-|----|----|
-|SBSX|DDR|
-|CCG|CCIX|
-|RN-P|Pcie|
-|HN-T|Debug Trace|
-|RN-D|DVM|
-
+|Device|Type|Inst|
+|AP|RN-F|with cache|
+|SRAM|SBSX||
+|AP|RN-I|without cache|
+|CML|CXG|CCIX|
+|   |CCG|    |
+|DMC-620|SN-F||
+|DRAM|HN-F||
+||HN-I||
+|||HN-T|
+|||HN-D|
+|||HN-P|
+|||HN-V|
 
 ### AMBA
 

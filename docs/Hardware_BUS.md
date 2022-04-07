@@ -60,7 +60,6 @@ Base  => 0x60000000
 6x6   => address space 256MB
 64KB  => 65536B * 8 / 64 = 8192 reg
 256MB => 268435456B
-
 ~~~
 
 |Node|Device|
@@ -73,6 +72,7 @@ Base  => 0x60000000
 
 
 ### AMBA
+
 |1  |2  |3  |4  |CHI|
 |---|---|---|---|---|
 |ASB<br>Advanced System Bus|ASB|   |    |   |

@@ -55,12 +55,12 @@ offset from PERIPHBASE for each component 64KB region.
 3. Read information in the 64KB region that is associated with the component. This information
 determines the type of block and the configuration details of the component.
 
-~~~~
+
 Base  => 0x60000000
 6x6   => address space 256MB
 64KB  => 65536B * 8 / 64 = 8192 reg
 256MB => 268435456B
-~~~
+
 
 |Node|Device|
 |----|----|

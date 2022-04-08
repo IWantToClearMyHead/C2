@@ -109,4 +109,10 @@ ls -l | awk 'BEGIN{print "1          2   3   4        5   6  7     8 9"}; {print
 ls -l | awk 'BEGIN{print "1          2   3   4        5   6  7     8 9"}; {print}; END{print "END"}' | cat -n
 ls -l | awk 'BEGIN{print "1          2   3   4        5   6  7     8 9"}; {print}; END{print "END"}' | less -N
 ```
+
+### first line and last line
+```
+xxd a.out | awk 'NR==1{print}'
+xxd a.out | awk 'END{print}'
+```
 <a href="#top">Back to top</a>

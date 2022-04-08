@@ -8,6 +8,7 @@ Take below as example,
 .got, .data, .bss => Data Segment (rw-)
 under .bss => Stack (rw-)
 
+~~~
  .text: Executable instructions
  .bss: Unitialized data (usually the heap)
  .data: initialized data
@@ -15,6 +16,9 @@ under .bss => Stack (rw-)
  .got: Global Offset Table
  .plt: Procedure Linkage Table
  .init/.fini glibc
+~~~
+
+- graph
 
 ~~~
 
@@ -91,6 +95,8 @@ under .bss => Stack (rw-)
 
 ~~~
 
+- content
+
 `readelf -a` and `hexdump -C` will print the ELF contents.
 Use `objdump -s -d .o` to get the asm code of the ELF, this is same as .text from above.
 Use `objdump -h .elf` to get sections.
@@ -108,7 +114,7 @@ the different headers. As for the touch command, there are 27 section headers, a
 size, the section type as well as its address and memory offset.
 
 
-### Memory Layout
+- Layout
 
 ~~~
 0x0                                                            ----- Code Area
@@ -392,6 +398,20 @@ Memory Mapped Region for Shared Libraries or Anything Else
 User Stack
 
 ```
+
+### Memory
+
+when a code is compiled on linux, then the program maps
+|addr|part|
+|----|----|
+|0xFFFFFFFF|kernel virtual|
+|0xC0000000|user stack|
+|0x40000000|disk part|
+||bss|
+||text|
+|0x08048000|reserved|
+|0x0|>>>|
+
 
 ### APK
 use android studio to build apk, and debug with adb, take robox as example

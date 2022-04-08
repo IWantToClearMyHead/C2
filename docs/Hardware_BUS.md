@@ -80,6 +80,15 @@ Base  => 0x60000000
 |||HN-P|
 |||HN-V|
 
+~~~
+SCP
+0x6000_0000-0x9FFF_FFFF       1GB    Memory region to access AP Memory map
+AP
+0x00_5000_0000 0x00_5FFF_FFFF 256MB  Reserved space for CMN-700 configuration space
+0x01_4000_0000 0x01_7FFF_FFFF 1GB    CMN-700 GPV space (configuration space for CMN-700)
+~~~
+
+
 
 
 ### AMBA

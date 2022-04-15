@@ -561,6 +561,9 @@ FWK_LOG_INFO(
 ### Multichip
 
 ```
+# build
+./build-scripts/rdinfra/build-test-busybox.sh -p rdn2cfg2 all
+
 # notice the xauth must match the hostname
 # run via . ./multi.sh
 echo "===>config model now<==="
@@ -709,6 +712,131 @@ HARDWARE----SOC----CMN--[RNFCAL]--AP----GIC
 all apb device connect with cpu via interrupt                        
 
 ~~~
+
+### Reference
+
+~~~
+      PL01x – UART
+ARM PrimeCell® Technical Reference Manual
+PrimeCell® UART (PL011) Technical Reference Manual
+PrimeCell UART (PL011) Technical Reference Manual
+      PL02x – Synchronous Serial Port
+ARM PrimeCell Synchronous Serial Port (PL022) Technical Reference Manual
+      PL03x – Real Time Clock
+ARM PrimeCell™ Technical Reference Manual
+      PL050 – PS2 Keyboard/Mouse Interface
+ARM PrimeCell PS2 Keyboard/Mouse Interface (PL050) Technical Reference Manual
+      PL06x – General Purpose Input/Output
+ARM PrimeCell™ General Purpose Input/Output (PL061) Technical Reference Manual
+ARM PrimeCell General Purpose Input/Output (PL060) Technical Reference Manual
+      PL08x – DMA Controller
+PrimeCell DMA Controller (PL080) Technical Reference Manual
+PrimeCell Single Master DMA Controller (PL081) Technical Reference Manual
+      PL09x – Static Memory Controller
+PrimeCell™ Synchronous Static Memory Controller (PL093) Technical Reference Manual
+PrimeCell™ Static Memory Controller (PL092) Technical Reference Manual
+      PL11x – Color LCD Controller
+PrimeCell™ Color LCD Controller (PL110) Technical Reference Manual
+PrimeCell Color LCD Controller (PL111) Technical Reference Manual
+      PL13x – Smart Card Interface
+ARM PrimeCell Smart Card Interface (PL131) Technical Reference Manual
+ARM PrimeCell™ Smart Card Interface (PL130) Technical Reference Manual
+      PL16x – DC-DC Converter Interface
+ARM PrimeCell DC‑DC Converter Interface (PL160) Technical Reference Manual
+      PL17x – Memory Controller
+ARM PrimeCell™ MultiPort Memory Controller (PL176) Technical Reference Manual
+PrimeCell™ MultiPort Memory Controller (PL175) Technical Reference Manual
+PrimeCell™ MultiPort Memory Controller (PL172) Technical Reference Manual
+ARM PrimeCell™ SDRAM Controller (PL170) Technical Reference Manual
+      PL19x – Vectored Interrupt Controller
+PrimeCell Vectored Interrupt Controller (PL190) Technical Reference Manual
+ARM PrimeCell Vectored Interrupt Controller (PL192) Technical Reference Manual
+      PL220 – External Bus Interface
+ARM PrimeCell External Bus Interface (PL220) Technical Reference Manual
+      PL23x – PrimeCell µDMA Controller
+PrimeCell µDMA Controller (PL230) Technical Reference Manual
+      PL24x – AHB Memory Controller
+PrimeCell AHB Memory Controller (PL241) Technical Reference Manual
+PrimeCell AHB SDR and NAND Memory Controller (PL242) Technical Reference Manual
+PrimeCell AHB SDR and SRAM/NOR Memory Controller (PL243) Technical Reference Manual
+PrimeCell AHB Memory Controller (PL244) Technical Reference Manual
+PrimeCell AHB DDR and SRAM/NOR Memory Controller (PL245) Technical Reference Manual
+      PL300 – AXI Configurable Interconnect
+PrimeCell AXI Configurable Interconnect (PL300) Technical Reference Manual
+      PL301 – High-Performance Matrix
+      Revision: r2p0
+AMBA Network Interconnect (NIC-301) Technical Reference Manual
+      Revision: r1p2
+PrimeCell® High-Performance Matrix (PL301) Technical Summary
+      Revision: r1p1
+PrimeCell High-Performance Matrix (PL301) Technical Summary
+      Revision: r1p0
+PrimeCell High-Performance Matrix (PL301) Technical Summary
+      PL310 – Level 2 Cache Controller
+      r3p0
+AMBA Level 2 MBIST Controller (L2C-310) Technical Reference Manual
+AMBA Level 2 Cache Controller (L2C-310) Technical Reference Manual
+      r2p0
+PrimeCell Level 2 Cache Controller (PL310) Technical Reference Manual
+PrimeCell Level 2 MBIST Controller (PL310) Technical Reference Manual
+      r1p0
+PrimeCell Level 2 Cache Controller (PL310) Technical Reference Manual
+PrimeCell Level 2 MBIST Controller (PL310) Technical Reference Manual
+      r0p0
+PL310 Cache Controller Technical Reference Manual
+PL310 MBIST Controller Technical Reference Manual
+      PL320 – Inter-Processor Communications Module
+PrimeCell® Inter-Processor Communications Module (PL320) Technical Reference Manual
+      DMA-330 DMA Controller
+      Revision: r1p0
+AMBA DMA Controller DMA-330 Technical Reference Manual
+      Revision: r0p0
+PrimeCell® DMA Controller (PL330) Technical Reference Manual
+      DMC-34x Dynamic Memory Controllers
+DMC-340 Revision: r4p0
+AMBA DDR, LPDDR, and SDR Dynamic Memory Controller DMC-340 Technical Reference Manual
+      PL340 Revision: r3p0
+PrimeCell® Dynamic Memory Controller (PL340) Technical Reference Manual
+      PL340 Revision: r2p0
+PrimeCell Dynamic Memory Controller (PL340) Technical Reference Manual
+      PL341 Revision: r1p0
+PrimeCell DDR2 Dynamic Memory Controller (PL341) Technical Reference Manual
+      PL341 Revision: r0p1
+PrimeCell DDR2 Dynamic Memory Controller (PL341) Technical Reference Manual
+      PL341 Revision: r0p0
+PrimeCell DDR2 Dynamic Memory Controller (PL341) Technical Reference Manual
+      DMC-342 Revision: r0p0
+AMBA LPDDR2 Dynamic Memory Controller DMC-342 Technical Reference Manual
+      PL35x – Static Memory Controller
+PrimeCell Static Memory Controller (PL350 Series) Technical Reference Manual
+      Revision: r2p0
+PrimeCell Static Memory Controller (PL350 Series) Technical Reference Manual
+      PL390 – Generic Interrupt Controller
+ARM® Generic Interrupt Controller Architecture Specification
+PrimeCell® Generic Interrupt Controller (PL390) Technical Reference Manual
+      Peripheral Test Block
+Peripheral Test Block Technical Reference Manual
+      BP130 – Register Slice
+PrimeCell Infratructure AMBA 3 AXI Register Slice (BP130) Technical Overview
+      BP131 – Downsizer
+PrimeCell Infratructure AMBA 3 AXI Downsizer (BP131) Technical Overview
+      BP132-7 – Bridge
+PrimeCell Infratructure AMBA 3 AXI Asynchronous Bridge (BP132) Technical Overview
+PrimeCell Infratructure AMBA 3 AXI Downwards-synchronizing Bridge (BP133) Technical Overview
+PrimeCell Infratructure AMBA 3 AXI Upwards-synchronizing Bridge (BP134) Technical Overview
+PrimeCell Infratructure AMBA 3 AXI to AMBA 3 APB Bridge (BP135) Technical Overview
+PrimeCell Infratructure AMBA 2 AHB to AMBA 3 AXI Bridges (BP136) Technical Overview
+PrimeCell Infratructure AMBA 3 AXI to AMBA 2 AHB Bridges (BP137) Technical Overview
+      BP140 – Internal Memory Interface
+PrimeCell Infratructure AMBA 3 AXI Internal Memory Interface (BP140) Technical Overview
+      BP141 – TrustZone Memory Adapter
+PrimeCell Infratructure AMBA 3 AXI TrustZone Memory Adapter (BP141) Technical Overview
+      BP144 – File Reader Master
+PrimeCell Infratructure AMBA 3 AXI File Reader Master (BP144) Technical Overview
+      BP147 – TrustZone Protection Controller
+PrimeCell Infratructure AMBA 3 TrustZone Protection Controller (BP147) Technical Overview
+~~~
+
 
 
 <a href="#top">Back to top</a>

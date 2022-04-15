@@ -837,6 +837,34 @@ PrimeCell Infratructure AMBA 3 AXI File Reader Master (BP144) Technical Overview
 PrimeCell Infratructure AMBA 3 TrustZone Protection Controller (BP147) Technical Overview
 ~~~
 
+### Image
+
+~~~
+Info: RD_N2_Multichip: RD_N2_Multichip.css0.scp.ROMloader: FlashLoader: Loaded 44 kB from file '../../../../output/rdn2cfg2/rdn2cfg2/scp_romfw.bin'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.css0.mcp.ROMloader: FlashLoader: Loaded 43 kB from file '../../../../output/rdn2cfg2/rdn2cfg2/mcp_romfw.bin'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.css0.trustedBootROMloader: FlashLoader: Loaded 30 kB from file '../../../../output/rdn2cfg2/rdn2cfg2/tf-bl1.bin'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.css1.scp.ROMloader: FlashLoader: Loaded 44 kB from file '../../../../output/rdn2cfg2/rdn2cfg2/scp_romfw.bin'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.css1.mcp.ROMloader: FlashLoader: Loaded 43 kB from file '../../../../output/rdn2cfg2/rdn2cfg2/mcp_romfw.bin'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.css2.scp.ROMloader: FlashLoader: Loaded 44 kB from file '../../../../output/rdn2cfg2/rdn2cfg2/scp_romfw.bin'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.css2.mcp.ROMloader: FlashLoader: Loaded 43 kB from file '../../../../output/rdn2cfg2/rdn2cfg2/mcp_romfw.bin'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.css3.scp.ROMloader: FlashLoader: Loaded 44 kB from file '../../../../output/rdn2cfg2/rdn2cfg2/scp_romfw.bin'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.css3.mcp.ROMloader: FlashLoader: Loaded 43 kB from file '../../../../output/rdn2cfg2/rdn2cfg2/mcp_romfw.bin'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.board0.flashloader0: FlashLoader: Loaded 5 MB from file '../../../../output/rdn2cfg2/rdn2cfg2/fip-uefi.bin'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.board0.flashloader1: FlashLoader: Loaded 64 MB from file '../../../../model-scripts/rdinfra/platforms/rdn2cfg2/nor1_flash.img'
+
+Info: RD_N2_Multichip: RD_N2_Multichip.board0.flashloader2: FlashLoader: Loaded 49 MB from file '../../../../model-scripts/rdinfra/platforms/rdn2cfg2/nor2_flash.img'
+
+~~~
 
 
 <a href="#top">Back to top</a>

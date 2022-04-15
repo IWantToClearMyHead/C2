@@ -649,4 +649,66 @@ for i in range(0, 36):
     
 ```
 
+### Peripheral
+
+~~~
+HARDWARE----SOC----CMN--[RNFCAL]--AP----GIC
+                      --[RNI/D]--MMU----PCIE----x4
+                                            ----x8
+                                            ----x16----Ethernet
+                                                   ----SATA
+                                                   ----USB
+                      
+                                  ----CCIX
+                      --[CCG]--CCIX
+                      --[TLK]--NIC----HDLCD
+                                  ----I2S audio----HDMI
+                                  ----I2C---------/
+                      --[TLK]--IO(borad)
+                      --[]--DMC----DDR
+                      --[]--NIC----UART
+                               ----Gtimer
+                               ----WTD
+                               ----BP----SRAM
+                                     ----ROM
+                      --[]--NIC----AXI2APB----GPIO
+                      --[RNI]--MCP----NIC----AHB
+                                         ----AXI2APB
+                                         ----UART
+                                         ----QSPI
+                                         ----I2C
+                             --SCP----NIC----AHB
+                                         ----AXI2APB
+                                         ----UART
+                                         ----QSPI
+                                         ----JTAG
+                                         ----I2C
+                      --[]--CoreSight----Debug
+                                     ----Trace
+                             
+                      
+        ----BOARD----NIC----AXI----SRAM
+                               ----GIC
+                               ----DDR
+                               ----SD
+                               ----HDLCD
+                        ----AHB----SMB2AHB
+                        ----APB----I3C
+                               ----Meters
+                               ----LED
+                               ----Switch
+                               ----QSPI
+                               ----RTC----PLL
+                               ----QSPI
+                               ----I2S------HDMI
+                               ----SBcon---/
+                               ----PCIe
+                               ----Cfg
+                               
+                               
+all apb device connect with cpu via interrupt                        
+
+~~~
+
+
 <a href="#top">Back to top</a>

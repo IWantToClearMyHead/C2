@@ -48,6 +48,10 @@
 |kill a group|ps aux \| grep FVP \| awk '{print $2}' \| xargs kill -9||
 |rsync copy folder|rsync -avhW --no-compress --progress --info=progress2 src_dir dst_dir||
 |rsync ssh folder|rsync -avL local_dir root@ip:/remote_dir||
+|sudo rclone sync ../fvp/rdn2-cfg1 rdn2 -P -L --transfers 64|rclone|
+|sudo rclone copy src dst||
+|dd if=in of=out status=progress||
+|pv in > out||
 
 <!---
 div class="special-class" markdown="1"

@@ -1,3 +1,7 @@
+### Main
+
+[C2][Main](index.md)😃.
+
 ### Emoji
 Nowadays we have so many fun chars other than words, as below,
 ```

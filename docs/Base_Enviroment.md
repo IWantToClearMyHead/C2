@@ -1,3 +1,7 @@
+### Main
+
+[C2][Main](index.md)😃.
+
 ### Stack
 
 We should first locate where C stands on, mostly it locates up from OS to APP.

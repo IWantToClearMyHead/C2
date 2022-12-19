@@ -1,6 +1,6 @@
 ### Main
 
-[C2](https://iwanttoclearmyhead.github.io/C2/) will explain C 2 🤖
+[C2](#Menu) will explain C 2 🤖
 
 ### 🤖
 
@@ -24,6 +24,7 @@ Third, discussion are welcomed 😃.
 2. Problem borders clarified
 3. Topics rather than metaphysics
 
+<a name="Menu"></a>
 ### Menu
 
 The contents are shown as below, select whichever might interest you

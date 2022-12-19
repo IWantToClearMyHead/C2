@@ -1,3 +1,7 @@
+### Main
+
+[C2][Main](index.md)😃.
+
 ### Small Number
 
 C language is based on binary, or digital electrical component, that is to say, everything is a number. 

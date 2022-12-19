@@ -1,3 +1,6 @@
+### Main
+
+[C2][Main](index.md)😃.
 
 ### 8 in data type
 

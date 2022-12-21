@@ -1,3 +1,7 @@
+### Main
+
+[C2][Main](index.md)😃.
+
 ### Windows
 
 | type | command | note |

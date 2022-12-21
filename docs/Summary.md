@@ -1,11 +1,16 @@
-### Guide
+
+### Main
+
+[C2][Main](index.md)😃.
+
+### Path
 Tradition study path or part, can be divided as below,
 
 - Introduction and Programming Strategies
 	- Features of C language, Broad structure of C.
 	- Understanding C syntax, Data types, Escape sequences.
 	- Operators, C conventions, Error Handling.
-	- Some Programming Language Notes. 
+	- Some Programming Language Notes. 
 - Structured Programming Strategies
 	- Decision Making and Looping
 		- Decision Structures
@@ -22,7 +27,7 @@ Tradition study path or part, can be divided as below,
 	- Memory Allocation
 		- Overview of memory management, Allocating new heap memory, _ Deallocating heap memory, Checking for successful memory allocation, Memory errors, Using memory you don’t own, Faulty heap management.
 	- Operation in C
-		- Files, File naming, Opening a file, Writing and reading a file, Character input and output, Direct file input and output operations, Closing and flushing of files, Sequential and random files. 
+		- Files, File naming, Opening a file, Writing and reading a file, Character input and output, Direct file input and output operations, Closing and flushing of files, Sequential and random files. 
 - Data Structures
 	- Array and pointer:
 		- Array creation, Array notation (pointer, direct etc), Review of pointer fundamentals, Review of Pointer operations, Parameter passing as pointers.
@@ -37,7 +42,7 @@ Tradition study path or part, can be divided as below,
 	- Trees and Dynamic Algorithms:
 		- Introduction, Binary tree, Complementary binary tree, Extended 2-Tree representation, Minimum weighted Path Length algorithm, Huffman’s Encoding, Balanced Binary Tree, and Paged Binary tree, M-Way Search Tree, Red-Black Tree, Threaded Binary Tree.
 
-### Collection
+### Table
 Some intuitive tables can be seen as below, 
 
 - Size

@@ -1,4 +1,8 @@
 
+### Main
+
+[C2][Main](index.md)😃.
+
 ### Reality
 
 There is a big gap between `hello world` to Operating System. In fact a better `hello world` is also very hard, for example,

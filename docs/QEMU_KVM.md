@@ -1,3 +1,7 @@
+### Main
+
+[C2][Main](index.md)😃.
+
 ### X86
 
 qemu-system means FS(not SE) mode.

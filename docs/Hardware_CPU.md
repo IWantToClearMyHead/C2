@@ -1,3 +1,7 @@
+### Main
+
+[C2][Main](index.md)😃.
+
 ### ISA
 
 Probably the first confusing thing is instruction set architecture, so we start from a table below.

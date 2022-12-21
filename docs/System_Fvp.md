@@ -1,3 +1,7 @@
+### Main
+
+[C2][Main](index.md)😃.
+
 ### Platform
 
 * `FVP_Base_AEMv8A-AEMv8A-AEMv8A-AEMv8A-CCN502`
@@ -211,6 +215,7 @@ usr/share/udhcpc/default.script
 
 mkdir tmp
 cd tmp
+
 # sudo cpio -i -u -I ../ramfs/ramdisk-busybox.img
 
 sudo cpio -idmv < ../ramfs/ramdisk-busybox.img

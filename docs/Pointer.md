@@ -4,30 +4,63 @@
 [C2][Main](index.md)😃.
 
 
-### Size
+### Table
 
-|Type|Bit|
-|----|----|
-|bit|1|
-|byte|8|
-|arm64|64bit|
-|word|arm64|
+- Size
 
-|Type|Byte|0s|2|
-|----|----|----|----|
-|1KB|1000|||
-|1KiB|1024|3|2^10|
-|1MiB|1048576|6|2^20|
-|1GiB|1073741824|9|2^30|
-|1TiB|1099511627776|12|2^40|
-|1PiB|1125899906842624|15|2^50|
-|1EiB|1152921504606846976|18|2^60|
-|1ZiB|1180591620717411303424|21|2^70|
-|1YiB|1208925819614629174706176|24|2^80|
+1 byte always equal to 8 bits
+
+| System | word | byte | bit |
+| ------ | ---- | ---- | --- |
+| 16     | 1    | 2    | 16  |
+| 32     | 1    | 4    | 32  |
+| 64     | 1    | 8    | 64  |
+
+At the begining, KiB equal to kilo binary bit, KB equal to kilo bit
+
+| Type |           Byte            | 0s  |  2   |
+| ---- | ------------------------- | --- | ---- |
+| 1KB  | 1000                      |     |      |
+| 1KiB | 1024                      | 3   | 2^10 |
+| 1MiB | 1048576                   | 6   | 2^20 |
+| 1GiB | 1073741824                | 9   | 2^30 |
+| 1TiB | 1099511627776             | 12  | 2^40 |
+| 1PiB | 1125899906842624          | 15  | 2^50 |
+| 1EiB | 1152921504606846976       | 18  | 2^60 |
+| 1ZiB | 1180591620717411303424    | 21  | 2^70 |
+| 1YiB | 1208925819614629174706176 | 24  | 2^80 |
+
+Nowadays KB equal to KiB
+
+| Name      | Equal To          | Size(In Bytes)                            |
+| --------- | ----------------- | ----------------------------------------- |
+| Bit       | 1 Bit             | 1/8                                      |
+| Nibble    | 4 Bits            | 1/2 (rare)                                |
+| Byte      | 8 Bits            | 1                                         |
+| Kilobyte  | 1024 Bytes        | 1024                                      |
+| Megabyte  | 1, 024 Kilobytes  | 1, 048, 576                               |
+| Gigabyte  | 1, 024 Megabytes  | 1, 073, 741, 824                          |
+| Terrabyte | 1, 024 Gigabytes  | 1, 099, 511, 627, 776                     |
+| Petabyte  | 1, 024 Terabytes  | 1, 125, 899, 906, 842, 624                |
+| Exabyte   | 1, 024 Petabytes  | 1, 152, 921, 504, 606, 846, 976           |
+| Zettabyte | 1, 024 Exabytes   | 1, 180, 591, 620, 717, 411, 303, 424      |
+| Yottabyte | 1, 024 Zettabytes | 1, 208, 925, 819, 614, 629, 174, 706, 176 |
+
+- Hex
+
+| Bytes |   Hex   | Address range |
+| ----- | ------- | ------------- |
+| 16    | 10      | 0 - F         |
+| 256   | 100     | 0 - FF        |
+| 1K    | 400     | 0 - 3FF       |
+| 4K    | 1000    | 0 - FFF       |
+| 64K   | 10000   | 0 - FFFF      |
+| 1M    | 100000  | 0 - FFFFF     |
+| 16M   | 1000000 | 0 - FFFFFF    |
 
 ### Endian
 
-check out little or big
+Check out little or big
 ```
     int i = 1;   
     char *p = (char *)&i;   
@@ -37,7 +70,7 @@ check out little or big
           printf("Big Endian");
 ```
 
-take *two bytes file a* as example
+Take *two bytes file a* as example
 ```
 # below is on little
 # In this scheme, low-order byte is stored on the starting address (A) and high-order byte is stored on the next address (A + 1)
@@ -52,11 +85,12 @@ $ xxd a # this is little
 00000000: 610a
 ```
 
-|Hex|Char|Digit|
-|0x61|a|97|
-|0x0a|LF/NL(Line Feed/New Line)|10|
+| Hex  |           Char            | Digit |
+| ---- | ------------------------- | ----- |
+| 0x61 | a                         | 97    |
+| 0x0a | LF/NL(Line Feed/New Line) | 10    |
 
-make random number
+Make random number
 
 ```
 c=1

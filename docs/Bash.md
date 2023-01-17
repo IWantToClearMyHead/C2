@@ -1,4 +1,4 @@
-### Bash choose position
+### choose position
 
 ```
 $ cat ~/go.sh

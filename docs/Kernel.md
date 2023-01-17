@@ -2,29 +2,82 @@
 
 [C2][Main](index.md)😃.
 
+### Ubuntu
+
+- version 
+
+|       version        |       name        |  timeline  |
+| -------------------- | ----------------- | ---------- |
+| 22.04                | Jammy Jellyfish   | 2022/4/22  |
+| 21.1                 | Impish Indri      | 2021/10/14 |
+| 21.04                | Hirsute Hippo     | 2021/04/22 |
+| 20.1                 | Groovy Gorilla    | 2020/10/22 |
+| 20.04 LTS            | Focal Fossa       | 2020/4/23  |
+| 19.1                 | Eoan Ermine       | 2019/10/17 |
+| 19.04                | Disco Dingo       | 2019/4/19  |
+| 18.1                 | Cosmic Cuttlefish | 2018/10/18 |
+| 18.04 LTS            | Bionic Beaver     | 2018/4/26  |
+| 17.10(GNOME Desktop) | Artful Aardvark   | 2017/10/21 |
+| 17.04                | Zesty Zapus       | 2017/4/13  |
+| 16.1                 | Yakkety Yak       | 2016/10/20 |
+| 16.04 LTS            | Xenial Xerus      | 2016/4/21  |
+| 15.1                 | Wily Werewolf     | 2015/10/23 |
+| 15.04                | Vivid Vervet      | 2015/4/22  |
+| 14.1                 | Utopic Unicorn    | 2014/10/23 |
+| 14.04 LTS            | Trusty Tahr       | 2014/4/18  |
+| 13.1                 | Saucy Salamander  | 2013/10/17 |
+| 13.04                | Raring Ringtail   | 2013/4/25  |
+| 12.1                 | Quantal Quetzal   | 2012/10/18 |
+| 12.04 LTS            | Precise Pangolin  | 2012/4/26  |
+| 11.1                 | Oneiric Ocelot    | 2011/10/13 |
+| 11.04(Unity Desktop) | Natty Narwhal     | 2011/4/28  |
+| 10.1                 | Maverick Meerkat  | 2010/10/10 |
+| 10.04 LTS            | Lucid Lynx        | 2010/4/29  |
+| 9.1                  | Karmic Koala      | 2009/10/29 |
+| 9.04                 | Jaunty Jackalope  | 2009/4/23  |
+| 8.1                  | Intrepid Ibex     | 2008/10/30 |
+| 8.04 LTS             | Hardy Heron       | 2008/4/24  |
+| 7.1                  | Gutsy Gibbon      | 2007/10/18 |
+| 7.04                 | Feisty Fawn       | 2007/4/19  |
+| 6.1                  | Edgy Eft          | 2006/10/26 |
+| 6.06 LTS             | Dapper Drake      | 2006/6/1   |
+| 5.1                  | Breezy Badger     | 2005/10/13 |
+| 5.04                 | Hoary Hedgehog    | 2005/4/8   |
+| 4.10(First)          | Warty Warthog     | 2004/10/20 |
+
+LTS means long term support, equal to five years. Take 18.04 LTS as an example, it starts from 2018/4/26, ends in 2023/4/26 .
+[18.04 LTS](https://releases.ubuntu.com/18.04) bases on Linux kernel 4.15, uses OpenJDK 10, Python 3.6, GNOME 3.28, supports LXD 3.0, QEMU 2.11.1, libvirt 4.0, DPDK 17.11.x, Open vSwitch 2.9, Nginx 1.14.0, PHP 7.2.x, Apache 2.4.29.
+
+
+
+
+
 
 ### Build
+
+Build linux on Ubuntu is simple, follow below steps
 ```
-wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.263.tar.xz
-tar -Jvxf linux-4.9.263.tar.xz # decomp
+# origin https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.15.6.tar.xz
+wget http://ftp.sjtu.edu.cn/sites/ftp.kernel.org/pub/linux/kernel/v4.x/linux-4.15.6.tar.xz
+tar -Jvxf linux-4.15.6.tar.xz # decomp
 
 apt-get install git build-essential libelf-dev xz-utils libssl-dev bc libncurses5-dev libncursesw5-dev
 
 # config file
 wget https://gitee.com/songtianlun/USTC_OS/raw/master/term2021/lab1/.config 
-
+# export ARCH=x86
 make -j20
 
 # wait until
-Kernel: arch/x86/boot/bzImage is ready  (#1)
-# the all set
+# Kernel: arch/x86/boot/bzImage is ready  (#1)
+# then all set
 ```
 
 the process is as below,
 
 ~~~
                                                                                 Bootable
-                                                              (vmlinux)         Kernelxxx
+                                                              (vmlinuz)         Kernelxxx
 ┌─────────────┐      ┌─────────────┐     ┌─────────────┐    ┌────────────┐    ┌─────────────┐
 │             │      │             │     │             │    │            │    │             │
 │             │      │             │     │             │    │            │    │             │
@@ -48,7 +101,19 @@ the process is as below,
 
 ~~~
 
+bzImage is the Ubuntu kernel file
+
+|  file   |              |            |                                |
+| ------- | ------------ | ---------- | ------------------------------ |
+| vmlinux | uncompressed | unbootable |                                |
+| vmlinuz | compressed   | bootable   |                                |
+| zImage  |              |            | copied vmlinuz                 |
+| bzImage |              |            | big zImage(for memory > 640KB) |
+
 ### rootfs
+
+Build oneline rootfs follow below steps 
+
 ```
 mkdir rootfs
 cd rootfs
@@ -70,26 +135,25 @@ gcc -static -o init init.c
 
 echo init | cpio -o --format=newc > initramfs
 
-
 ```
 
 ### boot with [qemu](QEMU_KVM.md) 
 
-- <a name="hw"></a>bare metal helloworld
+- <a name="hw"></a>bare metal hello
 ```
 #
 # one should make sure x11 is enable if remote connect 
 qemu-system-x86_64 -s \
-    -kernel ./linux-4.9.263/arch/x86/boot/bzImage  \
-    -initrd ./linux-4.9.263/rootfs/initramfs \
+    -kernel ./linux-4.15.6/arch/x86/boot/bzImage  \
+    -initrd ./linux-4.15.6/rootfs/initramfs \
     -append "init=/init" # remove root=/dev/ram, otherwise we have VFS problem
     
 # -s, so we can use gdb on tcp:1234
-gdb linux-4.9.263/vmlinux
+gdb linux-4.15.6/vmlinux
 
 target remote localhost:1234
 ```
-- we can mount helloworld into busybox
+- we can mount hello into busybox
 ```
 tar -jxf busybox-1.32.1.tar.bz2 
 cd busybox-1.32.1/
@@ -130,7 +194,7 @@ Processor type and features->Linux guest support->Support for running PVH guests
 
 int main(void)
 {
-        printf("hello, fvp.\n");
+        printf("hello.\n");
         return 0;
 }
 
@@ -145,7 +209,7 @@ qemu-system-x86_64 -kernel bzImage -nographic -append "console=ttyS0 root=/dev/s
 # below is qemu console
 Please press Enter to activate this console. 
 / # hello
-hello, fvp.
+hello.
 [    8.918524] hello (1038) used greatest stack depth: 13856 bytes left
 # ctrl a+x to quit
 
@@ -235,12 +299,11 @@ nc 127.0.0.1 5018
 
 ```
 echo '
-
-  ____ _
- / ___| | ___  __ _ _ __
-| |   | |/ _ \/ _` | '__|
-| |___| |  __/ (_| | |
- \____|_|\___|\__,_|_|
+ _          _ _
+| |__   ___| | | ___
+| \  \ / _ \ | |/ _ \
+| | | |  __/ | | (_) |
+|_| |_|\___|_|_|\___/
                            
   '
 ```

@@ -48,14 +48,12 @@
 LTS means long term support, equal to five years. Take 18.04 LTS as an example, it starts from 2018/4/26, ends in 2023/4/26.
 [18.04 LTS](https://releases.ubuntu.com/18.04) bases on Linux kernel 4.15, uses OpenJDK 10, Python 3.6, GNOME 3.28, supports LXD 3.0, QEMU 2.11.1, libvirt 4.0, DPDK 17.11.x, Open vSwitch 2.9, Nginx 1.14.0, PHP 7.2.x, Apache 2.4.29.
 
-
-
-
-
-
 ### Build
 
 Build linux on Ubuntu is simple, follow below steps
+
+- kernel
+
 ```
 # origin https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.15.6.tar.xz
 wget http://ftp.sjtu.edu.cn/sites/ftp.kernel.org/pub/linux/kernel/v4.x/linux-4.15.6.tar.xz
@@ -110,7 +108,7 @@ bzImage is the Ubuntu kernel file
 | zImage  |              |            | copied vmlinuz                 |
 | bzImage |              |            | big zImage(for memory > 640KB) |
 
-### rootfs
+- rootfs
 
 Build oneline rootfs follow below steps 
 
@@ -137,9 +135,11 @@ echo init | cpio -o --format=newc > initramfs
 
 ```
 
-### boot with [qemu](QEMU_KVM.md) 
+### Boot 
 
-- <a name="hw"></a>bare metal hello
+- <a name="hw"></a>bare metal hello with [qemu](QEMU_KVM.md) 
+
+
 ```
 #
 # one should make sure x11 is enable if remote connect 
@@ -154,7 +154,8 @@ gdb linux-4.15.6/vmlinux
 target remote localhost:1234
 ```
 
-- we can mount hello into busybox img
+- <a name="hw"></a>mount hello into busybox img with [qemu](QEMU_KVM.md) 
+
 ```
 tar -jxf busybox-1.32.1.tar.bz2 
 cd busybox-1.32.1/
@@ -226,7 +227,7 @@ c
 - <a name="applet"></a>add applet into busybox is so hard💀
 
 
-### boot with [fvp](https://gitlab.arm.com/arm-reference-solutions/arm-reference-solutions-docs/-/tree/master/docs/infra/rdn2cfg1)
+- rdn2 with [fvp](https://gitlab.arm.com/arm-reference-solutions/arm-reference-solutions-docs/-/tree/master/docs/infra/rdn2cfg1)
 
 the fvp opens 11 telnet port, s0 = armtf = 0+6 = 12+6
 ~~~
@@ -296,7 +297,7 @@ nc 127.0.0.1 5018
 /home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/../../../support/Model/FVP_RD_N2_Cfg1 --data css.scp.armcortexm7ct=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/scp_ramfw.bin@0x0BD80000 --data css.mcp.armcortexm7ct=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/mcp_ramfw.bin@0x0BF80000 -C css.mcp.ROMloader.fname=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/mcp_romfw.bin -C css.scp.ROMloader.fname=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/scp_romfw.bin -C css.trustedBootROMloader.fname=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/tf-bl1.bin -C board.flashloader0.fname=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/rdn2cfg1/fip-uefi.bin -C board.flashloader1.fname=/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/nor1_flash.img -C board.flashloader1.fnameWrite=/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/nor1_flash.img -C board.flashloader2.fname=/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/nor2_flash.img -C board.flashloader2.fnameWrite=/home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/nor2_flash.img  -C css.scp.pl011_uart_scp.out_file=rdn2cfg1/refinfra-948586-uart-0-scp_2022-02-08_06.39.15 -C css.scp.pl011_uart_scp.unbuffered_output=1 -C css.scp.pl011_uart_scp.uart_enable=true -C css.pl011_s_uart_ap.out_file=rdn2cfg1/refinfra-948586-uart-0-console_2022-02-08_06.39.15 -C soc.pl011_uart_mcp.out_file=rdn2cfg1/refinfra-948586-uart-0-mcp_2022-02-08_06.39.15 -C soc.pl011_uart_mcp.unbuffered_output=1 -C soc.pl011_uart0.out_file=rdn2cfg1/refinfra-948586-uart-0-armtf_2022-02-08_06.39.15 -C soc.pl011_uart0.unbuffered_output=1 -C soc.pl011_uart0.flow_ctrl_mask_en=1 -C soc.pl011_uart0.enable_dc4=0 -C soc.pl011_uart1.out_file=rdn2cfg1/refinfra-948586-uart-1-mm_2022-02-08_06.39.15 -C soc.pl011_uart1.unbuffered_output=1 -C soc.pl011_uart1.flow_ctrl_mask_en=1 -C soc.pl011_uart1.enable_dc4=0 -C css.pl011_s_uart_ap.unbuffered_output=1 -C css.gic_distributor.ITS-device-bits=20 -C pcie_group_0.pciex16.hierarchy_file_name=\<default\> -C pcie_group_0.pciex16.pcie_rc.ahci0.endpoint.ats_supported=true -C soc.nonPCIe_devices_iomacro.pl330_dma_0.p_controller_nsecure=1 -C soc.nonPCIe_devices_iomacro.pl330_dma_0.p_irq_nsecure=1 -C soc.nonPCIe_devices_iomacro.pl330_dma_0.p_periph_nsecure=1 -C soc.nonPCIe_devices_iomacro.pl330_dma_1.p_controller_nsecure=1 -C soc.nonPCIe_devices_iomacro.pl330_dma_1.p_irq_nsecure=1 -C soc.nonPCIe_devices_iomacro.pl330_dma_1.p_periph_nsecure=1 -C board.virtioblockdevice.image_path=/home/zzx/fvp/rdn2-cfg1/output/rdn2cfg1/grub-busybox.img -C board.flash0.diagnostics=1 -s /home/zzx/fvp/rdn2-cfg1/model-scripts/rdinfra/platforms/rdn2cfg1/rdn2cfg1/  --stat --log rdn2cfg1/log -C board.virtio_net.hostbridge.interfaceName=tap0 -C board.virtio_net.enabled=1 -C board.virtio_net.transport=legacy
 ```
 
-### init.sh
+- figlet design init.sh
 
 ```
 echo '
@@ -317,7 +318,7 @@ figlet is a tool for badge
 s/\\/\\\\/g
 echo ''"'"''
 
-### Run [SPEC2017](SPEC2017.md) inside OS via fork 
+- Autorun [SPEC2017](SPEC2017.md) inside OS via fork 
 
 ```
 #include <stdio.h>
@@ -402,10 +403,30 @@ int main(void)
 }
 ```
 
+### Sequence
 
-### Space
+| Poweron |                                                                        |         |
+| ------- | ---------------------------------------------------------------------- | ------- |
+| ALARM   |                                                                        | di      |
+| POST    | CPU－ROM－BIOS－System Clock－DMA－RAM－IRQ－GC(graphic card)－I/O－CMOS |         |
+| BIOS    | Nor－Flash                                                              |         |
+| MBR     | copy 512byte boot loader from SSD ROM to DDR RAM                       | stage1  |
+| GRUB    | load vmlinuz initramfs                                                 | stage2  |
+| Kernel  | start_kernel()                                                         |         |
+| Rootfs  | /sbin/init, set runlevel from /etc/inittab                             |         |
+|         | /etc/rcS.d/, then /etc/rcN.d/, N equal to runlevel                     |         |
+|         | /etc/rcS.d/S35mountall.sh                                              | mount   |
+|         | /etc/rcS.d/S40networking                                               | network |
+|         | /etc/rc2.d/S13gdm                                                      | login   |
+|         | /etc/rc2.d/S20makedev                                                  | dev     |
+|         | /etc/rc2.d/S23xinetd                                                   | xinetd  |
 
-- Memory
+initramfs equal to using cpio put initrd into kernel
+initrd equal to initial ramdisk
+
+### DDR
+
+- memory
 
 Memory in modern linux is not accessed directly. A virtual address space is used that is backed by physical memory. Conceptually, virtual and physical memory is divided into chunks called pages. The typical page size is 4096 bytes.
 
@@ -425,7 +446,32 @@ The size of the kernel stack is configured during compilation and remains fixed.
 
 Unlike the kernel stack, we can change the user stack via `ulimit`.
 
-- 
+- space
+
+|         |                              32                               |                                       64                                        |
+| ------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| address | 4GB(2^32)                                                     | 16EB(2^64)                                                                      |
+| user    | 0~3G                                                          | 128TB（0x0000 00000000∼0x7FFF FFFFFFFF                                           |
+| kernel  | 3G~4G                                                         | 128TB（0xFFFF8000 00000000∼0xFFFFFFFF FFFFFFFF）                                 |
+| cpu     | 32-bit operating systems and applications require 32-bit CPUs | 64-bit OS demands 64-bit CPU, and 64-bit applications require 64-bit OS and CPU |
+| ram     | 3.2 GB                                                        | 17 Billion GB                                                                   |
+|         |                                                               |                                                                                 |
+
+- C layout
+
+
+user space (reserve -> text -> data -> bss -> heap -> ... -> mmap -> stack -> argc, argv -> env)                                                  -> kernel space
+
+reserve: null
+text: cpu instruction code
+data: variables not equal to 0
+bss: variables equal to 0
+heap: to high
+mmap: dynamic so, input file
+stack: to low
+
+
+
 
 
 <a href="#top">Back to top</a>

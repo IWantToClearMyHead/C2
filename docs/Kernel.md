@@ -45,7 +45,7 @@
 | 5.04                 | Hoary Hedgehog    | 2005/4/8   |
 | 4.10(First)          | Warty Warthog     | 2004/10/20 |
 
-LTS means long term support, equal to five years. Take 18.04 LTS as an example, it starts from 2018/4/26, ends in 2023/4/26 .
+LTS means long term support, equal to five years. Take 18.04 LTS as an example, it starts from 2018/4/26, ends in 2023/4/26.
 [18.04 LTS](https://releases.ubuntu.com/18.04) bases on Linux kernel 4.15, uses OpenJDK 10, Python 3.6, GNOME 3.28, supports LXD 3.0, QEMU 2.11.1, libvirt 4.0, DPDK 17.11.x, Open vSwitch 2.9, Nginx 1.14.0, PHP 7.2.x, Apache 2.4.29.
 
 
@@ -153,7 +153,8 @@ gdb linux-4.15.6/vmlinux
 
 target remote localhost:1234
 ```
-- we can mount hello into busybox
+
+- we can mount hello into busybox img
 ```
 tar -jxf busybox-1.32.1.tar.bz2 
 cd busybox-1.32.1/
@@ -167,7 +168,7 @@ sudo mount disk.img rootfs
 sudo rsync -ar busybox-1.32.1/_inistall/* rootfs/
 cd rootfs
 sudo chown root:root * -R
-sudo makdir -p proc sys dev etc/init.d
+sudo mkdir -p proc sys dev etc/init.d
 sudo mknod -m 622 dev/console c 5 1
 sudo mknod -m 666 dev/null c 1 3
 sudo mknod -m 666 dev/zero c 1 5
@@ -316,7 +317,7 @@ figlet is a tool for badge
 s/\\/\\\\/g
 echo ''"'"''
 
-### Run spec inside OS via fork 
+### Run [SPEC2017](SPEC2017.md) inside OS via fork 
 
 ```
 #include <stdio.h>
@@ -401,11 +402,14 @@ int main(void)
 }
 ```
 
+
 ### Space
 
-Memory in modern systems is not accessed directly. A virtual address space is used that is backed by physical memory. Conceptually, virtual and physical memory is divided into chunks called pages. The typical page size is 4096 bytes.
+- Memory
 
-So, what does this buy us? Well, quite a lot, as it turns out. For one, there’s less memory management hassle while sharing memory among processes. This model is also more secure, as each process has its own virtual memory space (memory isolation). It also yields virtually unlimited memory, as backing with physical pages can be on-demand (demand paging). Moreover, the system can swap inactive pages to the hard drive. Refer to our article on managing swap-space for additional information.
+Memory in modern linux is not accessed directly. A virtual address space is used that is backed by physical memory. Conceptually, virtual and physical memory is divided into chunks called pages. The typical page size is 4096 bytes.
+
+So, what does this buy us? Well, quite a lot, as it turns out. For one, there's less memory management hassle while sharing memory among processes. This model is also more secure, as each process has its own virtual memory space (memory isolation). It also yields virtually unlimited memory, as backing with physical pages can be on-demand (demand paging). Moreover, the system can swap inactive pages to the hard drive. Refer to our article on managing swap-space for additional information.
 
 Virtual memory space is segregated into user and kernel space. The kernel space is the higher part of the virtual memory address space. For example, in x86_64 architecture, this mapping starts at 0xffff800000000000.
 
@@ -421,7 +425,7 @@ The size of the kernel stack is configured during compilation and remains fixed.
 
 Unlike the kernel stack, we can change the user stack via `ulimit`.
 
-
+- 
 
 
 <a href="#top">Back to top</a>

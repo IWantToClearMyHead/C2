@@ -2,9 +2,9 @@
 
 [C2][Main](index.md)😃.
 
-### Ubuntu
+### Version 
 
-- version 
+- Ubuntu
 
 |       version        |       name        |  timeline  |
 | -------------------- | ----------------- | ---------- |
@@ -47,6 +47,232 @@
 
 LTS means long term support, equal to five years. Take 18.04 LTS as an example, it starts from 2018/4/26, ends in 2023/4/26.
 [18.04 LTS](https://releases.ubuntu.com/18.04) bases on Linux kernel 4.15, uses OpenJDK 10, Python 3.6, GNOME 3.28, supports LXD 3.0, QEMU 2.11.1, libvirt 4.0, DPDK 17.11.x, Open vSwitch 2.9, Nginx 1.14.0, PHP 7.2.x, Apache 2.4.29.
+
+
+- [Linux](https://www.kernel.org/)
+
+| version |                             number                             |           timeline            |
+| ------- | -------------------------------------------------------------- | ----------------------------- |
+| 1.0     | 0.01、0.02、0.03、0.10、0.11、0.12、0.95、0.96、0.97、0.98、0.99 | A.B                           |
+| 1.0~2.6 | 1.0(1994)                                                      | A.B.C                         |
+|         | 2.0(1996)                                                      | odd B unstable, even B stable |
+|         | 2.6.0(2003.12)                                                 | A.B.C-D                       |
+|         | 2.6.39(2011.5)                                                 |                               |
+| 3.0     | 2.6.40(2011.7)                                                 |                               |
+|         | 3.19(2015.2)                                                   |                               |
+| 4.x.y   | 4.0(2015.4)                                                    |                               |
+|         | 4.2(2015.8)                                                    |                               |
+| 5.x.y   | 5.0(2019.3)                                                    |                               |
+| 6.x.y   | 5.0(2022.8)                                                    |                               |
+
+Mainline, Stable, Long Term Support, Linux-next, Snapshot
+
+mainline:	6.2-rc4	2023-01-15	[tarball]		[patch]	[inc. patch]	[view diff]	[browse]	
+stable:	6.1.7	2023-01-18	[tarball]	[pgp]	[patch]	[inc. patch]	[view diff]	[browse]	[changelog]
+stable:	6.0.19 [EOL]	2023-01-12	[tarball]	[pgp]	[patch]	[inc. patch]	[view diff]	[browse]	[changelog]
+longterm:	5.15.89	2023-01-18	[tarball]	[pgp]	[patch]	[inc. patch]	[view diff]	[browse]	[changelog]
+longterm:	5.10.164	2023-01-18	[tarball]	[pgp]	[patch]	[inc. patch]	[view diff]	[browse]	[changelog]
+longterm:	5.4.229	2023-01-18	[tarball]	[pgp]	[patch]	[inc. patch]	[view diff]	[browse]	[changelog]
+longterm:	4.19.270	2023-01-18	[tarball]	[pgp]	[patch]	[inc. patch]	[view diff]	[browse]	[changelog]
+longterm:	4.14.303	2023-01-18	[tarball]	[pgp]	[patch]	[inc. patch]	[view diff]	[browse]	[changelog]
+longterm:	4.9.337 [EOL]	2023-01-07	[tarball]	[pgp]	[patch]	[inc. patch]	[view diff]	[browse]	[changelog]
+linux-next:	next-20230119	2023-01-19						[browse]	
+
+Linux_6.0 Released Sun, 15 Aug 2022
+
+Linux_5.0 Released Sun, 3 Mar 2019 (70 days)
+
+Linux_4.20 Released 23 December, 2018 (62 days)
+
+Linux_4.19 Released 22 October, 2018 (71 days)
+
+Linux_4.18 Released 12 August, 2018 (70 days)
+
+Linux_4.17 Released 3 Jun, 2018 (63 days)
+
+Linux_4.16 Released 1 Apr, 2018 (73 days)
+
+Linux_4.15 Released 18 January, 2018 (77 days)
+
+Linux_4.14 Released 12 November, 2017 (70 days)
+
+Linux_4.13 Released 3 September, 2017 (63 days)
+
+Linux_4.12 Released 2 July, 2017 (63 days)
+
+Linux_4.11 Released 30 April, 2017 (70 days)
+
+Linux_4.10 Released 19 February, 2017 (70 days)
+
+Linux_4.9 Released 11 December, 2016 (70 days)
+
+Linux_4.8 Released 2 October, 2016 (70 days)
+
+Linux_4.7 Released 24 July, 2016 (70 days)
+
+Linux_4.6 Released 15 May, 2016 (63 days)
+
+Linux_4.5 Released 13 March, 2016 (63 days)
+
+Linux_4.4 Released 10 January, 2016 (70 days)
+
+Linux_4.3 Released 1 November, 2015 (63 days)
+
+Linux_4.2 Released 30 August, 2015 (70 days)
+
+Linux_4.1 Released 21 June, 2015 (70 days)
+
+Linux_4.0 Released 12 April, 2015 (63 days)
+
+Linux_3.19 Released 8 February, 2015 (63 days)
+
+Linux_3.18 Released 7 December, 2014 (63 days)
+
+Linux_3.17 Released 5 October, 2014 (63 days)
+
+Linux_3.16 Released 3 August, 2014 (56 days)
+
+Linux_3.15 Released 8 June, 2014 (70 days)
+
+Linux_3.14 Released 30 March, 2014 (70 days)
+
+Linux_3.13 Released 19 January, 2014 (78 days)
+
+Linux_3.12 Released 2 November, 2013 (61 days)
+
+Linux_3.11 Released 2 September, 2013 (64 days)
+
+Linux_3.10 Released 30 June, 2013 (63 days)
+
+Linux_3.9 Released 28 April, 2013 (69 days)
+
+Linux_3.8 Released 18 February, 2013 70 ( days)
+
+Linux_3.7 Released 10 December 2012 (71 days)
+
+Linux_3.6 Released 30 September, 2012 (71 days)
+
+Linux_3.5 Released 21 July, 2012 (62 days)
+
+Linux_3.4 Released 20 May, 2012 (63 days)
+
+Linux_3.3 Released 18 March, 2012 (74 days)
+
+Linux_3.2 Released 4 January, 2012 (72 days)
+
+Linux_3.1 Released 24 October, 2011 (95 days)
+
+Linux_3.0 Released 21 July, 2011 (64 days)
+
+Linux 2.6.39 Released 18 May, 2011 (65 days)
+
+Linux 2.6.38 Released 14 March, 2011 (69 days)
+
+Linux 2.6.37 Released 4 January, 2011 (76 days)
+
+Linux 2.6.36 Released 20 October, 2010 (80 days)
+
+Linux 2.6.35 Released 1 August, 2010 (76 days)
+
+Linux 2.6.34 Released 16 May, 2010 (81 days)
+
+Linux 2.6.33 Released 24 February, 2010 (83 days)
+
+Linux 2.6.32 Released 3 December, 2009 (84 days)
+
+Linux 2.6.31 Released 9 September, 2009 (92 days)
+
+Linux 2.6.30 Released 9 June, 2009 (77 days)
+
+Linux 2.6.29 Released 24 March, 2009 (89 days)
+
+Linux 2.6.28 Released 25 December, 2008 (77 days)
+
+Linux 2.6.27 Released 9 October, 2008 (88 days)
+
+Linux 2.6.26 Released 13 July, 2008 (87 days)
+
+Linux 2.6.25 Released 17 April, 2008 (84 days)
+
+Linux 2.6.24 Released 24 January, 2008 (107 days)
+
+Linux 2.6.23 Released 9 October, 2007 (93 days)
+
+Linux 2.6.22 Released 8 July, 2007 (73 days)
+
+Linux 2.6.21 Released 26 April, 2007 (80 days)
+
+Linux 2.6.20 Released 5 February, 2007 (68 days)
+
+Linux 2.6.19 Released 29 November, 2006 (70 days)
+
+Linux 2.6.18 Released 20 September, 2006 (95 days)
+
+Linux 2.6.17 Released 17 June, 2006 (88 days)
+
+Linux 2.6.16 Released 20 March, 2006 (76 days)
+
+Linux 2.6.15 Released 3 January, 2006 (68 days)
+
+Linux 2.6.14 Released 27 October, 2005 (59 days)
+
+Linux 2.6.13 Released 29 August, 2005 (73 days)
+
+Linux 2.6.12 Released 17 June, 2005 (107 days)
+
+Linux 2.6.11 Released 2 March, 2005 (68 days)
+
+Linux 2.6.10 Released 24 December, 2004 (66 days)
+
+Linux 2.6.9 Released 19 October, 2004 (66 days)
+
+Linux 2.6.8 Released 14 August, 2004 (59 days)
+
+Linux 2.6.7 Released 16 June, 2004 (37 days)
+
+Linux 2.6.6 Released 10 May, 2004 (36 days)
+
+Linux 2.6.5 Released 4 April, 2004 (24 days)
+
+Linux 2.6.4 Released 11 March, 2004 (22 days)
+
+Linux 2.6.3 Released 18 February, 2004 (14 days)
+
+Linux 2.6.2 Released 4 February, 2004 (26 days)
+
+Linux 2.6.1 Released 9 January, 2004 (22 days)
+
+Linux 2.6.0 Released 18 December, 2003
+
+- Ubuntu vs Linux
+
+4.10	Warty Warthog	2004-10-20	2006-04-30	2.6.8
+5.04	Hoary Hedgehog	2005-04-08	2006-10-31	2.6.10
+5.10	Breezy Badger	2005-10-13	2007-04-13	2.6.12
+6.06 LTS	Dapper Drake	2006-06-01	2009-07-14	2011-06-01	2.6.15
+6.10	Edgy Eft	2006-10-26	2008-04-25	2.6.17
+7.04	Feisty Fawn	2007-04-19	2008-10-19	2.6.20
+7.10	Gutsy Gibbon	2007-10-18	2009-04-18	2.6.22
+8.04 LTS	Hardy Heron	2008-04-24	2011-05-12	2013-05-09	2.6.24
+8.10	Intrepid Ibex	2008-10-30	2010-04-30	2.6.27
+9.04	Jaunty Jackalope	2009-04-23	2010-10-23	2.6.28
+9.10	Karmic Koala	2009-10-29	2011-04-30	2.6.31
+10.04 LTS	Lucid Lynx	2010-04-29	2013-05-09	2015-04-30	2.6.32
+10.10	Maverick Meerkat	2010-10-10	2012-04-10	2.6.35
+11.04	Natty Narwhal	2011-04-28	2012-10-28	2.6.38
+11.10	Oneiric Ocelot	2011-10-13	2013-05-09	3.0.0
+12.04 LTS	Precise Pangolin	2012-04-26	2017-04-26	3.2.0
+12.10	Quantal Quetzal	2012-10-18	2014-05-16	3.5.0
+13.04	Raring Ringtail	2013-04-25	2014-01-27	3.8.0
+13.10	Saucy Salamander	2013-10-17	2014-07-17	3.11.0
+14.04 LTS	Trusty Tahr	2014-04-17	2019-04	3.13.0
+14.10	Utopic Unicorn	2014-10-23	2015-07-23	3.16.0
+15.04	Vivid Vervet	2015-04-23	2016-02-04	3.19
+15.10	Wily Werewolf	2015-10-22	2016-07-28	4.2
+16.04 LTS	Xenial Xerus	2016-04-21	2021-04	4.4
+16.10	Yakkety Yak	2016-10-13	2017-07	4.8
+17.04	Zesty Zapus	TBA	TBA	TBA
+
 
 ### Build
 
@@ -274,7 +500,7 @@ nc -nvz 127.0.0.1 5018
 nc 127.0.0.1 5018
 ```
 
-- parameters
+- rdn2 start parameters
 
 |short|long|function|
 |---|---|---|
@@ -403,9 +629,9 @@ int main(void)
 }
 ```
 
-### Sequence
+### Poweron
 
-| Poweron |                                                                        |         |
+| Sequence |                                                                        |         |
 | ------- | ---------------------------------------------------------------------- | ------- |
 | ALARM   |                                                                        | di      |
 | POST    | CPU－ROM－BIOS－System Clock－DMA－RAM－IRQ－GC(graphic card)－I/O－CMOS |         |
@@ -423,6 +649,27 @@ int main(void)
 
 initramfs equal to using cpio put initrd into kernel
 initrd equal to initial ramdisk
+
+### LinuxOS
+
+|   composite    |         |                                                                                                                |     |
+| -------------- | ------- | -------------------------------------------------------------------------------------------------------------- | --- |
+| Kernel         |         |                                                                                                                |     |
+| Kernel         | VFS     |                                                                                                                |     |
+| Kernel         | Process | Scheduling Policy, Architecture-specific Schedulers, Architecture-independent Scheduler, System Call Interface | CPU |
+| Kernel         | Memory  | Architecture Specific Managers, Architecture Independent Manager, System Call Interface                        |     |
+| Kernel         | IPC     |                                                                                                                |     |
+| Kernel         | Driver  |                                                                                                                |     |
+| Kernel         | Network |                                                                                                                |     |
+| System Call    |         |                                                                                                                |     |
+| Shell          |         |                                                                                                                |     |
+| glibc and file |         |                                                                                                                |     |
+| app            |         |                                                                                                                |     |
+
+
+
+
+
 
 ### DDR
 

@@ -18,7 +18,9 @@ Probably the first confusing thing is instruction set architecture, so we start 
 
 Nowadays we have many ARM64 computer, which is mixed Harvard and Von-Neumann. 
 
-RISC and CISC are same, as there is really no absolute superiority anyway.
+As for RISC and CISC, ARM is RISC.
+
+there is really no absolute superiority anyway. 
 
 In short,
 
@@ -56,18 +58,23 @@ So if we want our program runs fast, we really have three ways,
 - make CPI smaller, meanning smarter ISA or shorter pipeline
 - make clock frequency higher
 
-### Family
+### ARM
 
 Before to try asm, we first should know which isa we want to use, so we have to learn the relationship.
 
-|ARM family|ARM architecture|
-|---|---|
-|ARM7|	ARM v4|
-|ARM9|	ARM v5|
-|ARM11|	ARM v6|
-|Cortex-A|	ARM v7-A|
-|Cortex-R|	ARM v7-R|
-|Cortex-M|	ARM v7-M|
+ARMv3 ~ ARMv6, ARM name ARM{x}{y}{z}{T}{D}{M}{I}{E}{J}{F}{-S}
+after ARMv7, cortex
+
+| ARM family | ARM architecture |                    |
+| ---------- | ---------------- | ------------------ |
+| ARM6       | 	ARM v3          |                    |
+| ARM7       | 	ARM v4          | T(Thumb)           |
+| ARM9       | 	ARM v5          | E(DSP),J(JAVA)     |
+| ARM11      | 	ARM v6          | S(SIMD),T(Thumb-2) |
+| Cortex-A   | 	ARM v7-A        |                    |
+| Cortex-R   | 	ARM v7-R        |                    |
+| Cortex-M   | 	ARM v7-M        |                    |
+|            | 	ARM v8          | A64,A32,T32        |
 
 asm is composed of instructions which are the main building blocks.
 

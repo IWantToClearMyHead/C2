@@ -6,18 +6,22 @@
 
 Probably the first confusing thing is instruction set architecture, so we start from a table below.
 
-|ISA|Design|Bits|Begins|
-|---|---|---|---|
-|x86|CISC|16, 32, 64|1978|
-|ARM|RISC|32|1983|
-|ARM64|RISC|64|2011|
-|RISC-V|RISC|32, 64, 128|2010|
-|MIPS|RISC|32, 64|1981|
+|  ISA   | Design |    Bits     | Begins |
+| ------ | ------ | ----------- | ------ |
+| x86    | CISC   | 16, 32, 64  | 1978   |
+| ARM    | RISC   | 32          | 1983   |
+| ARM64  | RISC   | 64          | 2011   |
+| RISC-V | RISC   | 32, 64, 128 | 2010   |
+| MIPS   | RISC   | 32, 64      | 1981   |
 
-### ARM64
+### MIX
 
-10 years after, we have many ARM64 computer, and we heard RISC many times, which makes CISC sounds out. But there is really no absolute superiority anyway.
+Nowadays we have many ARM64 computer, which is mixed Harvard and Von-Neumann. 
+
+RISC and CISC are same, as there is really no absolute superiority anyway.
+
 In short,
+
 - CISC: The CISC approach attempts to minimize the number of instructions per program but at the cost of an increase in the number of cycles per instruction. 
 - RISC: Reduce the cycles per instruction at the cost of the number of instructions per program. 
 
@@ -37,6 +41,7 @@ Clock per instruction is a simple mearsument of the CPU speed, basicly the small
 CPU time = Instruction count x CPI / clock rate
 
 For a RISC CPU, in university, its instruction usually falls into 5 groups,
+
 - Instruction fetch cycle (IF).
 - Instruction decode/Register fetch cycle (ID).
 - Execution/Effective address cycle (EX).
@@ -46,11 +51,12 @@ For a RISC CPU, in university, its instruction usually falls into 5 groups,
 And in factory, its groups extends much more, see [A64](https://developer.arm.com/documentation/ddi0602/2021-12/Base-Instructions?lang=en)(now we have A64, A32, T32 :sweat_smile:)
 
 So if we want our program runs fast, we really have three ways,
+
 - make the program code less, meaning smarter algorithm so inst count less
 - make CPI smaller, meanning smarter ISA or shorter pipeline
 - make clock frequency higher
 
-### assembly
+### Family
 
 Before to try asm, we first should know which isa we want to use, so we have to learn the relationship.
 
@@ -64,6 +70,7 @@ Before to try asm, we first should know which isa we want to use, so we have to 
 |Cortex-M|	ARM v7-M|
 
 asm is composed of instructions which are the main building blocks.
+
 ARM instructions are usually followed by one or two operands and generally use the following template: `MNEMONIC{S}{condition} {Rd}, Operand1, Operand2`
 
 The meaning,

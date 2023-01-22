@@ -18,14 +18,7 @@
 | glibc and file |         |                                                                                                                |     |
 | app            |         |                                                                                                                |     |
 
-
-
-
-
-
-### DDR
-
-- memory
+### Memory
 
 Memory in modern linux is not accessed directly. A virtual address space is used that is backed by physical memory. Conceptually, virtual and physical memory is divided into chunks called pages. The typical page size is 4096 bytes.
 
@@ -33,7 +26,7 @@ So, what does this buy us? Well, quite a lot, as it turns out. For one, there's 
 
 Virtual memory space is segregated into user and kernel space. The kernel space is the higher part of the virtual memory address space. For example, in x86_64 architecture, this mapping starts at 0xffff800000000000.
 
-Besides memory regions, hardware architectures also provide restrictions on I/O ports and CPU instructions. For example, in x86, we have four protection rings numbered 0 to 3, although in Linux, we only use ring-0 (kernel mode) and ring-3 (user mode).
+Besides memory regions, hardware architectures also provide restrictions on I/O ports and [CPU](Hardware_CPU.md) instructions. For example, in x86, we have four protection rings numbered 0 to 3, although in Linux, we only use ring-0 (kernel mode) and ring-3 (user mode).
 
 If a user process requires services that are restricted, it can use system calls (syscalls). Collectively, these syscalls form an interface for user applications to access kernel resources.
 
@@ -54,7 +47,6 @@ Unlike the kernel stack, we can change the user stack via `ulimit`.
 | kernel  | 3G~4G                                                         | 128TB（0xFFFF8000 00000000∼0xFFFFFFFF FFFFFFFF）                                 |
 | cpu     | 32-bit operating systems and applications require 32-bit CPUs | 64-bit OS demands 64-bit CPU, and 64-bit applications require 64-bit OS and CPU |
 | ram     | 3.2 GB                                                        | 17 Billion GB                                                                   |
-|         |                                                               |                                                                                 |
 
 - C layout
 
@@ -62,11 +54,17 @@ Unlike the kernel stack, we can change the user stack via `ulimit`.
 user space (reserve -> text -> data -> bss -> heap -> ... -> mmap -> stack -> argc, argv -> env)                                                  -> kernel space
 
 reserve: null
+
 text: cpu instruction code
+
 data: variables not equal to 0
+
 bss: variables equal to 0
+
 heap: to high
+
 mmap: dynamic so, input file
+
 stack: to low
 
 <a href="#top">Back to top</a>

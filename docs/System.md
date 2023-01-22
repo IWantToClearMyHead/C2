@@ -17,6 +17,8 @@ Let us make a basic structre first, that is to say, using C to learn HW, SW, and
 
 The first computer is ENIAC, which was invented by J. Presper Eckert and John Mauchly at the University of Pennsylvania :tent: in 1943. 
 
+Now, computer is complex, and is composite of
+
 - Case
 - Motherboard
 - CPU(Hardware_CPU.md) (Processor)
@@ -33,7 +35,7 @@ The first computer is ENIAC, which was invented by J. Presper Eckert and John Ma
 
 ### Software
 
-There are many types according to the operation level.
+There are many types according to the [CPU](Hardware_CPU.md) operation level, below is ARM.
 
 - MSCP
 - BIOS

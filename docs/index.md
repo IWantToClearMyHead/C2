@@ -41,7 +41,7 @@ The contents are shown as below, select whichever might interest you
 10. [⚛️licon](Silicon.md)
 11. [Linux](Kernel.md)
 <br>a. [space](Kernel_space.md)
-<br>b. [processl](Kernel_process.md)
+<br>b. [process](Kernel_process.md)
 <br>c. [vitual file](Kernel_vfs.md)
 <br>d. [network](Kernel_network.md)
 <br>e. [interconnect](Kernel_ipc.md)

@@ -18,7 +18,7 @@
 | glibc and file |         |                                                                                                                |     |
 | app            |         |                                                                                                                |     |
 
-### Memory
+### MM
 
 Memory in modern linux is not accessed directly. A virtual address space is used that is backed by physical memory. Conceptually, virtual and physical memory is divided into chunks called pages. The typical page size is 4096 bytes.
 
@@ -66,5 +66,20 @@ heap: to high
 mmap: dynamic so, input file
 
 stack: to low
+
+### ARMv8
+
+- MMU
+
+ARM Core ---- MMU(TLB & TWU) ---- Cache ---- Memory(TCU)
+| L1    |     |L2     |     |
+| --- | --- | --- | --- |
+| Instruction    | 48 entry    |     | 1024 entry    |
+|  Data   |  32 entry   |     |     |
+|     |     |     |     |
+
+- Page
+TTBR ---- L0 Table ---- L1 Table ---- L2 Table ---- L3 Table
+
 
 <a href="#top">Back to top</a>

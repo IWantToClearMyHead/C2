@@ -6,17 +6,21 @@
 
 |   composite    |         |                                                                                                                |     |
 | -------------- | ------- | -------------------------------------------------------------------------------------------------------------- | --- |
-| Kernel         |         |                                                                                                                |     |
-| Kernel         | VFS     |                                                                                                                |     |
-| Kernel         | Process | Scheduling Policy, Architecture-specific Schedulers, Architecture-independent Scheduler, System Call Interface | CPU |
-| Kernel         | Memory  | Architecture Specific Managers, Architecture Independent Manager, System Call Interface                        |     |
-| Kernel         | IPC     |                                                                                                                |     |
-| Kernel         | Driver  |                                                                                                                |     |
-| Kernel         | Network |                                                                                                                |     |
-| System Call    |         |                                                                                                                |     |
-| Shell          |         |                                                                                                                |     |
-| glibc and file |         |                                                                                                                |     |
 | app            |         |                                                                                                                |     |
+| glibc and file |         |                                                                                                                |     |
+| Shell          |         |                                                                                                                |     |
+| System Call    |         |                                                                                                                |     |
+| Kernel         |         |                                                                                                                |     |
+|                | VFS     |                                                                                                                |     |
+|                | Process | Scheduling Policy, Architecture-specific Schedulers, Architecture-independent Scheduler, System Call Interface | CPU |
+|                | Memory  | Architecture Specific Managers, Architecture Independent Manager, System Call Interface                        | DDR |
+|                | IPC     |                                                                                                                |     |
+|                | Driver  |                                                                                                                | IO  |
+|                | Network |                                                                                                                | NIC |
+
+
+
+
 
 ### MM
 
@@ -49,7 +53,6 @@ Unlike the kernel stack, we can change the user stack via `ulimit`.
 | ram     | 3.2 GB                                                        | 17 Billion GB                                                                   |
 
 - C layout
-
 
 user space (reserve -> text -> data -> bss -> heap -> ... -> mmap -> stack -> argc, argv -> env)                                                  -> kernel space
 
